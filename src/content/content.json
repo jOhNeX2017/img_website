@@ -1,0 +1,196 @@
+{
+  "brand": {
+    "name": "Imoveglobal",
+    "tagline": "Become a Global Education Partner"
+  },
+
+  "navigation": [
+    { "name": "Exams", "key": "exams" },
+    { "name": "Study Abroad Scope", "key": "study" },
+    { "name": "Scholarships & Events", "key": "scholarships" },
+    { "name": "Reviews", "key": "reviews" },
+    { "name": "More", "key": "more" }
+  ],
+
+  "cta": {
+    "partnerButton": "Be a Partner",
+    "loginButton": "Login"
+  },
+
+  "home": {
+    "author": "Imoveglobal",
+    "headline": {
+      "prefix": "Become a",
+      "highlight": "Global Education",
+      "suffix": "Partner"
+    },
+    "subtext": {
+      "emphasis": "Everything you need",
+      "line1": "in one place:",
+      "line2": "Comprehensive resources to go from",
+      "beginnerText": "absolute beginner",
+      "toText": "to",
+      "advancedText": "advanced global educator"
+    },
+    "stats": {
+      "studentCount": "49,100 Students",
+      "enrolledText": "already enrolled",
+      "ratingPlatform": "Trustpilot"
+    },
+    "pricing": {
+      "price": "Free",
+      "description": "Access for life. Join now!"
+    },
+    "heroCard": {
+      "number": "01",
+      "label": "Basics"
+    }
+  },
+
+  "exams": {
+    "title": "Exams",
+    "description": "Explore our comprehensive learning modules designed to help you master new skills.",
+    "modules": [
+      {
+        "id": 1,
+        "title": "Getting Started",
+        "description": "Learn the fundamentals and build a strong foundation."
+      },
+      {
+        "id": 2,
+        "title": "Advanced Topics",
+        "description": "Dive deeper into complex concepts and techniques."
+      }
+    ]
+  },
+
+  "studyAbroad": {
+    "title": "Study Abroad Scope",
+    "description": "Explore global education opportunities and expand your horizons.",
+    "features": [
+      { "id": 1, "icon": "🏆", "title": "Weekly Contest" },
+      { "id": 2, "icon": "⚡", "title": "Speed Rounds" },
+      { "id": 3, "icon": "🎯", "title": "Skill Tests" }
+    ]
+  },
+
+  "scholarships": {
+    "title": "Institutional Scholarships & Events",
+    "description": "A selection of the best scholarships and events curated by Imoveglobal's partners.",
+    "howItWorks": [
+      "Browse available scholarships and events",
+      "Click on any card to view full details",
+      "Apply directly through the institution"
+    ],
+    "items": [
+      {
+        "id": 1,
+        "title": "Global Excellence Scholarship",
+        "institution": "Oxford University",
+        "date": "15 February 2026",
+        "description": "Full scholarship for international students pursuing masters degree.",
+        "image": null,
+        "socialLinks": { "twitter": "#", "linkedin": "#" }
+      },
+      {
+        "id": 2,
+        "title": "STEM Innovation Grant",
+        "institution": "MIT Foundation",
+        "date": "20 January 2026",
+        "description": "Research funding for innovative STEM projects.",
+        "image": null,
+        "socialLinks": { "twitter": "#", "linkedin": "#" }
+      },
+      {
+        "id": 3,
+        "title": "Cultural Exchange Program",
+        "institution": "European Council",
+        "date": "10 March 2026",
+        "description": "Funded exchange program across European universities.",
+        "image": null,
+        "socialLinks": { "twitter": "#", "linkedin": "#" }
+      },
+      {
+        "id": 4,
+        "title": "Leadership Fellowship",
+        "institution": "Harvard Business School",
+        "date": "05 April 2026",
+        "description": "Executive education fellowship for emerging leaders.",
+        "image": null,
+        "socialLinks": { "twitter": "#", "linkedin": "#" }
+      }
+    ],
+    "viewAllButton": "View All Scholarships & Events"
+  },
+
+  "reviews": {
+    "title": "Reviews of Institutions & success stories",
+    "subtitle": "Wall of Fame",
+    "description": "have joined the course already! Here's a collection of what they're building.",
+    "studentCount": "49,089 Students",
+    "hashtag": "#ImoveglobalJourney",
+    "hashtagPlatform": "Twitter",
+    "filters": [
+      { "key": "all", "label": "All Stories" },
+      { "key": "student", "label": "Students" },
+      { "key": "institution", "label": "Institutions" }
+    ],
+    "testimonials": [
+      {
+        "id": 1,
+        "name": "SahilK027",
+        "handle": "@SahilK027",
+        "avatar": "https://ui-avatars.com/api/?name=SK&background=7c3aed&color=fff",
+        "content": "Evolved My Crystal Bird 🦅 into Crystal Horse. 🐴",
+        "institution": "IIT Delhi",
+        "type": "student"
+      },
+      {
+        "id": 2,
+        "name": "Shubham Yelekar",
+        "handle": "@shubu_y",
+        "avatar": "https://ui-avatars.com/api/?name=SY&background=a855f7&color=fff",
+        "content": "Threejs journey christmas challenge : WIP Re-modeled the cat",
+        "institution": "MIT Pune",
+        "type": "student"
+      },
+      {
+        "id": 3,
+        "name": "Priya Sharma",
+        "handle": "@priya_dev",
+        "avatar": "https://ui-avatars.com/api/?name=PS&background=6d28d9&color=fff",
+        "content": "Our students at Delhi Technical University have been excelling with Imoveglobal courses. 15 placements this month! 🎉",
+        "institution": "Delhi Technical University",
+        "type": "institution"
+      },
+      {
+        "id": 4,
+        "name": "Rahul Verma",
+        "handle": "@rahul_3d",
+        "avatar": "https://ui-avatars.com/api/?name=RV&background=7c3aed&color=fff",
+        "content": "Just completed the advanced React course. The projects were amazing! 🚀",
+        "institution": "BITS Pilani",
+        "type": "student"
+      },
+      {
+        "id": 5,
+        "name": "Dr. Anjali Mehta",
+        "handle": "@anjali_edu",
+        "avatar": "https://ui-avatars.com/api/?name=AM&background=a855f7&color=fff",
+        "content": "As Training Head at NIT Trichy, I recommend Imoveglobal to all our CSE students. Excellent curriculum! ⭐",
+        "institution": "NIT Trichy",
+        "type": "institution"
+      },
+      {
+        "id": 6,
+        "name": "Arjun Reddy",
+        "handle": "@arjun_codes",
+        "avatar": "https://ui-avatars.com/api/?name=AR&background=6d28d9&color=fff",
+        "content": "From zero to full-stack developer in 6 months. Thank you Imoveglobal! 💪",
+        "institution": "VIT Vellore",
+        "type": "student"
+      }
+    ],
+    "loadMoreButton": "Load More Stories"
+  }
+}

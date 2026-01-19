@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { ThemeProvider } from './context/ThemeContext'
+import { ContentProvider } from './context/ContentContext'
 import Header from './components/header/Header'
 import Review from './components/pages/Review'
 import ExamsSection from './components/pages/Exams'
@@ -34,32 +35,34 @@ function App() {
   // Render Home Page (Default)
   return (
     <ThemeProvider>
-      <div className="min-h-screen">
-        <Header onNavigate={navigateTo} currentPage={currentPage} />
-        
-        {/* Main Content */}
-        <main className="pt-24 pb-16 px-4 sm:px-6">
-          {/* Home Section */}
-          <HomeSection />
+      <ContentProvider>
+        <div className="min-h-screen">
+          <Header onNavigate={navigateTo} currentPage={currentPage} />
+          
+          {/* Main Content */}
+          <main className="pt-24 pb-16 px-4 sm:px-6">
+            {/* Home Section */}
+            <HomeSection />
 
-          {/* Registration Section */}
-          {currentPage === 'registration' && (
-            <Registration />
-          )}
+            {/* Registration Section */}
+            {currentPage === 'registration' && (
+              <Registration />
+            )}
 
-          {/* Exams Section */}
-          <ExamsSection />
+            {/* Exams Section */}
+            <ExamsSection />
 
-          {/* Study Abroad Scope Section */}
-          <StudyAbroadScope />
+            {/* Study Abroad Scope Section */}
+            <StudyAbroadScope />
 
-          {/* Institutional Scholarships and Events Section */}
-          <InstitutionalScholarships />
+            {/* Institutional Scholarships and Events Section */}
+            <InstitutionalScholarships />
 
-          {/* Reviews Section */}
-          <Review />
-        </main>
-      </div>
+            {/* Reviews Section */}
+            <Review />
+          </main>
+        </div>
+      </ContentProvider>
     </ThemeProvider>
   )
 }

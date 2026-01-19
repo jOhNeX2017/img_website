@@ -112,15 +112,12 @@ const ThemeContext = createContext()
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // Get saved theme from localStorage or default to purple-galaxy
     const saved = localStorage.getItem('theme')
     return saved && themes[saved] ? saved : 'purple-galaxy'
   })
 
   useEffect(() => {
-    // Save to localStorage
     localStorage.setItem('theme', theme)
-    // Apply theme to document
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
 

@@ -1,4 +1,9 @@
+import { useContent } from '../../context/ContentContext'
+import InteractiveGlobe from './InteractiveGlobe'
+
 const HomeSection = () => {
+  const { home, brand } = useContent()
+  
   return (
     <section id="home" className="max-w-full mx-auto scroll-mt-24 ">
       <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 py-8 lg:py-8 px-4 lg:px-8">
@@ -15,26 +20,26 @@ const HomeSection = () => {
               </svg>
             </div>
             <span className="text-gray-400">
-              by <span style={{ color: 'var(--color-accent)' }} className="hover:opacity-80 cursor-pointer transition-opacity">Imoveglobal</span>
+              by <span style={{ color: 'var(--color-accent)' }} className="hover:opacity-80 cursor-pointer transition-opacity">{home?.author || brand?.name || 'Brand'}</span>
             </span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Become a{' '}
+            {home?.headline?.prefix || 'Become a'}{' '}
             <span className="bg-theme-gradient-text">
-              Global Education
+              {home?.headline?.highlight || 'Global Education'}
             </span>{' '}
-            Partner
+            {home?.headline?.suffix || 'Partner'}
           </h1>
 
           {/* Subtext */}
           <p className="text-gray-300 text-lg mb-2">
-            <span style={{ color: 'var(--color-accent)' }} className="font-semibold">Everything you need</span> in one place:
+            <span style={{ color: 'var(--color-accent)' }} className="font-semibold">{home?.subtext?.emphasis || 'Everything you need'}</span> {home?.subtext?.line1 || 'in one place:'}
           </p>
           <p className="text-gray-400 mb-8">
-            Comprehensive resources to go from <span className="text-white font-medium">absolute beginner</span> to{' '}
-            <span className="text-white font-medium">advanced global educator</span>.
+            {home?.subtext?.line2 || 'Comprehensive resources to go from'} <span className="text-white font-medium">{home?.subtext?.beginnerText || 'absolute beginner'}</span> {home?.subtext?.toText || 'to'}{' '}
+            <span className="text-white font-medium">{home?.subtext?.advancedText || 'advanced global educator'}</span>.
           </p>
 
           {/* Stats Section */}
@@ -49,8 +54,8 @@ const HomeSection = () => {
             </div>
             <div>
               <p className="text-white">
-                <span className="font-bold text-lg">49,100 Students</span>{' '}
-                <span className="text-gray-400">already enrolled</span>
+                <span className="font-bold text-lg">{home?.stats?.studentCount || '49,100 Students'}</span>{' '}
+                <span className="text-gray-400">{home?.stats?.enrolledText || 'already enrolled'}</span>
               </p>
               <div className="flex items-center gap-2">
                 <div className="flex">
@@ -61,7 +66,7 @@ const HomeSection = () => {
                   ))}
                 </div>
                 <span className="text-gray-400 text-sm">on</span>
-                <span className="text-teal-400 text-sm font-medium">Trustpilot</span>
+                <span className="text-teal-400 text-sm font-medium">{home?.stats?.ratingPlatform || 'Trustpilot'}</span>
               </div>
             </div>
           </div>
@@ -92,65 +97,25 @@ const HomeSection = () => {
             
             {/* Price Card */}
             <div className="bg-gray-800/80 backdrop-blur-sm px-6 py-4 flex flex-col justify-center">
-              <p className="text-3xl font-bold" style={{ color: 'var(--color-accent)' }}>Free</p>
-              <p className="text-gray-400 text-sm">Access for life. Join now!</p>
+              <p className="text-3xl font-bold" style={{ color: 'var(--color-accent)' }}>{home?.pricing?.price || 'Free'}</p>
+              <p className="text-gray-400 text-sm">{home?.pricing?.description || 'Access for life. Join now!'}</p>
             </div>
           </div>
         </div>
 
-        {/* Right Content - 3D Illustration */}
-        <div className="flex-1 flex justify-center lg:justify-end">
-          <div className="relative">
-            {/* Main Image Container */}
-            <div 
-              className="w-full max-w-lg lg:max-w-xl rounded-2xl overflow-hidden p-1"
-              style={{ background: 'linear-gradient(to bottom right, var(--color-glow), rgba(236, 72, 153, 0.3))' }}
-            >
-              <div className="relative aspect-square bg-gradient-to-br from-[#1a1a3e] to-[#2d1b4e] rounded-xl overflow-hidden">
-                {/* Placeholder for 3D illustration */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div 
-                      className="w-32 h-32 mx-auto mb-4 rounded-2xl flex items-center justify-center"
-                      style={{ background: 'linear-gradient(to bottom right, rgba(236, 72, 153, 0.3), var(--color-glow))' }}
-                    >
-                      <svg style={{ color: 'var(--color-accent)' }} className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                      </svg>
-                    </div>
-                    <p className="text-4xl font-bold text-white/30">01</p>
-                    <p style={{ color: 'var(--color-accent)', opacity: 0.5 }} className="text-lg">Basics</p>
-                  </div>
-                </div>
-                
-                {/* Decorative Elements */}
-                <div className="absolute top-4 right-4 w-16 h-16 rounded-lg bg-gradient-to-br from-teal-500/20 to-teal-600/10"></div>
-                <div className="absolute bottom-4 left-4 w-12 h-12 rounded bg-pink-500/20"></div>
-                <div className="absolute top-1/3 left-1/4 w-8 h-8 rounded bg-yellow-500/20"></div>
-              </div>
-            </div>
-
-            {/* Navigation Arrows */}
-            <div className="flex items-center justify-center gap-4 mt-6">
-              <button className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 border border-white/10">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <div 
-                className="w-10 h-10 rounded-full flex items-center justify-center"
-                style={{ backgroundColor: 'var(--color-glow)' }}
-              >
-                <svg style={{ color: 'var(--color-accent)' }} className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                </svg>
-              </div>
-              <button className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 border border-white/10">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </div>
+        {/* Right Content - Interactive Globe */}
+        <div className="flex-1 flex justify-center lg:justify-end w-full">
+          <div 
+            className="relative w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl rounded-2xl overflow-hidden"
+            style={{ 
+              background: 'linear-gradient(135deg, rgba(26, 26, 62, 0.8) 0%, rgba(45, 27, 78, 0.8) 100%)',
+              border: '1px solid rgba(168, 85, 247, 0.2)',
+              minHeight: '400px',
+              height: '100%',
+              aspectRatio: '1 / 1'
+            }}
+          >
+            <InteractiveGlobe />
           </div>
         </div>
       </div>

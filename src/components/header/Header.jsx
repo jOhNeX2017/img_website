@@ -1,10 +1,12 @@
 import { useState, useRef, useEffect } from 'react'
 import { useTheme } from '../../context/ThemeContext'
+import { useContent } from '../../context/ContentContext'
 
 const Header = ({ onNavigate, currentPage }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [themeMenuOpen, setThemeMenuOpen] = useState(false)
   const { theme, setTheme, themeList } = useTheme()
+  const { brand, navigation, cta } = useContent()
   const themeMenuRef = useRef(null)
 
   useEffect(() => {
@@ -17,13 +19,7 @@ const Header = ({ onNavigate, currentPage }) => {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const navLinks = [
-    { name: 'Exams', key: 'exams' },
-    { name: 'Study Abroad Scope', key: 'study' },
-    { name: 'Scholarships & Events', key: 'scholarships' },
-    { name: 'Reviews', key: 'reviews' },
-    { name: 'More', key: 'more' },
-  ]
+  const navLinks = navigation || []
 
   const scrollToSection = (sectionKey) => {
     window.location.hash = sectionKey;
@@ -73,7 +69,7 @@ const Header = ({ onNavigate, currentPage }) => {
               </svg>
             </div>
             <span className="logo-text text-xl font-bold text-white tracking-tight">
-              {'Imoveglobal'.split('').map((letter, i) => (
+              {(brand?.name || 'Brand')?.split('')?.map((letter, i) => (
                 <span key={i}>{letter}</span>
               ))}
             </span>
@@ -113,7 +109,7 @@ const Header = ({ onNavigate, currentPage }) => {
             onClick={() => scrollToSection('registration')}
             className="btn-gradient flex items-center gap-2 text-md"
           >
-            Be a Partner
+            {cta?.partnerButton || 'Be a Partner'}
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <polygon points="6,3 20,12 6,21" />
             </svg>
@@ -230,7 +226,7 @@ const Header = ({ onNavigate, currentPage }) => {
               onClick={() => scrollToSection('registration')}
               className="btn-gradient flex items-center justify-center gap-2 text-md mx-4 mt-2"
             >
-              Be a Partner
+              {cta?.partnerButton || 'Be a Partner'}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>

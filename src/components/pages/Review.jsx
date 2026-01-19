@@ -1,66 +1,24 @@
 import { useState } from 'react'
+import { useContent } from '../../context/ContentContext'
 
 const Review = ({ onBack }) => {
   const [activeFilter, setActiveFilter] = useState('all')
+  const { reviews, brand } = useContent()
 
-  const testimonials = [
+  const defaultTestimonials = [
     {
       id: 1,
-      name: 'SahilK027',
-      handle: '@SahilK027',
-      avatar: 'https://ui-avatars.com/api/?name=SK&background=7c3aed&color=fff',
-      content: 'Evolved My Crystal Bird 🦅 into Crystal Horse. 🐴',
-      institution: 'IIT Delhi',
+      name: 'User',
+      handle: '@user',
+      avatar: 'https://ui-avatars.com/api/?name=U&background=7c3aed&color=fff',
+      content: 'Great experience!',
+      institution: 'University',
       type: 'student'
-    },
-    {
-      id: 2,
-      name: 'Shubham Yelekar',
-      handle: '@shubu_y',
-      avatar: 'https://ui-avatars.com/api/?name=SY&background=a855f7&color=fff',
-      content: 'Threejs journey christmas challenge : WIP Re-modeled the cat',
-      institution: 'MIT Pune',
-      type: 'student'
-    },
-    {
-      id: 3,
-      name: 'Priya Sharma',
-      handle: '@priya_dev',
-      avatar: 'https://ui-avatars.com/api/?name=PS&background=6d28d9&color=fff',
-      content: 'Our students at Delhi Technical University have been excelling with Imoveglobal courses. 15 placements this month! 🎉',
-      institution: 'Delhi Technical University',
-      type: 'institution'
-    },
-    {
-      id: 4,
-      name: 'Rahul Verma',
-      handle: '@rahul_3d',
-      avatar: 'https://ui-avatars.com/api/?name=RV&background=7c3aed&color=fff',
-      content: 'Just completed the advanced React course. The projects were amazing! 🚀',
-      institution: 'BITS Pilani',
-      type: 'student'
-    },
-    {
-      id: 5,
-      name: 'Dr. Anjali Mehta',
-      handle: '@anjali_edu',
-      avatar: 'https://ui-avatars.com/api/?name=AM&background=a855f7&color=fff',
-      content: 'As Training Head at NIT Trichy, I recommend Imoveglobal to all our CSE students. Excellent curriculum! ⭐',
-      institution: 'NIT Trichy',
-      type: 'institution'
-    },
-    {
-      id: 6,
-      name: 'Arjun Reddy',
-      handle: '@arjun_codes',
-      avatar: 'https://ui-avatars.com/api/?name=AR&background=6d28d9&color=fff',
-      content: 'From zero to full-stack developer in 6 months. Thank you Imoveglobal! 💪',
-      institution: 'VIT Vellore',
-      type: 'student'
-    },
+    }
   ]
 
-  const filters = [
+  const testimonials = reviews?.testimonials || defaultTestimonials
+  const filters = reviews?.filters || [
     { key: 'all', label: 'All Stories' },
     { key: 'student', label: 'Students' },
     { key: 'institution', label: 'Institutions' },
@@ -73,31 +31,19 @@ const Review = ({ onBack }) => {
   return (
     <section id="reviews" className="max-w-full mx-auto mt-24 scroll-mt-24">
       <div className="max-w-full mx-auto">
-        {/* Back Button */}
-        {/* <button
-          onClick={onBack}
-          className="flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Back to Home
-        </button> */}
-
         {/* Header Section */}
         <div className="text-center mb-12 animate-fadeIn">
           <div className="text-4xl sm:text-5xl font-bold text-white mb-3">
-            Reviews of Institutions & success stories
+            {reviews?.title || 'Reviews of Institutions & success stories'}
           </div>
           <p style={{ color: 'var(--color-accent)' }} className="text-xl font-bold mb-6">
-            Wall of Fame
+            {reviews?.subtitle || 'Wall of Fame'}
           </p>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-4">
-            <span className="text-[var(--color-primary)] font-bold">49,089 Students</span> have joined the course already! 
-            Here's a collection of what they're building.
+            <span className="text-[var(--color-primary)] font-bold">{reviews?.studentCount || '49,089 Students'}</span> {reviews?.description || "have joined the course already! Here's a collection of what they're building."}
           </p>
           <p className="text-gray-400">
-            Use the <a href="#" style={{ color: 'var(--color-accent)' }} className="hover:opacity-80 underline font-bold transition-opacity">#ImoveglobalJourney</a> hashtag on Twitter
+            Use the <a href="#" style={{ color: 'var(--color-accent)' }} className="hover:opacity-80 underline font-bold transition-opacity">{reviews?.hashtag || `#${brand?.name || 'Brand'}Journey`}</a> hashtag on {reviews?.hashtagPlatform || 'Twitter'}
           </p>
         </div>
 
@@ -178,7 +124,7 @@ const Review = ({ onBack }) => {
         {/* Load More */}
         <div className="text-center mt-12">
           <button className="btn-gradient text-sm">
-            Load More Stories
+            {reviews?.loadMoreButton || 'Load More Stories'}
           </button>
         </div>
       </div>
