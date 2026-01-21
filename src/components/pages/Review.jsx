@@ -29,7 +29,7 @@ const Review = ({ onBack }) => {
     : testimonials.filter(t => t.type === activeFilter)
 
   return (
-    <section id="reviews" className="max-w-full mx-auto mt-24 scroll-mt-24">
+    <section id="reviews" className="max-w-full mx-auto mt-12 scroll-mt-24">
       <div className="max-w-full mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12 animate-fadeIn">

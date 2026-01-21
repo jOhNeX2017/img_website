@@ -8,6 +8,8 @@ import StudyAbroadScope from './components/pages/StudyAbroadScope'
 import InstitutionalScholarships from './components/pages/Scholarships'
 import HomeSection from './components/pages/Home'
 import Registration from './components/pages/Registration'
+import CourseModules from './components/pages/CourseModules'
+import CareerBoost from './components/pages/CareerBoost'
 
 function App() {
   const [currentPage, setCurrentPage] = useState(() => {
@@ -43,6 +45,12 @@ function App() {
           <main className="pt-24 pb-16 px-4 sm:px-6">
             {/* Home Section */}
             <HomeSection />
+
+            {/* Course Modules - Unified Scroll Component */}
+            <CourseModules />
+
+            {/* Career Boost Section */}
+            <CareerBoost />
 
             {/* Registration Section */}
             {currentPage === 'registration' && (

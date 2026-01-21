@@ -25,7 +25,7 @@ const InstitutionalScholarships = () => {
   ]
 
   return (
-    <section id="scholarships" className="max-w-full mx-auto mt-16 mb-16 scroll-mt-24">
+    <section id="scholarships" className="max-w-full mx-auto mt-12 scroll-mt-24">
       {/* Header Section */}
       <div className="text-center mb-12">
         <h2 className="text-4xl sm:text-5xl font-bold text-white mb-3">
