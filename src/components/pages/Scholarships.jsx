@@ -26,9 +26,10 @@ const InstitutionalScholarships = () => {
 
   return (
     <section id="scholarships" className="max-w-full mx-auto mt-12 scroll-mt-24">
+      <div className="glass-card p-8 md:p-12">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl sm:text-5xl font-bold text-white mb-3">
+        <h2 className="text-[28px] md:text-[44px] font-bold text-white mb-3">
           {scholarships?.title || 'Institutional Scholarships & Events'}
         </h2>
         <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-4">
@@ -55,7 +56,7 @@ const InstitutionalScholarships = () => {
       </div>
 
       {/* Scholarship Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {items.map((scholarship) => (
           <div 
             key={scholarship.id}
@@ -138,6 +139,7 @@ const InstitutionalScholarships = () => {
         <button className="btn-gradient px-8 py-3 text-sm font-medium">
           {scholarships?.viewAllButton || 'View All Scholarships & Events'}
         </button>
+      </div>
       </div>
     </section>
   )

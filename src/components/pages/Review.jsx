@@ -30,10 +30,10 @@ const Review = ({ onBack }) => {
 
   return (
     <section id="reviews" className="max-w-full mx-auto mt-12 scroll-mt-24">
-      <div className="max-w-full mx-auto">
+      <div className="glass-card p-8 md:p-12">
         {/* Header Section */}
         <div className="text-center mb-12 animate-fadeIn">
-          <div className="text-4xl sm:text-5xl font-bold text-white mb-3">
+          <div className="text-[28px] md:text-[44px] font-bold text-white mb-3">
             {reviews?.title || 'Reviews of Institutions & success stories'}
           </div>
           <p style={{ color: 'var(--color-accent)' }} className="text-xl font-bold mb-6">
@@ -84,7 +84,7 @@ const Review = ({ onBack }) => {
                   />
                   <div>
                     <h3 className="text-white font-semibold">{testimonial.name}</h3>
-                    <p className="text-gray-400 text-sm">{testimonial.handle} · <span style={{ color: 'var(--color-accent)' }}>Follow</span></p>
+                    <p className="text-gray-400 text-sm">{testimonial.handle} • <span style={{ color: 'var(--color-accent)' }}>Follow</span></p>
                   </div>
                 </div>
                 <svg className="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="currentColor">

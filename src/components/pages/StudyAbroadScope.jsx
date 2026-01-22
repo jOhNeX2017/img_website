@@ -12,7 +12,7 @@ const StudyAbroadScope = () => {
   return (
     <section id="study" className="max-w-full mx-auto mt-12 scroll-mt-24">
       <div className="glass-card p-8 md:p-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+        <h2 className="text-[28px] md:text-[44px] font-bold text-white mb-4">
           <span className="bg-theme-gradient-text">
             {studyAbroad?.title || 'Study Abroad Scope'}
           </span>

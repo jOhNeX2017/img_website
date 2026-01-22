@@ -10,6 +10,8 @@ import HomeSection from './components/pages/Home'
 import Registration from './components/pages/Registration'
 import CourseModules from './components/pages/CourseModules'
 import CareerBoost from './components/pages/CareerBoost'
+import CourseOverview from './components/pages/CourseOverview'
+import ActiveCommunity from './components/pages/ActiveCommunity'
 
 function App() {
   const [currentPage, setCurrentPage] = useState(() => {
@@ -52,6 +54,12 @@ function App() {
             {/* Career Boost Section */}
             <CareerBoost />
 
+            {/* Course Overview Section */}
+            <CourseOverview />
+
+            {/* Active Community Section */}
+            <ActiveCommunity />
+
             {/* Registration Section */}
             {currentPage === 'registration' && (
               <Registration />
@@ -61,7 +69,7 @@ function App() {
             <ExamsSection />
 
             {/* Study Abroad Scope Section */}
-            <StudyAbroadScope />
+            {/* <StudyAbroadScope /> */}
 
             {/* Institutional Scholarships and Events Section */}
             <InstitutionalScholarships />
