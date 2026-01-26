@@ -1,9 +1,125 @@
 import { useState } from 'react'
 
 const ForInstituteForm = ({ onNext, formData, setFormData }) => {
+  const [errors, setErrors] = useState({})
+  const [touched, setTouched] = useState({})
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }))
+    }
+  }
+
+  const handleBlur = (field) => {
+    setTouched(prev => ({ ...prev, [field]: true }))
+    validateField(field, formData[field])
+  }
+
+  const validateField = (field, value) => {
+    let error = ''
+
+    switch (field) {
+      case 'name':
+        if (!value || value.trim() === '') {
+          error = 'Your name is required'
+        } else if (value.trim().length < 2) {
+          error = 'Name must be at least 2 characters'
+        }
+        break
+      
+      case 'email':
+        if (!value || value.trim() === '') {
+          error = 'Email is required'
+        } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value.trim())) {
+          error = 'Please enter a valid official email address'
+        }
+        break
+      
+      case 'contact':
+        if (!value || value.trim() === '') {
+          error = 'Contact number is required'
+        } else {
+          // Remove all spaces, hyphens, and +91 prefix
+          const cleanedNumber = value.replace(/[\s-]/g, '').replace(/^\+?91/, '')
+          if (!/^\d{10}$/.test(cleanedNumber)) {
+            error = 'Please enter a valid 10-digit mobile number.'
+          }
+        }
+        break
+      
+      case 'city':
+        if (!value || value.trim() === '') {
+          error = 'City is required'
+        }
+        break
+      
+      case 'state':
+        if (!value || value === '') {
+          error = 'Please select a state'
+        }
+        break
+      
+      case 'institute':
+        if (!value || value.trim() === '') {
+          error = 'Institute name is required'
+        }
+        break
+      
+      case 'designation':
+        if (!value || value === '') {
+          error = 'Please select your designation'
+        }
+        break
+      
+      case 'reason':
+        if (!value || value.trim() === '') {
+          error = 'Please provide a reason for partnership'
+        } else if (value.trim().length < 10) {
+          error = 'Please provide at least 10 characters'
+        }
+        break
+    }
+
+    setErrors(prev => ({ ...prev, [field]: error }))
+    return error === ''
+  }
+
+  const validateForm = () => {
+    const fields = ['name', 'email', 'contact', 'city', 'state', 'institute', 'designation', 'reason']
+    let isValid = true
+    const newErrors = {}
+
+    fields.forEach(field => {
+      if (!validateField(field, formData[field])) {
+        isValid = false
+      }
+    })
+
+    if (!formData.terms) {
+      newErrors.terms = 'You must accept the terms and conditions'
+      isValid = false
+    }
+
+    setErrors(prev => ({ ...prev, ...newErrors }))
+    setTouched(fields.reduce((acc, field) => ({ ...acc, [field]: true }), { terms: true }))
+    
+    return isValid
+  }
+
+  const handleClear = () => {
+    setFormData({})
+    setErrors({})
+    setTouched({})
+  }
+
+  const handleNext = () => {
+    if (validateForm()) {
+      onNext()
+    }
   }
 
   const designations = [
@@ -41,10 +157,13 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
             name="name"
             value={formData.name || ''}
             onChange={handleChange}
+            onBlur={() => handleBlur('name')}
             placeholder="Enter your full name"
-            className="input-field"
-            required
+            className={`input-field ${touched.name && errors.name ? 'border-red-500' : ''}`}
           />
+          {touched.name && errors.name && (
+            <p className="text-red-400 text-xs mt-1">{errors.name}</p>
+          )}
         </div>
         <div>
           <label className="block text-sm text-gray-400 mb-2">Official Email *</label>
@@ -54,14 +173,17 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
               name="email"
               value={formData.email || ''}
               onChange={handleChange}
+              onBlur={() => handleBlur('email')}
               placeholder="official@institute.edu"
-              className="input-field pr-12"
-              required
+              className={`input-field pr-12 ${touched.email && errors.email ? 'border-red-500' : ''}`}
             />
             <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>
+          {touched.email && errors.email && (
+            <p className="text-red-400 text-xs mt-1">{errors.email}</p>
+          )}
         </div>
       </div>
 
@@ -73,10 +195,13 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
             name="contact"
             value={formData.contact || ''}
             onChange={handleChange}
+            onBlur={() => handleBlur('contact')}
             placeholder="+91 XXXXX XXXXX"
-            className="input-field"
-            required
+            className={`input-field ${touched.contact && errors.contact ? 'border-red-500' : ''}`}
           />
+          {touched.contact && errors.contact && (
+            <p className="text-red-400 text-xs mt-1">{errors.contact}</p>
+          )}
         </div>
         <div>
           <label className="block text-sm text-gray-400 mb-2">City *</label>
@@ -85,10 +210,13 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
             name="city"
             value={formData.city || ''}
             onChange={handleChange}
+            onBlur={() => handleBlur('city')}
             placeholder="Institute city"
-            className="input-field"
-            required
+            className={`input-field ${touched.city && errors.city ? 'border-red-500' : ''}`}
           />
+          {touched.city && errors.city && (
+            <p className="text-red-400 text-xs mt-1">{errors.city}</p>
+          )}
         </div>
       </div>
 
@@ -99,8 +227,8 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
             name="state"
             value={formData.state || ''}
             onChange={handleChange}
-            className="select-field"
-            required
+            onBlur={() => handleBlur('state')}
+            className={`select-field ${touched.state && errors.state ? 'border-red-500' : ''}`}
           >
             {indianStates.map((state) => (
               <option key={state} value={state === 'Select State' ? '' : state}>
@@ -108,6 +236,9 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
               </option>
             ))}
           </select>
+          {touched.state && errors.state && (
+            <p className="text-red-400 text-xs mt-1">{errors.state}</p>
+          )}
         </div>
         <div>
           <label className="block text-sm text-gray-400 mb-2">Institute Name *</label>
@@ -116,10 +247,13 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
             name="institute"
             value={formData.institute || ''}
             onChange={handleChange}
+            onBlur={() => handleBlur('institute')}
             placeholder="Official institute name"
-            className="input-field"
-            required
+            className={`input-field ${touched.institute && errors.institute ? 'border-red-500' : ''}`}
           />
+          {touched.institute && errors.institute && (
+            <p className="text-red-400 text-xs mt-1">{errors.institute}</p>
+          )}
         </div>
       </div>
 
@@ -130,8 +264,8 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
             name="designation"
             value={formData.designation || ''}
             onChange={handleChange}
-            className="select-field"
-            required
+            onBlur={() => handleBlur('designation')}
+            className={`select-field ${touched.designation && errors.designation ? 'border-red-500' : ''}`}
           >
             {designations.map((designation) => (
               <option key={designation} value={designation === 'Select Designation' ? '' : designation}>
@@ -139,6 +273,9 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
               </option>
             ))}
           </select>
+          {touched.designation && errors.designation && (
+            <p className="text-red-400 text-xs mt-1">{errors.designation}</p>
+          )}
         </div>
         <div>
           <label className="block text-sm text-gray-400 mb-2">Reason for Partnership *</label>
@@ -147,10 +284,13 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
             name="reason"
             value={formData.reason || ''}
             onChange={handleChange}
+            onBlur={() => handleBlur('reason')}
             placeholder="Why do you want to partner?"
-            className="input-field"
-            required
+            className={`input-field ${touched.reason && errors.reason ? 'border-red-500' : ''}`}
           />
+          {touched.reason && errors.reason && (
+            <p className="text-red-400 text-xs mt-1">{errors.reason}</p>
+          )}
         </div>
       </div>
 
@@ -160,9 +300,13 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
           name="terms"
           id="instituteTerms"
           checked={formData.terms || false}
-          onChange={(e) => setFormData(prev => ({ ...prev, terms: e.target.checked }))}
+          onChange={(e) => {
+            setFormData(prev => ({ ...prev, terms: e.target.checked }))
+            if (errors.terms) {
+              setErrors(prev => ({ ...prev, terms: '' }))
+            }
+          }}
           className="custom-checkbox mt-1 shrink-0"
-          required
         />
         <label htmlFor="instituteTerms" className="text-sm text-gray-400 cursor-pointer">
           I acknowledge and agree to the{' '}
@@ -171,17 +315,21 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
           </a>
         </label>
       </div>
+      {errors.terms && (
+        <p className="text-red-400 text-xs mt-1 -mt-4 mb-4">{errors.terms}</p>
+      )}
 
       <div className="flex flex-col sm:flex-row gap-4 mt-6">
         <button
           type="button"
+          onClick={handleClear}
           className="flex-1 py-3 px-6 rounded-full border border-white/20 text-white font-medium hover:bg-white/5 transition-all duration-300"
         >
-          Submit Details
+          Clear
         </button>
         <button
           type="button"
-          onClick={onNext}
+          onClick={handleNext}
           className="btn-gradient flex-1"
         >
           Next step

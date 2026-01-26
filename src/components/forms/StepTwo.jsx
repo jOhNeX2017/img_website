@@ -1,7 +1,16 @@
+import { useState } from 'react'
+
 const StepTwo = ({ onBack, formData, setFormData, userType }) => {
+  const [errors, setErrors] = useState({})
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
+    
+    // Clear error when user makes selection
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }))
+    }
   }
 
   const timeSlots = [
@@ -24,9 +33,32 @@ const StepTwo = ({ onBack, formData, setFormData, userType }) => {
     '500+ students'
   ]
 
+  const validateForm = () => {
+    const newErrors = {}
+
+    if (!formData.communicationMode) {
+      newErrors.communicationMode = 'Please select a mode of communication'
+    }
+
+    if (!formData.preferredTime) {
+      newErrors.preferredTime = 'Please select your preferred time'
+    }
+
+    if (userType === 'institute' && !formData.studentCount) {
+      newErrors.studentCount = 'Please select approximate student count'
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
   const handleSubmit = () => {
-    console.log('Form submitted:', formData)
-    alert('Form submitted successfully! We will contact you soon.')
+    if (validateForm()) {
+      console.log('Form submitted:', formData)
+      alert('Form submitted successfully! We will contact you soon.')
+    } else {
+      alert('Please fill in all required fields')
+    }
   }
 
   return (
@@ -73,6 +105,9 @@ const StepTwo = ({ onBack, formData, setFormData, userType }) => {
               </span>
             </label>
           </div>
+          {errors.communicationMode && (
+            <p className="text-red-400 text-xs mt-1">{errors.communicationMode}</p>
+          )}
         </div>
 
         <div>
@@ -81,8 +116,7 @@ const StepTwo = ({ onBack, formData, setFormData, userType }) => {
             name="preferredTime"
             value={formData.preferredTime || ''}
             onChange={handleChange}
-            className="select-field"
-            required
+            className={`select-field ${errors.preferredTime ? 'border-red-500' : ''}`}
           >
             {timeSlots.map((slot) => (
               <option key={slot} value={slot === 'Select preferred time' ? '' : slot}>
@@ -90,6 +124,9 @@ const StepTwo = ({ onBack, formData, setFormData, userType }) => {
               </option>
             ))}
           </select>
+          {errors.preferredTime && (
+            <p className="text-red-400 text-xs mt-1">{errors.preferredTime}</p>
+          )}
         </div>
 
         {userType === 'institute' && (
@@ -101,8 +138,7 @@ const StepTwo = ({ onBack, formData, setFormData, userType }) => {
               name="studentCount"
               value={formData.studentCount || ''}
               onChange={handleChange}
-              className="select-field"
-              required
+              className={`select-field ${errors.studentCount ? 'border-red-500' : ''}`}
             >
               {studentCounts.map((count) => (
                 <option key={count} value={count === 'Select approximate count' ? '' : count}>
@@ -110,6 +146,9 @@ const StepTwo = ({ onBack, formData, setFormData, userType }) => {
                 </option>
               ))}
             </select>
+            {errors.studentCount && (
+              <p className="text-red-400 text-xs mt-1">{errors.studentCount}</p>
+            )}
           </div>
         )}
 

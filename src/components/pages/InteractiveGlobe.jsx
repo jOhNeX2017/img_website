@@ -169,7 +169,7 @@ const InteractiveGlobe = () => {
 
     // Camera
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000)
-    camera.position.z = 4
+    camera.position.z = 5
     cameraRef.current = camera
 
     // Renderer
@@ -638,7 +638,7 @@ const InteractiveGlobe = () => {
   }, [])
 
   return (
-    <div className="relative w-full h-full min-h-[350px] sm:min-h-[450px] lg:min-h-[550px]">
+    <div className="relative w-full h-full min-h-[350px] sm:min-h-[450px] lg:min-h-[650px]">
       {/* Globe Container */}
       <div 
         ref={containerRef}
@@ -648,7 +648,7 @@ const InteractiveGlobe = () => {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}
-        style={{ minHeight: '100%' }}
+        // style={{ minHeight: '100%' }}
       />
 
       {/* Hover Tooltip */}

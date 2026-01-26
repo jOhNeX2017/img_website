@@ -36,7 +36,7 @@ const CourseOverview = () => {
   return (
     <section 
       id="course-overview" 
-      className="max-w-full mx-auto mt-12 scroll-mt-24"
+      className="max-w-full mx-auto mt-8 scroll-mt-20"
     >
       <div className="glass-card p-8 md:p-12">
         <div className="max-w-4xl mx-auto text-center">

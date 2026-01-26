@@ -23,10 +23,10 @@ const Registration = () => {
   }
 
   return (
-    <section id="registration" className="max-w-2xl mx-auto mt-16 scroll-mt-24">
+    <section id="registration" className="max-w-2xl mx-auto mt-8 scroll-mt-20">
       {/* Title Section */}
       <div className="text-center mb-10 animate-fadeIn">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+        <h1 className="text-[28px] md:text-[44px] font-bold text-white mb-4 tracking-tight">
           Collaborate with{' '}
           <span className="bg-theme-gradient-text">
             Imoveglobal

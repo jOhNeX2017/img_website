@@ -1,123 +1,155 @@
 import { useContent } from '../../context/ContentContext'
+import { useState } from 'react'
 
 const ExamsSection = () => {
   const { exams } = useContent()
+  const [activeTab, setActiveTab] = useState('academic')
   
-  const benefits = [
+  const ieltsModules = [
     {
-      id: 1,
-      title: 'Career Prospects',
-      description: '97% of study abroad students land a job within a year - nearly double the rate of those who stayed local.',
-      icon: '🎓'
+      id: "listening",
+      title: 'Listening',
+      duration: '30 mins + 10 mins',
+      questions: '40 Questions',
+      description: 'Four recorded monologues and conversations with increasing difficulty.',
+      details: ['Section 1: Everyday social context', 'Section 2: Social monologue', 'Section 3: Educational/Training context', 'Section 4: Academic subject monologue'],
+      icon: '�',
+      color: 'from-blue-500/20 to-cyan-500/20'
     },
     {
-      id: 2,
-      title: 'Higher Earnings',
-      description: 'International students earn 17% more than peers who didn\'t study abroad, with 20-30% higher starting salaries.',
-      icon: '💰'
+      id: "reading",
+      title: 'Reading',
+      duration: '60 mins',
+      questions: '40 Questions',
+      description: 'Three long texts which range from the descriptive and factual to the discursive and analytical.',
+      details: ['Academic: Journals, books, research', 'General: Notices, ads, handbooks', 'Tests reading for gist & main ideas', 'Skills: Scanning and logical argument'],
+      icon: '📖',
+      color: 'from-purple-500/20 to-pink-500/20'
     },
     {
-      id: 3,
-      title: 'Global Networking',
-      description: 'Build professional networks worldwide and access global opportunities through alumni connections.',
-      icon: '🌐'
+      id: "writing",
+      title: 'Writing',
+      duration: '60 mins',
+      questions: '2 Tasks',
+      description: 'Formal and descriptive writing tasks designed to assess proficiency levels.',
+      details: ['Task 1: Report/Letter (150 words)', 'Task 2: Essay (250 words)', 'Assesses response and grammar', 'Tests coherence and cohesion'],
+      icon: '✍️',
+      color: 'from-orange-500/20 to-red-500/20'
     },
     {
-      id: 4,
-      title: 'Quality Education',
-      description: 'Access top-ranked universities like Harvard, MIT, and Oxford with world-class resources and research facilities.',
-      icon: '📚'
-    },
-    {
-      id: 5,
-      title: 'Financial Management',
-      description: 'Develop budgeting skills and financial discipline while managing expenses independently abroad.',
-      icon: '💳'
-    },
-    {
-      id: 6,
-      title: 'Language Mastery',
-      description: 'Improve language skills by 40-50% within six months through daily immersion in academic and social settings.',
-      icon: '🗣️'
-    },
-    {
-      id: 7,
-      title: 'Personal Growth',
-      description: 'Build resilience, independence, and self-confidence by navigating challenges in a foreign environment.',
-      icon: '🌱'
-    },
-    {
-      id: 8,
-      title: 'Cultural Diversity',
-      description: 'Gain cross-cultural understanding and appreciation by experiencing different perspectives and traditions.',
-      icon: '🌍'
+      id: "speaking",
+      title: 'Speaking',
+      duration: '11–14 mins',
+      questions: '3 Parts',
+      description: 'Face-to-face interview with an examiner to assess communication skills.',
+      details: ['Part 1: Introduction & familiar topics', 'Part 2: Long turn (Cue card)', 'Part 3: Two-way discussion', 'Assesses fluency and pronunciation'],
+      icon: '🗣️',
+      color: 'from-emerald-500/20 to-teal-500/20'
     }
+  ]
+
+  const bandScores = [
+    { band: '9', skill: 'Expert', desc: 'Full command, accurate, fluent.' },
+    { band: '8', skill: 'Very Good', desc: 'Fully operational command with rare inaccuracies.' },
+    { band: '7', skill: 'Good', desc: 'Operational command, handles complex language well.' },
+    { band: '6', skill: 'Competent', desc: 'Effective command despite some inaccuracies.' },
+    { band: '5', skill: 'Modest', desc: 'Partial command, copies with overall meaning.' }
   ]
   
   return (
-    <section id="exams" className="max-w-full mx-auto mt-12 scroll-mt-24">
+    <section id="exams" className="max-w-full mx-auto mt-8 scroll-mt-20">
       <div className="glass-card p-8 md:p-12">
-        <div className="text-center mb-8">
-          <h2 className="text-[28px] md:text-[44px] font-bold text-white mb-3">
-              Benefits of Studying Abroad
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-[28px] md:text-[54px] font-bold text-white mb-6 leading-tight">
+            Professional <span className="text-purple-400">IELTS</span> Preparation
           </h2>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            Studying abroad offers Indian students unique career and personal growth opportunities. 
-            Research shows international students can expect to earn <span className="font-semibold text-white">17% more</span> than 
-            peers who didn't study abroad.
+            Master the most recognized English proficiency test. Whether you're pursuing higher education 
+            or global career opportunities, our structured approach ensures you hit your target band score.
           </p>
         </div>
 
-        {/* Did You Know Section */}
-        <div className="bg-white/5 border border-white/10 rounded-xl p-6 mb-8">
-          <h3 className="text-xl font-bold text-white mb-4">Did You Know?</h3>
-          <ul className="space-y-3 text-gray-300">
-            <li className="flex items-start">
-             <span style={{ color: 'var(--color-accent)' }}>•</span>
-              <span>
-                <span className="font-semibold text-white">97%</span> of study abroad students land a job{' '}
-                <span className="font-semibold text-white">within a year</span> after graduation - nearly double 
-                the rate of those who stayed local, at just <span className="font-semibold text-white">49%</span>!
-              </span>
-            </li>
-            <li className="flex items-start">
-              <span style={{ color: 'var(--color-accent)' }}>•</span>
-              <span>
-                Students who study abroad earn{' '}
-                <span className="font-semibold text-white">on average 25% more</span> than their peers who don't, 
-                with the income gap particularly notable in fields like sociology, computer science, and engineering.
-              </span>
-            </li>
-          </ul>
+        {/* Academic vs General Toggle */}
+        <div className="flex justify-center mb-12">
+          <div className="bg-white/5 p-1 rounded-2xl border border-white/10 flex gap-2">
+            <button 
+              onClick={() => setActiveTab('academic')}
+              className={`tab-button px-8 py-3 rounded-xl transition-all duration-300 font-semibold ${activeTab === 'academic' ? 'active' : ''}`}
+            >
+              Academic
+            </button>
+            <button 
+              onClick={() => setActiveTab('general')}
+              className={`tab-button px-8 py-3 rounded-xl transition-all duration-300 font-semibold ${activeTab === 'general' ? 'active' : ''}`}
+            >
+              General Training
+            </button>
+          </div>
         </div>
 
-        {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {benefits.map((benefit, index) => (
+        {/* Comparison Context */}
+        <div className="mb-12 text-center animate-fadeIn">
+          {activeTab === 'academic' ? (
+            <p className="text-purple-300 bg-purple-500/10 inline-block px-6 py-2 rounded-full border border-purple-500/20">
+              Ideal for <span className="font-bold">University Admission</span> and Professional Registration.
+            </p>
+          ) : (
+            <p className="text-emerald-300 bg-emerald-500/10 inline-block px-6 py-2 rounded-full border border-emerald-500/20">
+              Ideal for <span className="font-bold">Migration</span>, Work Experience, or Secondary Education.
+            </p>
+          )}
+        </div>
+
+        {/* Modules Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+          {ieltsModules.map((module, index) => (
             <div 
-              key={benefit.id} 
-              className="glass-card p-5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 group"
-              style={{
-                animation: `fadeInUp 0.6s ease-out ${index * 0.05}s both`
-              }}
+              key={module.id} 
+              className={`p-8 rounded-3xl bg-gradient-to-br ${module.color} border border-white/10 hover:border-white/20 transition-all duration-500 group relative overflow-hidden`}
+              style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both` }}
             >
-              <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                {benefit.icon}
+              <div className="flex justify-between items-start mb-6">
+                <div className="text-5xl group-hover:scale-110 transition-transform duration-500">{module.icon}</div>
+                <div className="text-right">
+                  <div className="text-white font-bold text-xl">{module.title}</div>
+                  <div className="text-purple-400 text-sm font-medium">{module.duration}</div>
+                </div>
               </div>
-              <h3 className="text-white font-semibold mb-2 text-lg">{benefit.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{benefit.description}</p>
+              
+              <p className="text-gray-200 mb-6 font-medium">{module.description}</p>
+              
+              <div className="space-y-3">
+                <div className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-2">Key Areas</div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {module.details.map((detail, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-sm text-gray-300">
+                      <div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
+                      {detail}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-8 text-center">
-          <p className="text-gray-300 text-base">
-            Countries like <span className="font-semibold text-white">Canada</span> and{' '}
-            <span className="font-semibold text-white">Australia</span> offer world-class education 
-            and clear pathways to <span className="font-semibold text-white">Permanent Residency (PR)</span>, 
-            helping you build long-term careers abroad.
-          </p>
+        {/* Band Scores Guide */}
+        <div className="mt-20">
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-10 text-center">IELTS Band Score Guide</h3>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
+            {bandScores.map((score, index) => (
+              <div 
+                key={score.band}
+                className="glass-card p-6 border border-white/5 hover:border-purple-500/30 transition-all"
+                style={{ animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both` }}
+              >
+                <div className="text-4xl font-bold text-purple-400 mb-2">Band {score.band}</div>
+                <div className="text-white font-semibold mb-2">{score.skill}</div>
+                <p className="text-gray-400 text-xs leading-relaxed">{score.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

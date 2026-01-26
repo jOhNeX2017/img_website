@@ -5,8 +5,8 @@ const HomeSection = () => {
   const { home, brand } = useContent()
   
   return (
-    <section id="home" className="max-w-full mx-auto scroll-mt-24 ">
-      <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 py-8 lg:py-8 px-4 lg:px-8">
+    <section id="home" className="max-w-full mx-auto scroll-mt-20">
+      <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 px-4 lg:px-8">
         {/* Left Content */}
         <div className="flex-1 max-w-xl lg:max-w-2xl">
           {/* Author Info */}
@@ -107,13 +107,6 @@ const HomeSection = () => {
         <div className="flex-1 flex justify-center lg:justify-end w-full">
           <div 
             className="relative w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl rounded-2xl overflow-hidden"
-            style={{ 
-              background: 'linear-gradient(135deg, rgba(26, 26, 62, 0.8) 0%, rgba(45, 27, 78, 0.8) 100%)',
-              border: '1px solid rgba(168, 85, 247, 0.2)',
-              minHeight: '400px',
-              height: '100%',
-              aspectRatio: '1 / 1'
-            }}
           >
             <InteractiveGlobe />
           </div>
