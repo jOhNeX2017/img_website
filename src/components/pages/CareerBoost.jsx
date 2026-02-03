@@ -35,7 +35,8 @@ const CareerBoost = () => {
               Boost Your English and Ace TOEFL/IELTS
             </h2>
             <p className="text-lg md:text-xl text-gray-300 mt-6">
-              Capture career opportunities, study abroad, and upgrade your skills
+              Exam-Aligned Preparation Content and practice tests are designed strictly as per TOEFL &
+              IELTS standards, ensuring real exam familiarity and confidence.
             </p>
           </div>
 

@@ -92,20 +92,26 @@ const ExamsSection = () => {
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((benefit, index) => (
             <div 
               key={benefit.id} 
-              className="glass-card p-5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300 hover:scale-105 group"
+              className="glass-card p-6 rounded-2xl bg-white/5 border border-white/10 benefit-card-hover animate-premiumFadeInUp group"
               style={{
-                animation: `fadeInUp 0.6s ease-out ${index * 0.05}s both`
+                animationDelay: `${index * 0.1}s`
               }}
             >
-              <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
+              <div className="icon-container text-4xl mb-4 group-hover:scale-125 transition-transform duration-500 animate-floating inline-block">
                 {benefit.icon}
               </div>
-              <h3 className="text-white font-semibold mb-2 text-lg">{benefit.title}</h3>
-              <p className="text-gray-400 text-sm leading-relaxed">{benefit.description}</p>
+              <div className="relative z-10">
+                <h3 className="text-white font-bold mb-3 text-xl group-hover:text-[var(--color-accent)] transition-colors duration-300">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-100 transition-colors duration-300">
+                  {benefit.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>

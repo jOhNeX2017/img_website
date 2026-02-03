@@ -169,7 +169,7 @@ const InteractiveGlobe = () => {
 
     // Camera
     const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000)
-    camera.position.z = 5
+    camera.position.z = 4
     cameraRef.current = camera
 
     // Renderer
@@ -183,6 +183,7 @@ const InteractiveGlobe = () => {
     renderer.setClearColor(0x000000, 0)
     container.appendChild(renderer.domElement)
     rendererRef.current = renderer
+
 
     // Create globe with enhanced shader
     const globeGeometry = new THREE.SphereGeometry(1.5, 64, 64)
@@ -206,11 +207,11 @@ const InteractiveGlobe = () => {
         varying vec3 vPosition;
         
         void main() {
-          // Enhanced gradient colors
-          vec3 deepPurple = vec3(0.08, 0.05, 0.18);
-          vec3 midPurple = vec3(0.15, 0.08, 0.30);
-          vec3 brightPurple = vec3(0.35, 0.15, 0.55);
-          vec3 accentPurple = vec3(0.55, 0.25, 0.85);
+          // Arctic Aurora Theme Colors
+          vec3 deepBlue = vec3(0.02, 0.08, 0.18);
+          vec3 midBlue = vec3(0.04, 0.25, 0.45);
+          vec3 brightCyan = vec3(0.0, 0.85, 1.0);
+          vec3 accentCyan = vec3(0.2, 0.95, 1.0);
           
           // Fresnel for edge glow
           float fresnel = pow(1.0 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.5);
@@ -223,26 +224,51 @@ const InteractiveGlobe = () => {
           // Combine waves
           float combinedWave = (wave1 + wave2 + wave3) / 3.0;
           
-          // Create flowing energy pattern
-          float energy = sin(vPosition.y * 8.0 + vPosition.x * 6.0 + time) * 0.5 + 0.5;
+          // Create flowing aurora energy pattern
+          float energy = sin(vPosition.y * 8.0 + vPosition.x * 6.0 + time * 0.5) * 0.5 + 0.5;
           
           // Mix colors based on patterns
-          vec3 baseColor = mix(deepPurple, midPurple, combinedWave);
-          vec3 energyColor = mix(baseColor, brightPurple, energy * 0.3);
-          vec3 finalColor = mix(energyColor, accentPurple, fresnel * 0.4);
+          vec3 baseColor = mix(deepBlue, midBlue, combinedWave);
+          vec3 energyColor = mix(baseColor, brightCyan, energy * 0.35);
+          vec3 finalColor = mix(energyColor, accentCyan, fresnel * 0.5);
           
-          // Add subtle glow
-          finalColor += vec3(0.1, 0.05, 0.15) * fresnel;
+          // Add subtle ethereal glow
+          finalColor += vec3(0.0, 0.15, 0.25) * fresnel;
           
-          gl_FragColor = vec4(finalColor, 0.98);
+          gl_FragColor = vec4(finalColor, 1.0);
         }
       `,
       transparent: true,
     })
     
     const globe = new THREE.Mesh(globeGeometry, globeMaterial)
+    globe.rotation.x = 0.2 // Slight downward tilt for better perspective
     scene.add(globe)
     globeRef.current = globe
+
+    // World Map Overlay (Direct Texture Integration for High Reliability)
+    const mapLoader = new THREE.TextureLoader()
+    mapLoader.setCrossOrigin('anonymous')
+    // High-resolution map used as alpha mask for glowing continents
+    const worldMapTex = mapLoader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_specular_2048.jpg')
+    
+    const mapGeometry = new THREE.SphereGeometry(1.52, 64, 64)
+    const mapMaterial = new THREE.MeshBasicMaterial({
+      color: 0x22d3ee,
+      alphaMap: worldMapTex,
+      transparent: true,
+      opacity: 0.7,
+      blending: THREE.AdditiveBlending,
+      side: THREE.FrontSide,
+      depthWrite: false
+    })
+
+    // Ensure texture is oriented correctly for standard sphere mapping
+    worldMapTex.wrapS = THREE.ClampToEdgeWrapping
+    worldMapTex.wrapT = THREE.ClampToEdgeWrapping
+    
+    const worldMap = new THREE.Mesh(mapGeometry, mapMaterial)
+    globe.add(worldMap)
 
     // Add elegant grid lines - latitude lines
     const createLatitudeLines = () => {
@@ -265,9 +291,9 @@ const InteractiveGlobe = () => {
         const points = curve.getPoints(segments)
         const geometry = new THREE.BufferGeometry().setFromPoints(points)
         const material = new THREE.LineBasicMaterial({
-          color: 0x7c3aed,
+          color: 0x0ea5e9, // Cyan-500
           transparent: true,
-          opacity: 0.15,
+          opacity: 0.2,
         })
         
         const line = new THREE.Line(geometry, material)
@@ -298,7 +324,7 @@ const InteractiveGlobe = () => {
         
         const geometry = new THREE.BufferGeometry().setFromPoints(points)
         const material = new THREE.LineBasicMaterial({
-          color: 0x9333ea,
+          color: 0x06b6d4, // Cyan-400
           transparent: true,
           opacity: 0.15,
         })
@@ -332,10 +358,10 @@ const InteractiveGlobe = () => {
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
     
     const particlesMaterial = new THREE.PointsMaterial({
-      color: 0xa855f7,
-      size: 0.01,
+      color: 0x22d3ee, // Cyan-300
+      size: 0.012,
       transparent: true,
-      opacity: 0.6,
+      opacity: 0.8,
       blending: THREE.AdditiveBlending,
     })
     
@@ -355,8 +381,8 @@ const InteractiveGlobe = () => {
       fragmentShader: `
         varying vec3 vNormal;
         void main() {
-          float intensity = pow(0.65 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 3.0);
-          gl_FragColor = vec4(0.486, 0.227, 0.929, 1.0) * intensity;
+          float intensity = pow(0.7 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.8);
+          gl_FragColor = vec4(0.0, 0.658, 1.0, 1.0) * intensity;
         }
       `,
       blending: THREE.AdditiveBlending,
@@ -379,8 +405,8 @@ const InteractiveGlobe = () => {
       fragmentShader: `
         varying vec3 vNormal;
         void main() {
-          float intensity = pow(0.5 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.5);
-          gl_FragColor = vec4(0.659, 0.318, 0.976, 1.0) * intensity * 0.6;
+          float intensity = pow(0.45 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.2);
+          gl_FragColor = vec4(0.137, 0.764, 1.0, 1.0) * intensity * 0.7;
         }
       `,
       blending: THREE.AdditiveBlending,
@@ -389,6 +415,7 @@ const InteractiveGlobe = () => {
     })
     const atmosphere2 = new THREE.Mesh(atmosphereGeometry2, atmosphereMaterial2)
     scene.add(atmosphere2)
+
 
     // Add country markers
     const markerGroup = new THREE.Group()
@@ -400,7 +427,7 @@ const InteractiveGlobe = () => {
       // Marker point with glow
       const markerGeometry = new THREE.SphereGeometry(0.035, 16, 16)
       const markerMaterial = new THREE.MeshBasicMaterial({
-        color: 0xfbbf24,
+        color: 0xfbbf24, // Gold/Amber-400 for high contrast
       })
       const marker = new THREE.Mesh(markerGeometry, markerMaterial)
       marker.position.copy(position)
@@ -411,7 +438,7 @@ const InteractiveGlobe = () => {
       // Inner glow sphere
       const glowGeometry = new THREE.SphereGeometry(0.05, 16, 16)
       const glowMaterial = new THREE.MeshBasicMaterial({
-        color: 0xfcd34d,
+        color: 0xffffff, // White glow
         transparent: true,
         opacity: 0.4,
       })
@@ -422,9 +449,9 @@ const InteractiveGlobe = () => {
       // Animated pulse ring
       const ringGeometry = new THREE.RingGeometry(0.05, 0.08, 32)
       const ringMaterial = new THREE.MeshBasicMaterial({
-        color: 0xfbbf24,
+        color: 0xf59e0b, // Amber-500
         transparent: true,
-        opacity: 0.7,
+        opacity: 0.8,
         side: THREE.DoubleSide,
       })
       const ring = new THREE.Mesh(ringGeometry, ringMaterial)
@@ -435,9 +462,9 @@ const InteractiveGlobe = () => {
       // Outer pulse ring
       const ring2Geometry = new THREE.RingGeometry(0.08, 0.11, 32)
       const ring2Material = new THREE.MeshBasicMaterial({
-        color: 0xf59e0b,
+        color: 0xfbbf24, // Amber-400
         transparent: true,
-        opacity: 0.5,
+        opacity: 0.6,
         side: THREE.DoubleSide,
       })
       const ring2 = new THREE.Mesh(ring2Geometry, ring2Material)
@@ -476,11 +503,11 @@ const InteractiveGlobe = () => {
     directionalLight2.position.set(-5, -3, -5)
     scene.add(directionalLight2)
 
-    const pointLight1 = new THREE.PointLight(0x7c3aed, 1.5, 12)
+    const pointLight1 = new THREE.PointLight(0x0ea5e9, 1.8, 15)
     pointLight1.position.set(-3, 2, 4)
     scene.add(pointLight1)
     
-    const pointLight2 = new THREE.PointLight(0xc084fc, 1.2, 10)
+    const pointLight2 = new THREE.PointLight(0x22d3ee, 1.4, 12)
     pointLight2.position.set(3, -2, -4)
     scene.add(pointLight2)
 
@@ -500,10 +527,14 @@ const InteractiveGlobe = () => {
           particles.rotation.x = Math.sin(Date.now() * 0.0003) * 0.1
         }
       }
+
       
-      // Update shader time uniform for animated globe surface
+      // Update shader time uniforms
       if (globeRef.current && globeRef.current.material.uniforms) {
-        globeRef.current.material.uniforms.time.value += 0.01
+        globeRef.current.material.uniforms.time.value += 0.015
+      }
+      if (worldMap && worldMap.material && worldMap.material.uniforms) {
+        worldMap.material.uniforms.time.value += 0.015
       }
 
       renderer.render(scene, camera)
@@ -656,8 +687,8 @@ const InteractiveGlobe = () => {
         <div 
           className="absolute top-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-xl backdrop-blur-lg animate-fadeIn"
           style={{ 
-            background: 'rgba(26, 26, 62, 0.9)',
-            border: '1px solid rgba(168, 85, 247, 0.3)'
+            background: 'rgba(10, 20, 32, 0.9)',
+            border: '1px solid rgba(14, 165, 233, 0.3)'
           }}
         >
           <div className="flex items-center gap-2">
@@ -677,9 +708,9 @@ const InteractiveGlobe = () => {
           <div 
             className="relative max-w-sm w-full rounded-2xl p-6 backdrop-blur-xl animate-scaleIn"
             style={{ 
-              background: 'linear-gradient(135deg, rgba(26, 26, 62, 0.95) 0%, rgba(45, 27, 78, 0.95) 100%)',
-              border: '1px solid rgba(168, 85, 247, 0.3)',
-              boxShadow: '0 25px 50px -12px rgba(124, 58, 237, 0.25)'
+              background: 'linear-gradient(135deg, rgba(10, 20, 32, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%)',
+              border: '1px solid rgba(14, 165, 233, 0.3)',
+              boxShadow: '0 25px 50px -12px rgba(14, 165, 233, 0.25)'
             }}
           >
             {/* Close Button */}
@@ -722,8 +753,8 @@ const InteractiveGlobe = () => {
                     key={idx}
                     className="px-3 py-1 rounded-full text-xs font-medium"
                     style={{ 
-                      background: 'linear-gradient(135deg, rgba(124, 58, 237, 0.3) 0%, rgba(168, 85, 247, 0.3) 100%)',
-                      color: '#a855f7'
+                      background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%)',
+                      color: '#0ea5e9'
                     }}
                   >
                     {program}
@@ -741,8 +772,8 @@ const InteractiveGlobe = () => {
             <button 
               className="w-full py-3 rounded-xl font-medium text-white transition-all hover:scale-[1.02]"
               style={{ 
-                background: 'linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)',
-                boxShadow: '0 10px 30px -10px rgba(124, 58, 237, 0.5)'
+                background: 'linear-gradient(135deg, #0284c7 0%, #38bdf8 100%)',
+                boxShadow: '0 10px 30px -10px rgba(2, 132, 199, 0.5)'
               }}
             >
               Explore Universities →

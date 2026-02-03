@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom'
+
 const ActiveCommunity = () => {
+  const navigate = useNavigate();
+
   const cards = [
     {
       id: 1,
@@ -80,7 +84,7 @@ const ActiveCommunity = () => {
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mx-auto">
-          {cards.map((card, index) => (
+          {cards?.map((card, index) => (
             <div
               key={card.id}
               className="relative rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all duration-500 group hover:shadow-2xl shadow-2xl shadow-purple-500/20"
@@ -134,7 +138,7 @@ const ActiveCommunity = () => {
 
                 {/* Link */}
                 <div className="text-center">
-                  <button className="text-white font-semibold hover:text-purple-300 transition-all duration-300 flex items-center justify-center gap-2 mx-auto group/btn text-base">
+                  <button onClick={() => navigate('/registration')} className="text-white font-semibold hover:text-purple-300 transition-all duration-300 flex items-center justify-center gap-2 mx-auto group/btn text-base">
                     <span>{card.linkText}</span>
                     <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

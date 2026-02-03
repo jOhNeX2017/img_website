@@ -9,7 +9,7 @@ function App() {
     <ThemeProvider>
       <ContentProvider>
         <BrowserRouter>
-          <div className="min-h-screen">
+          <div className="min-h-screen bg-[#0a1420]">
             <Header />
             <main className="pt-20 pb-16 px-4 sm:px-6 max-w-full mx-auto">
               <AppRoutes />

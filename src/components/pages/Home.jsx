@@ -54,8 +54,8 @@ const HomeSection = () => {
             </div>
             <div>
               <p className="text-white">
-                <span className="font-bold text-lg">{home?.stats?.studentCount || '49,100 Students'}</span>{' '}
-                <span className="text-gray-400">{home?.stats?.enrolledText || 'already enrolled'}</span>
+                <span className="text-gray-400">{home?.stats?.studentCount}</span>{' '}
+                <span className="font-bold text-lg">{home?.stats?.enrolledText}</span>
               </p>
               <div className="flex items-center gap-2">
                 <div className="flex">

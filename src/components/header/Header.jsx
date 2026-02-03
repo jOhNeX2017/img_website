@@ -1,14 +1,51 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useContent } from '../../context/ContentContext'
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [examsDropdownOpen, setExamsDropdownOpen] = useState(false)
   const { brand, navigation, cta } = useContent()
   const navigate = useNavigate()
   const location = useLocation()
 
   const navLinks = navigation || []
+
+  // Exam details data
+  const examDetails = {
+    toefl: {
+      title: 'TOEFL EXAM DETAILS',
+      items: [
+        { text: 'TOEFL Exam Registration', sectionId: 'toefl-registration' },
+        { text: 'TOEFL Exam Eligibility', sectionId: 'toefl-eligibility' },
+        { text: 'TOEFL Exam Pattern', sectionId: 'toefl-pattern' },
+        { text: 'TOEFL Exam Fees', sectionId: 'toefl-fees' },
+        { text: 'Preparation for TOEFL', sectionId: 'toefl-preparation' }
+      ]
+    },
+    ielts: {
+      title: 'IELTS EXAM DETAILS',
+      items: [
+        { text: 'IELTS Exam Registration', sectionId: 'ielts-registration' },
+        { text: 'IELTS Exam Exam Eligibility', sectionId: 'ielts-eligibility' },
+        { text: 'IELTS Exam Pattern', sectionId: 'ielts-pattern' },
+        { text: 'IELTS Exam Fees', sectionId: 'ielts-fees' },
+        { text: 'Preparation for IELTS', sectionId: 'ielts-preparation' }
+      ]
+    }
+  }
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (examsDropdownOpen && !event.target.closest('.exams-dropdown-container')) {
+        setExamsDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [examsDropdownOpen])
 
   // Map navigation keys to route paths
   const routeMap = {
@@ -28,6 +65,13 @@ const Header = () => {
   const handleNavClick = (key) => {
     const path = routeMap[key] || '/'
     navigate(path)
+    setMobileMenuOpen(false)
+  }
+
+  // Navigate to Exams page with specific section
+  const handleExamSectionClick = (sectionId) => {
+    navigate(`/exams?section=${sectionId}`)
+    setExamsDropdownOpen(false)
     setMobileMenuOpen(false)
   }
 
@@ -84,34 +128,183 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-1">
               {navLinks?.map((link) => (
-                <button
+                <div
                   key={link.name}
-                  onClick={() => handleNavClick(link.key)}
-                  className={`
-                    relative px-5 py-2.5 text-base font-medium
-                    transition-all duration-300
-                    ${isActive(link.key) 
-                      ? 'text-white' 
-                      : 'text-gray-400 hover:text-gray-200 hover:underline'
-                    }
-                  `}
-                  style={isActive(link.key) ? {
-                    backgroundColor: 'rgba(var(--color-primary-rgb, 2, 132, 199), 0.08)',
-                  } : {}}
+                  className={`relative ${link.key === 'exams' ? 'exams-dropdown-container' : ''}`}
                 >
-                  {/* Top Border - touches the very top of header */}
-                  {isActive(link.key) && (
+                  <button
+                    onClick={() => {
+                      if (link.key === 'exams') {
+                        setExamsDropdownOpen(!examsDropdownOpen)
+                      } else {
+                        setExamsDropdownOpen(false)
+                        handleNavClick(link.key)
+                      }
+                    }}
+                    className={`
+                      relative px-5 py-2.5 text-base font-medium
+                      transition-all duration-300
+                      ${isActive(link.key) 
+                        ? 'text-white' 
+                        : 'text-gray-400 hover:text-gray-200 hover:underline'
+                      }
+                    `}
+                    style={isActive(link.key) ? {
+                      backgroundColor: 'rgba(var(--color-primary-rgb, 2, 132, 199), 0.08)',
+                    } : {}}
+                  >
+                    {/* Top Border - touches the very top of header */}
+                    {isActive(link.key) && (
+                      <div 
+                        className="absolute left-0 right-0 h-[3px] rounded-b-sm"
+                        style={{
+                          top: '-12px',
+                          background: 'var(--gradient-primary)',
+                          boxShadow: '0 2px 8px var(--color-glow)'
+                        }}
+                      />
+                    )}
+                    {link.name}
+                  </button>
+
+                  {/* Exams Dropdown Panel */}
+                  {link.key === 'exams' && examsDropdownOpen && (
                     <div 
-                      className="absolute left-0 right-0 h-[3px] rounded-b-sm"
+                      className="absolute left-0 top-full mt-3 w-[900px] rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden"
                       style={{
-                        top: '-12px',
-                        background: 'var(--gradient-primary)',
-                        boxShadow: '0 2px 8px var(--color-glow)'
+                        background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                        animation: 'fadeIn 0.3s ease-in-out',
+                        boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)'
                       }}
-                    />
+                    >
+                      {/* Header with gradient */}
+                      <div 
+                        className="px-8 py-5 border-b border-gray-100"
+                        style={{
+                          background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)'
+                        }}
+                      >
+                        <div className="flex items-center gap-3">
+                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          <h2 className="text-xl font-bold text-white">Popular English Proficiency Exams</h2>
+                        </div>
+                        <p className="text-sm text-blue-100 mt-1 ml-9">Choose the exam that fits your study abroad goals</p>
+                      </div>
+
+                      <div className="p-8">
+                        <div className="grid grid-cols-2 gap-6">
+                          {/* TOEFL Column */}
+                          <div className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+                            <div className="flex items-start gap-4 mb-5">
+                              <div 
+                                className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+                                style={{
+                                  background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
+                                  boxShadow: '0 4px 12px rgba(249, 115, 22, 0.3)'
+                                }}
+                              >
+                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                              </div>
+                              <div>
+                                <h3 className="text-lg font-bold text-gray-900 mb-1">
+                                  {examDetails.toefl.title}
+                                </h3>
+                                <p className="text-xs text-gray-500">Test of English as a Foreign Language</p>
+                              </div>
+                            </div>
+                            <ul className="space-y-2.5">
+                              {examDetails.toefl.items.map((item, index) => (
+                                <li key={index}>
+                                  <a
+                                    href="#"
+                                    className="group flex items-center gap-3 text-sm text-gray-700 hover:text-orange-600 transition-all duration-200 p-2 rounded-lg hover:bg-orange-50"
+                                    onClick={(e) => {
+                                      e.preventDefault()
+                                      handleExamSectionClick(item.sectionId)
+                                    }}
+                                  >
+                                    <svg className="w-4 h-4 text-orange-500 flex-shrink-0 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    </svg>
+                                    <span className="group-hover:translate-x-1 transition-transform duration-200">{item.text}</span>
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* IELTS Column */}
+                          <div className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+                            <div className="flex items-start gap-4 mb-5">
+                              <div 
+                                className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
+                                style={{
+                                  background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
+                                  boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)'
+                                }}
+                              >
+                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                                </svg>
+                              </div>
+                              <div>
+                                <h3 className="text-lg font-bold text-gray-900 mb-1">
+                                  {examDetails.ielts.title}
+                                </h3>
+                                <p className="text-xs text-gray-500">International English Language Testing System</p>
+                              </div>
+                            </div>
+                            <ul className="space-y-2.5">
+                              {examDetails.ielts.items.map((item, index) => (
+                                <li key={index}>
+                                  <a
+                                    href="#"
+                                    className="group flex items-center gap-3 text-sm text-gray-700 hover:text-blue-600 transition-all duration-200 p-2 rounded-lg hover:bg-blue-50"
+                                    onClick={(e) => {
+                                      e.preventDefault()
+                                      handleExamSectionClick(item.sectionId)
+                                    }}
+                                  >
+                                    <svg className="w-4 h-4 text-blue-500 flex-shrink-0 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    </svg>
+                                    <span className="group-hover:translate-x-1 transition-transform duration-200">{item.text}</span>
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+
+                        {/* Footer CTA */}
+                        <div className="mt-6 pt-6 border-t border-gray-200 flex items-center justify-between">
+                          <div className="flex items-center gap-2 text-gray-500">
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span className="text-sm font-medium">Need help choosing?</span>
+                          </div>
+                          <button 
+                            className="btn-gradient group px-6 py-2.5 rounded-lg font-semibold text-sm text-white transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95 flex items-center gap-2"
+                            onClick={() => {
+                              handleNavClick('registration');
+                              setExamsDropdownOpen(false)
+                            }}
+                          >
+                            Explore More
+                            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   )}
-                  {link.name}
-                </button>
+                </div>
               ))}
             </nav>
           </div>

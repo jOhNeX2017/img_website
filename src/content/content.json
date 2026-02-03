@@ -18,11 +18,11 @@
   },
 
   "home": {
-    "author": "Imoveglobal",
+    "author": "EGPT ( English General Proficiency Test )",
     "headline": {
-      "prefix": "Become a",
-      "highlight": "Global Education",
-      "suffix": "Partner"
+      "prefix": "Establish a",
+      "highlight": "Global Academic",
+      "suffix": "Partnership"
     },
     "subtext": {
       "emphasis": "Everything you need",
@@ -33,8 +33,8 @@
       "advancedText": "advanced global educator"
     },
     "stats": {
-      "studentCount": "49,100 Students",
-      "enrolledText": "already enrolled",
+      "studentCount": "Empowering a global learner base of",
+      "enrolledText": "1+ million students",
       "ratingPlatform": "Trustpilot"
     },
     "pricing": {
@@ -47,8 +47,8 @@
     }
   },
 
-  "basics": {
-    "title": "Basics",
+  "egpt_primary": {
+    "title": "EGPT Primary",
     "lessonCount": "13 lessons",
     "duration": "10h 12m of tutorial",
     "description": {
@@ -57,49 +57,69 @@
       "line3": "everything and put your project online."
     },
     "lessons": [
-      { "id": "01", "title": "Introduction", "duration": "35m", "isFree": true },
-      { "id": "02", "title": "What is WebGL and why use Three.js", "duration": "23m", "isFree": true },
-      { "id": "03", "title": "First Three.js Project", "duration": "1h 19m", "isFree": true },
-      { "id": "04", "title": "Transform objects", "duration": "46m", "isFree": false },
-      { "id": "05", "title": "Animations", "duration": "30m", "isFree": false },
-      { "id": "06", "title": "Cameras", "duration": "57m", "isFree": false }
+      { "id": "01", "title": "Introduction", "duration": "35m", "isFree": true, "content": "TOEFL Primary is a standardized English test for young learners (typically ages 8–11+) that measures how well children understand and use English in basic academic and social contexts. Skills tested are Writing , Reading and Listening (core)" },
+      { "id": "02", "title": "Benefits", "duration": "23m", "isFree": true, "content": "Young learners often feel encouraged when they see their progress quantified. Earning a certificate or score report can boost a child’s confidence and foster a positive attitude toward learning English. Helps children develop good test-taking habits from an early age." },
+      { "id": "03", "title": "Objectives", "duration": "1h 19m", "isFree": true, "content": "This test is mostly taken in Asia, Europe, Latin America, Middle East. Growth in TOEFL test takers in India (for TOEFL overall) with a 53 % rise in 2024 and 59 % rise in 2025." },
+      { "id": "04", "title": "Scoring", "duration": "1h 19m", "isFree": true, "content": "No pass/fail — it’s a developmental assessment. Scores are scaled, not raw, so they’re consistent across different test versions." }
     ]
   },
 
-  "classicTechniques": {
-    "title": "Classic techniques",
+  "egpt_junior": {
+    "title": "EGPT Junior",
     "lessonCount": "6 lessons",
     "duration": "7h 55m of tutorial",
+    "description": {
+      "line1": "Designed for students aged 11+, focusing on",
+      "line2": "academic English",
+      "line3": "fundamentals and real-world communication skills."
+    },
     "lessons": [
-      { "id": "14", "title": "Lights", "duration": "42m", "isFree": false },
-      { "id": "15", "title": "Shadows", "duration": "1h 00m", "isFree": false },
-      { "id": "16", "title": "Haunted House", "duration": "2h 50m", "isFree": true },
-      { "id": "17", "title": "Particles", "duration": "49m", "isFree": false },
-      { "id": "18", "title": "Galaxy Generator", "duration": "1h 08m", "isFree": false },
-      { "id": "19", "title": "Scroll based animation", "duration": "1h 23m", "isFree": false }
+      { "id": "01", "title": "Introduction", "duration": "42m", "isFree": false, "content": "The TOEFL Junior test is a part of TOEFL Young Students Series (YSS) - an English – language assessment designed for students typically aged 11-17 years and older. The standard test is available as a paper based test. Tests reading comprehension, listening and writing." },
+      { "id": "02", "title": "Benefits", "duration": "1h 00m", "isFree": false, "content": "Early assessment of English Skills. Taking an internationally recognized test can boost a child’s confidence. Schools and parents can track improvement over time, helping guide curriculum and learning strategies." },
+      { "id": "03", "title": "Objectives", "duration": "2h 50m", "isFree": true, "content": "Asia dominates these sort of test registrations. This is due to the high demand for English proficiency in schools and bilingual/international programs. Other than that, Middle East, Lebanon, Europe, Latin America also has a demand of these examination. Helps students transition smoothly to TOEFL/IELTS in the future." }
     ]
   },
 
-  "advancedTechniques": {
-    "title": "Advanced techniques",
+  "egpt_senior": {
+    "title": "EGPT Senior",
     "lessonCount": "7 lessons",
     "duration": "12h 29m of tutorial",
+    "description": {
+      "line1": "Comprehensive assessment for",
+      "line2": "university readiness",
+      "line3": "and advanced communication proficiency."
+    },
     "lessons": [
-      { "id": "20", "title": "Physics", "duration": "1h 57m", "isFree": false },
-      { "id": "21", "title": "Imported models", "duration": "1h 07m", "isFree": false },
-      { "id": "22", "title": "Raycaster and Mouse Events", "duration": "1h 07m", "isFree": false },
-      { "id": "23", "title": "Custom models with Blender", "duration": "1h 59m", "isFree": false },
-      { "id": "24", "title": "Environment map", "duration": "1h 44m", "isFree": false }
+      { "id": "01", "title": "Introduction", "duration": "1h 57m", "isFree": false, "content": "It is used primarily by institutions (universities, language schools, government agencies) to assess the English proficiency of non-native speakers. The test is composed of four sections, which assess your proficiency level in three main skills, listening comprehension, structure and written expression, reading comprehension and speaking." },
+      { "id": "02", "title": "Benefits", "duration": "1h 07m", "isFree": false, "content": "Accurate assessment of English Skills. Provides a foundation for higher-level English tests like TOEFL iBT, IELTS, or other academic English assessments. Enables tracking of English progress over time to see improvement. Useful for graduation or promotion requirements in academic programs." },
+      { "id": "03", "title": "Objectives", "duration": "1h 07m", "isFree": false, "content": "More than 13,000 institutions in over 160 countries administer TOEFL /IELTS tests annually. These include universities, language programs, and agencies that use the test for placement, progress monitoring, exit testing, and evaluation. Over 50 Million tests are administered each year across various institutions worldwide." },
+      { "id": "04", "title": "Scoring", "duration": "1h 59m", "isFree": false, "content": "The scoring is conducted in accordance with done as per TOEFL & IELTS Standards." }
+    ]
+  },
+  
+  "egpt_unite": {
+    "title": "EGPT Unite",
+    "lessonCount": "6 lessons",
+    "duration": "7h 55m of tutorial",
+    "description": {
+      "line1": "Bridging the gap for",
+      "line2": "beginners",
+      "line3": "to build confidence and essential language skills."
+    },
+    "lessons": [
+      { "id": "01", "title": "Introduction", "duration": "42m", "isFree": false, "content": "Tests English just as the regular TOEIC & IELTS test does, but EGPT UNITE is used for people with lower level English skills: beginner to lower-intermediate level range. Contains 2 parts – Listening and Reading." },
+      { "id": "02", "title": "Benefits", "duration": "1h 00m", "isFree": false, "content": "Motivation: Students and employees get measurable feedback on progress. Progress Tracking: Can be taken multiple times to monitor improvement over time. Adults who are at the beginner or intermediate level. Workplaces wanting to assess employees’ English at entry or intermediate levels." },
+      { "id": "03", "title": "Objectives", "duration": "2h 50m", "isFree": true, "content": "This is a preparation test is similar to TOEIC BRIDGE. Japan and South Korea are historically the largest TOEIC BRIDGE markets, accounting for a majority of global test takers. This used in institutions and corporations in UAE, Saudi Arabia, Indonesia, Malaysia, and similar markets — mainly for English skills tracking or workforce assessment." },
+      { "id": "04", "title": "Scoring", "duration": "1h 59m", "isFree": false, "content": "Beginner → A1, Elementary → A2, Intermediate → B1" }
     ]
   },
 
-  "shaders": {
-    "title": "Shaders",
-    "lessons": [
-      { "id": "27", "title": "Shaders", "duration": "2h 17m", "isFree": false },
-      { "id": "28", "title": "Shader patterns", "duration": "1h 49m", "isFree": false },
-      { "id": "29", "title": "Raging sea", "duration": "1h 15m", "isFree": false }
-    ]
+  "egpt_braille" : {
+    "title": "EGPT Braille",
+    "description": {
+      "line1": "Tests provided for the visually impaired.",
+      "line2": "LAUNCHING SOON"
+    }
   },
 
   "exams": {
