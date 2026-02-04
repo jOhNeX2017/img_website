@@ -3,22 +3,22 @@ const CareerBoost = () => {
     {
       id: 1,
       icon: '/heart.svg',
-      title: 'Enjoy coding like never before',
+      title: '4-Skill Focused Training Structured improvement in Listening, Reading, Speaking, and Writing, with targeted strategies for each section',
     },
     {
       id: 2,
       icon: '/goal.svg',
-      title: 'Reach out to new clients',
+      title: 'Performance-Driven Assessment Detailed scoring, band prediction, and feedback to help students identify gaps and improve faster.',
     },
     {
       id: 3,
       icon: '/competition.svg',
-      title: 'Stand out against the competition',
+      title: 'Result-Oriented Learning Path Practical tips, time-management techniques, and exam hacks that maximize scores in minimum time.',
     },
     {
       id: 4,
       icon: '/rate.svg',
-      title: 'Increase your pay rate',
+      title: 'If you want, I can also make these *more marketing-oriented, **student-friendly, or *institution-focused',
     },
   ]
 
@@ -61,7 +61,7 @@ const CareerBoost = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg sm:text-xl font-semibold text-white leading-relaxed max-w-[200px]">
+                <h3 className="text-lg sm:text-xl font-semibold text-white leading-relaxed w-full">
                   {feature.title}
                 </h3>
               </div>

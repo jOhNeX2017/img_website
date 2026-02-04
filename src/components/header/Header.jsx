@@ -100,28 +100,16 @@ const Header = () => {
             >
               <div 
                 className="logo-icon w-10 h-10 rounded-lg flex items-center justify-center shadow-lg"
-                style={{
-                  background: 'var(--gradient-primary)',
-                }}
               >
-                <svg 
-                  className="w-5 h-5 text-white" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={2} 
-                    d="M13 10V3L4 14h7v7l9-11h-7z" 
-                  />
-                </svg>
+                <img src="/logo.png" alt="Logo" />
               </div>
-              <span className="logo-text text-2xl font-bold text-white tracking-tight">
+              <span style={{ color: 'var(--color-accent)' }} className="logo-text text-2xl font-bold tracking-tight">
                 {(brand?.name || 'Brand')?.split('')?.map((letter, i) => (
-                <span key={i}>{letter}</span>
-              ))}
+                  <span key={i}>{letter}</span>
+                ))}
+              <sup className='text-white m-0.5 text-xs'>
+                EGPT
+              </sup>
               </span>
             </a>
 

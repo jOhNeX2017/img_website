@@ -153,45 +153,159 @@
     "title": "Institutional Scholarships & Events",
     "description": "A selection of the best scholarships and events curated by Imoveglobal's partners.",
     "howItWorks": [
-      "Browse available scholarships and events",
+      "Browse available prep tests for your institution",
       "Click on any card to view full details",
-      "Apply directly through the institution"
+      "Register your query through website to be a partner"
     ],
     "items": [
       {
         "id": 1,
-        "title": "Global Excellence Scholarship",
-        "institution": "Oxford University",
-        "date": "15 February 2026",
-        "description": "Full scholarship for international students pursuing masters degree.",
-        "image": null,
+        "title": "EGPT PRIMARY + JUNIOR",
+        "institution": "Elite Achievement Awards",
+        "date": "Ongoing Registration",
+        "description": "Comprehensive scholarship program rewarding top performers across 2-Skill and 3-Skill packages with premium prizes including laptops, tablets, bicycles, and exclusive staff appreciation events.",
+        "detailedInfo": {
+          "twoSkillPackage": {
+            "title": "2-Skill Package Awards",
+            "subtitle": "Top 9 Students Across All 3 Divisions",
+            "divisions": [
+              {
+                "grades": "4th & 5th",
+                "rewards": {
+                  "1st": "Sony Headphones",
+                  "2nd": "Smart Watch",
+                  "3rd": "School Kit"
+                }
+              },
+              {
+                "grades": "6th - 8th",
+                "rewards": {
+                  "1st": "Sony Headphones",
+                  "2nd": "Smart Watch",
+                  "3rd": "School Kit"
+                }
+              },
+              {
+                "grades": "9th - 12th",
+                "rewards": {
+                  "1st": "Sony Headphones",
+                  "2nd": "Smart Watch",
+                  "3rd": "School Kit"
+                }
+              }
+            ]
+          },
+          "threeSkillPackage": {
+            "title": "3-Skill Package Awards",
+            "subtitle": "Top 3 Students Across All 3 Divisions",
+            "divisions": [
+              {
+                "grades": "4th & 5th",
+                "rewards": {
+                  "1st": "Bicycle",
+                  "2nd": "Tablet",
+                  "3rd": "School Kit"
+                }
+              },
+              {
+                "grades": "6th - 8th",
+                "rewards": {
+                  "1st": "Sony Headphones",
+                  "2nd": "Tablet",
+                  "3rd": "School Kit"
+                }
+              },
+              {
+                "grades": "9th - 12th",
+                "rewards": {
+                  "1st": "Lenovo Chromebook",
+                  "2nd": "Tablet",
+                  "3rd": "School Kit"
+                }
+              }
+            ]
+          },
+          "events": {
+            "title": "Uptown Staff Appreciation Events",
+            "twoSkillEvent": {
+              "participants": "50 Staff Members",
+              "menu": "2 Appetizers • 1 Drink • 1 Main Course • 1 Dessert"
+            },
+            "threeSkillEvent": {
+              "participants": "60 Staff Members",
+              "menu": "2 Appetizers • 1 Drink • 1 Main Course • 1 Dessert"
+            }
+          }
+        },
+        "image": "/primary2.png",
         "socialLinks": { "twitter": "#", "linkedin": "#" }
       },
       {
         "id": 2,
-        "title": "STEM Innovation Grant",
-        "institution": "MIT Foundation",
-        "date": "20 January 2026",
-        "description": "Research funding for innovative STEM projects.",
-        "image": null,
+        "title": "EGPT SENIOR",
+        "institution": "Premium Achievement Program",
+        "date": "Ongoing Registration",
+        "description": "Advanced scholarship program offering cash prizes, international trips, premium laptops, and exclusive university events for top performers across 2-skill, 3-skill, and 4-skill packages.",
+        "detailedInfo": {
+          "twoSkillPackage": {
+            "title": "2-Skill Package Awards",
+            "subtitle": "Top 3 Students - Cash Prizes",
+            "rewards": [
+              { "position": "1st", "prize": "₹10,000" },
+              { "position": "2nd", "prize": "₹7,000" },
+              { "position": "3rd", "prize": "₹3,000" }
+            ],
+            "event": null
+          },
+          "threeSkillPackage": {
+            "title": "3-Skill Package Awards",
+            "subtitle": "Top 10 Students - Laptops, Tablets & Coupons",
+            "rewards": [
+              { "position": "Top 3", "prize": "Laptops" },
+              { "position": "4th & 5th", "prize": "Tablets" },
+              { "position": "6th - 10th", "prize": "Amazon Coupon ₹2,000 each" }
+            ],
+            "event": {
+              "title": "University Staff Prize Distribution",
+              "participants": "100 Staff Members",
+              "menu": "3 Appetizers • 3 Main Courses • 2 Drinks • 2 Desserts"
+            }
+          },
+          "fourSkillPackage": {
+            "title": "4-Skill Package Awards",
+            "subtitle": "Top 20 Students - International Trips, Laptops & Coupons",
+            "rewards": [
+              { "position": "Top 2", "prize": "Sponsored International Trip (4 Days 3 Nights)" },
+              { "position": "3rd, 4th & 5th", "prize": "Laptops" },
+              { "position": "6th - 10th", "prize": "Amazon Coupon ₹5,000 each" },
+              { "position": "11th - 20th", "prize": "Amazon Coupon ₹2,000 each" }
+            ],
+            "event": {
+              "title": "Grand Prize Distribution Gala",
+              "participants": "120 Staff Members + 20 Prize Winning Students",
+              "menu": "3 Appetizers • 3 Main Courses • 2 Drinks • 2 Desserts • 3 Bread Choices"
+            }
+          }
+        },
+        "image": "/seniors.png",
         "socialLinks": { "twitter": "#", "linkedin": "#" }
       },
       {
         "id": 3,
-        "title": "Cultural Exchange Program",
-        "institution": "European Council",
+        "title": "EGPT Unite",
+        "institution": "Unite Achievement Program",
         "date": "10 March 2026",
         "description": "Funded exchange program across European universities.",
-        "image": null,
+        "image": "/people.png",
         "socialLinks": { "twitter": "#", "linkedin": "#" }
       },
       {
         "id": 4,
-        "title": "Leadership Fellowship",
-        "institution": "Harvard Business School",
-        "date": "05 April 2026",
-        "description": "Executive education fellowship for emerging leaders.",
-        "image": null,
+        "title": " EGPT BRAILLE",
+        "institution": "Coming Soon",
+        "date": "Coming Soon",
+        "description": "Executive education fellowship for people with disabilities.",
+        "image": "/handicap.png",
         "socialLinks": { "twitter": "#", "linkedin": "#" }
       }
     ],

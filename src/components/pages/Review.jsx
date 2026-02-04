@@ -120,13 +120,6 @@ const Review = ({ onBack }) => {
             </div>
           ))}
         </div>
-
-        {/* Load More */}
-        <div className="text-center mt-12">
-          <button className="btn-gradient text-sm">
-            {reviews?.loadMoreButton || 'Load More Stories'}
-          </button>
-        </div>
       </div>
     </section>
   )
