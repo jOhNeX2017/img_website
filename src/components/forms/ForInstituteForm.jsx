@@ -311,7 +311,7 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
         <label htmlFor="instituteTerms" className="text-sm text-gray-400 cursor-pointer">
           I acknowledge and agree to the{' '}
           <a href="#" style={{ color: 'var(--color-accent)' }} className="hover:opacity-80 underline transition-opacity">
-            General Conditions of Sale and Use
+           Terms & Conditions
           </a>
         </label>
       </div>

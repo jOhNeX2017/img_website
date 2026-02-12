@@ -38,7 +38,7 @@ const AppRoutes = () => {
       <Route path="/scholarships" element={<InstitutionalScholarships />} />
       
       {/* Reviews Route */}
-      <Route path="/reviews" element={<Review />} />
+      {/* <Route path="/reviews" element={<Review />} /> */}
       
       {/* Study Abroad Scope Route */}
       <Route path="/study-abroad" element={<StudyAbroadScope />} />

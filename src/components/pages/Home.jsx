@@ -20,7 +20,7 @@ const HomeSection = () => {
               </svg>
             </div>
             <span className="text-gray-400">
-              by <span style={{ color: 'var(--color-accent)' }} className="hover:opacity-80 cursor-pointer transition-opacity">{home?.author || brand?.name || 'Brand'}</span>
+              <span style={{ color: 'var(--color-accent)' }} className="hover:opacity-80 cursor-pointer transition-opacity">{home?.author || brand?.name || 'Brand'}</span> by Imoveglobal
             </span>
           </div>
 

@@ -8,7 +8,6 @@
     { "name": "Exams", "key": "exams" },
     { "name": "Study Abroad Scope", "key": "study" },
     { "name": "Scholarships & Events", "key": "scholarships" },
-    { "name": "Reviews", "key": "reviews" },
     { "name": "More", "key": "more" }
   ],
 
@@ -18,7 +17,7 @@
   },
 
   "home": {
-    "author": "EGPT ( English General Proficiency Test )",
+    "author": "EGPT ( English Global Preparation Test )",
     "headline": {
       "prefix": "Establish a",
       "highlight": "Global Academic",
@@ -38,7 +37,7 @@
       "ratingPlatform": "Trustpilot"
     },
     "pricing": {
-      "price": "Free",
+      "price": "Free Practice Test",
       "description": "Access for life. Join now!"
     },
     "heroCard": {
@@ -57,7 +56,7 @@
       "line3": "everything and put your project online."
     },
     "lessons": [
-      { "id": "01", "title": "Introduction", "duration": "35m", "isFree": true, "content": "TOEFL Primary is a standardized English test for young learners (typically ages 8–11+) that measures how well children understand and use English in basic academic and social contexts. Skills tested are Writing , Reading and Listening (core)" },
+      { "id": "01", "title": "Introduction", "duration": "35m", "isFree": true, "content": "EGPT Primary is a standardized English test for young learners (typically ages 8–11+) that measures how well children understand and use English in basic academic and social contexts. Skills tested are Writing , Reading and Listening (core)" },
       { "id": "02", "title": "Benefits", "duration": "23m", "isFree": true, "content": "Young learners often feel encouraged when they see their progress quantified. Earning a certificate or score report can boost a child’s confidence and foster a positive attitude toward learning English. Helps children develop good test-taking habits from an early age." },
       { "id": "03", "title": "Objectives", "duration": "1h 19m", "isFree": true, "content": "This test is mostly taken in Asia, Europe, Latin America, Middle East. Growth in TOEFL test takers in India (for TOEFL overall) with a 53 % rise in 2024 and 59 % rise in 2025." },
       { "id": "04", "title": "Scoring", "duration": "1h 19m", "isFree": true, "content": "No pass/fail — it’s a developmental assessment. Scores are scaled, not raw, so they’re consistent across different test versions." }
@@ -74,7 +73,7 @@
       "line3": "fundamentals and real-world communication skills."
     },
     "lessons": [
-      { "id": "01", "title": "Introduction", "duration": "42m", "isFree": false, "content": "The TOEFL Junior test is a part of TOEFL Young Students Series (YSS) - an English – language assessment designed for students typically aged 11-17 years and older. The standard test is available as a paper based test. Tests reading comprehension, listening and writing." },
+      { "id": "01", "title": "Introduction", "duration": "42m", "isFree": false, "content": "The EGPT Junior test is a part of EGPT Young Students Series (YSS) - an English – language assessment designed for students typically aged 11-17 years and older. The standard test is available as a paper based test. Tests reading comprehension, listening and writing." },
       { "id": "02", "title": "Benefits", "duration": "1h 00m", "isFree": false, "content": "Early assessment of English Skills. Taking an internationally recognized test can boost a child’s confidence. Schools and parents can track improvement over time, helping guide curriculum and learning strategies." },
       { "id": "03", "title": "Objectives", "duration": "2h 50m", "isFree": true, "content": "Asia dominates these sort of test registrations. This is due to the high demand for English proficiency in schools and bilingual/international programs. Other than that, Middle East, Lebanon, Europe, Latin America also has a demand of these examination. Helps students transition smoothly to TOEFL/IELTS in the future." }
     ]
@@ -91,9 +90,9 @@
     },
     "lessons": [
       { "id": "01", "title": "Introduction", "duration": "1h 57m", "isFree": false, "content": "It is used primarily by institutions (universities, language schools, government agencies) to assess the English proficiency of non-native speakers. The test is composed of four sections, which assess your proficiency level in three main skills, listening comprehension, structure and written expression, reading comprehension and speaking." },
-      { "id": "02", "title": "Benefits", "duration": "1h 07m", "isFree": false, "content": "Accurate assessment of English Skills. Provides a foundation for higher-level English tests like TOEFL iBT, IELTS, or other academic English assessments. Enables tracking of English progress over time to see improvement. Useful for graduation or promotion requirements in academic programs." },
+      { "id": "02", "title": "Benefits", "duration": "1h 07m", "isFree": false, "content": "Accurate assessment of English Skills. Provides a foundation for higher-level English tests like EGPT iBT, IELTS, or other academic English assessments. Enables tracking of English progress over time to see improvement. Useful for graduation or promotion requirements in academic programs." },
       { "id": "03", "title": "Objectives", "duration": "1h 07m", "isFree": false, "content": "More than 13,000 institutions in over 160 countries administer TOEFL /IELTS tests annually. These include universities, language programs, and agencies that use the test for placement, progress monitoring, exit testing, and evaluation. Over 50 Million tests are administered each year across various institutions worldwide." },
-      { "id": "04", "title": "Scoring", "duration": "1h 59m", "isFree": false, "content": "The scoring is conducted in accordance with done as per TOEFL & IELTS Standards." }
+      { "id": "04", "title": "Scoring", "duration": "1h 59m", "isFree": false, "content": "The scoring is conducted in accordance with done as per EGPT & IELTS Standards." }
     ]
   },
   

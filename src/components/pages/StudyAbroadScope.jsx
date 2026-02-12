@@ -7,7 +7,7 @@ const ExamsSection = () => {
     {
       id: 1,
       title: 'Career Prospects',
-      description: '97% of study abroad students land a job within a year - nearly double the rate of those who stayed local.',
+      description: 'Students experience a 25% boost in average earnings, most notably within sociology , computer science and engineering.',
       icon: '🎓'
     },
     {
@@ -119,8 +119,7 @@ const ExamsSection = () => {
         {/* Bottom CTA */}
         <div className="mt-8 text-center">
           <p className="text-gray-300 text-base">
-            Countries like <span className="font-semibold text-white">Canada</span> and{' '}
-            <span className="font-semibold text-white">Australia</span> offer world-class education 
+            More than 160 countries offer world-class education 
             and clear pathways to <span className="font-semibold text-white">Permanent Residency (PR)</span>, 
             helping you build long-term careers abroad.
           </p>

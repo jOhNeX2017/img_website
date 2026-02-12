@@ -6,21 +6,21 @@ const ActiveCommunity = () => {
   const cards = [
     {
       id: 1,
-      title: 'EGPT Junior',
-      subtitle: 'English Global Prep Test Jr.',
-      description: 'Designed for young learners to build strong English foundations.',
-      ageGroup: 'Age 8-14',
-      standard: 'Standard 5th – 8th',
-      linkText: 'Learn more about EGPT Junior',
-    },
-    {
-      id: 2,
       title: 'EGPT Primary',
       subtitle: 'English Global Prep Test Primary',
       description: 'Comprehensive English assessment for secondary school students.',
+      ageGroup: 'Age 8-14',
+      standard: 'Standard 5th – 8th',
+      linkText: 'Learn more about EGPT Primary',
+    },
+    {
+      id: 2,
+      title: 'EGPT Junior',
+      subtitle: 'English Global Prep Test Jr.',
+      description: 'Designed for young learners to build strong English foundations.',
       ageGroup: 'Age 14-19',
       standard: 'Standard 9th – 12th',
-      linkText: 'Learn more about EGPT Primary',
+      linkText: 'Learn more about EGPT Junior',
     },
     {
       id: 3,

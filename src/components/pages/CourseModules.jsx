@@ -154,6 +154,7 @@ const CourseModules = () => {
 
   return (
     <>
+      <ActiveCommunity />
       <section 
         id="course-modules"
         className="w-full scroll-mt-20 mt-8 relative"
@@ -304,7 +305,6 @@ const CourseModules = () => {
           </div>
         </div>
       </section>
-      <ActiveCommunity />
       <CareerBoost />
       <CourseOverview />
     </>
