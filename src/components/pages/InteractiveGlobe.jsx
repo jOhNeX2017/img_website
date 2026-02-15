@@ -277,6 +277,171 @@ const countriesData = [
     students: '15K+ International',
     topPrograms: ['Medicine', 'Agriculture', 'Tango & Arts'],
     description: 'European-style education in South America with low tuition costs.'
+  },
+  {
+    id: 'turkey',
+    name: 'Turkey',
+    lat: 38.9637,
+    lng: 35.2433,
+    flag: '🇹🇷',
+    universities: '200+',
+    students: '150K+ International',
+    topPrograms: ['Medicine', 'Engineering', 'History'],
+    description: 'Bridge between Europe and Asia with affordable, quality education.'
+  },
+  {
+    id: 'saudi-arabia',
+    name: 'Saudi Arabia',
+    lat: 23.8859,
+    lng: 45.0792,
+    flag: '🇸🇦',
+    universities: '30+',
+    students: '40K+ International',
+    topPrograms: ['Petroleum Engineering', 'Islamic Studies', 'Business'],
+    description: 'Modern universities with generous scholarships and growing internationalization.'
+  },
+  {
+    id: 'malaysia',
+    name: 'Malaysia',
+    lat: 4.2105,
+    lng: 101.9758,
+    flag: '🇲🇾',
+    universities: '70+',
+    students: '130K+ International',
+    topPrograms: ['Engineering', 'Business', 'IT'],
+    description: 'Affordable education hub with diverse culture and English-taught programs.'
+  },
+  {
+    id: 'thailand',
+    name: 'Thailand',
+    lat: 15.8700,
+    lng: 100.9925,
+    flag: '🇹🇭',
+    universities: '150+',
+    students: '30K+ International',
+    topPrograms: ['Hospitality', 'International Relations', 'Medicine'],
+    description: 'Beautiful country with affordable living and growing international programs.'
+  },
+  {
+    id: 'norway',
+    name: 'Norway',
+    lat: 60.4720,
+    lng: 8.4689,
+    flag: '🇳🇴',
+    universities: '40+',
+    students: '20K+ International',
+    topPrograms: ['Marine Sciences', 'Energy', 'Sustainability'],
+    description: 'High quality of life with tuition-free education at public universities.'
+  },
+  {
+    id: 'denmark',
+    name: 'Denmark',
+    lat: 56.2639,
+    lng: 9.5018,
+    flag: '🇩🇰',
+    universities: '30+',
+    students: '35K+ International',
+    topPrograms: ['Design', 'Renewable Energy', 'Social Sciences'],
+    description: 'Innovative education system with focus on sustainability and happiness.'
+  },
+  {
+    id: 'poland',
+    name: 'Poland',
+    lat: 51.9194,
+    lng: 19.1451,
+    flag: '🇵🇱',
+    universities: '130+',
+    students: '80K+ International',
+    topPrograms: ['Medicine', 'Engineering', 'Business'],
+    description: 'Affordable European education with English-taught programs and rich history.'
+  },
+  {
+    id: 'portugal',
+    name: 'Portugal',
+    lat: 39.3999,
+    lng: -8.2245,
+    flag: '🇵🇹',
+    universities: '50+',
+    students: '60K+ International',
+    topPrograms: ['Tourism', 'Marine Biology', 'Business'],
+    description: 'Beautiful coastline with affordable living and welcoming culture.'
+  },
+  {
+    id: 'chile',
+    name: 'Chile',
+    lat: -35.6751,
+    lng: -71.5430,
+    flag: '🇨🇱',
+    universities: '60+',
+    students: '12K+ International',
+    topPrograms: ['Astronomy', 'Mining', 'Wine Studies'],
+    description: 'Stable economy with strong education system and stunning natural landscapes.'
+  },
+  {
+    id: 'colombia',
+    name: 'Colombia',
+    lat: 4.5709,
+    lng: -74.2973,
+    flag: '🇨🇴',
+    universities: '80+',
+    students: '10K+ International',
+    topPrograms: ['Coffee Studies', 'Music', 'Business'],
+    description: 'Vibrant culture with improving education infrastructure and affordability.'
+  },
+  {
+    id: 'morocco',
+    name: 'Morocco',
+    lat: 31.7917,
+    lng: -7.0926,
+    flag: '🇲🇦',
+    universities: '40+',
+    students: '15K+ International',
+    topPrograms: ['Arabic Studies', 'International Business', 'Tourism'],
+    description: 'Gateway to Africa with French and English programs and rich cultural heritage.'
+  },
+  {
+    id: 'kenya',
+    name: 'Kenya',
+    lat: -0.0236,
+    lng: 37.9062,
+    flag: '🇰🇪',
+    universities: '50+',
+    students: '20K+ International',
+    topPrograms: ['Wildlife Conservation', 'Agriculture', 'Tourism'],
+    description: 'Growing education hub in East Africa with English-taught programs.'
+  },
+  {
+    id: 'vietnam',
+    name: 'Vietnam',
+    lat: 14.0583,
+    lng: 108.2772,
+    flag: '🇻🇳',
+    universities: '235+',
+    students: '8K+ International',
+    topPrograms: ['Business', 'Technology', 'Language Studies'],
+    description: 'Emerging education market with affordable costs and dynamic culture.'
+  },
+  {
+    id: 'indonesia',
+    name: 'Indonesia',
+    lat: -0.7893,
+    lng: 113.9213,
+    flag: '🇮🇩',
+    universities: '120+',
+    students: '10K+ International',
+    topPrograms: ['Islamic Studies', 'Tourism', 'Engineering'],
+    description: 'Largest archipelago with diverse culture and growing international programs.'
+  },
+  {
+    id: 'austria',
+    name: 'Austria',
+    lat: 47.5162,
+    lng: 14.5501,
+    flag: '🇦🇹',
+    universities: '70+',
+    students: '90K+ International',
+    topPrograms: ['Music', 'Medicine', 'Engineering'],
+    description: 'Historic academic tradition with low tuition and beautiful alpine setting.'
   }
 ]
 

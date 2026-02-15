@@ -57,7 +57,7 @@ const InstitutionalScholarships = () => {
       </div>
 
       {/* Scholarship Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className={`grid grid-cols-1 ${showAllDetails ? '' : 'md:grid-cols-2'} gap-6`}>
         {items.map((scholarship) => (
           <div key={scholarship.id} className={`${showAllDetails ? 'glass-card p-3' : ''} space-y-4`}>
             {/* Main Card */}
@@ -142,13 +142,13 @@ const InstitutionalScholarships = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {/* 2-Skill Package */}
                   {scholarship.detailedInfo.twoSkillPackage && (
-                    <div className="bg-white/5 rounded-lg p-3">
-                      <h4 className="text-white font-semibold text-sm mb-1">{scholarship.detailedInfo.twoSkillPackage.title}</h4>
-                      <p className="text-gray-400 text-xs mb-2">{scholarship.detailedInfo.twoSkillPackage.subtitle}</p>
+                    <div className="bg-white/5 rounded-lg p-4">
+                      <h4 className="text-white font-semibold text-base mb-2">{scholarship.detailedInfo.twoSkillPackage.title}</h4>
+                      <p className="text-gray-400 text-sm mb-3">{scholarship.detailedInfo.twoSkillPackage.subtitle}</p>
                       <div className="space-y-2">
                         {scholarship.detailedInfo.twoSkillPackage.divisions ? (
                           scholarship.detailedInfo.twoSkillPackage.divisions.map((div, idx) => (
-                            <div key={idx} className="text-xs">
+                            <div key={idx} className="text-sm">
                               <span style={{ color: 'var(--color-accent)' }} className="font-medium">{div.grades}: </span>
                               <span className="text-gray-300">
                                 🥇 {div.rewards['1st']} • 🥈 {div.rewards['2nd']} • 🥉 {div.rewards['3rd']}
@@ -157,7 +157,7 @@ const InstitutionalScholarships = () => {
                           ))
                         ) : scholarship.detailedInfo.twoSkillPackage.rewards ? (
                           scholarship.detailedInfo.twoSkillPackage.rewards.map((reward, idx) => (
-                            <div key={idx} className="text-xs">
+                            <div key={idx} className="text-sm">
                               <span style={{ color: 'var(--color-accent)' }} className="font-medium">{reward.position}: </span>
                               <span className="text-gray-300">{reward.prize}</span>
                             </div>
@@ -165,20 +165,20 @@ const InstitutionalScholarships = () => {
                         ) : null}
                       </div>
                       {scholarship.detailedInfo.twoSkillPackage.event === null && (
-                        <p className="text-gray-500 text-xs mt-2 italic">*No event for this package</p>
+                        <p className="text-gray-500 text-sm mt-2 italic">*No event for this package</p>
                       )}
                     </div>
                   )}
 
                   {/* 3-Skill Package */}
                   {scholarship.detailedInfo.threeSkillPackage && (
-                    <div className="bg-white/5 rounded-lg p-3">
-                      <h4 className="text-white font-semibold text-sm mb-1">{scholarship.detailedInfo.threeSkillPackage.title}</h4>
-                      <p className="text-gray-400 text-xs mb-2">{scholarship.detailedInfo.threeSkillPackage.subtitle}</p>
+                    <div className="bg-white/5 rounded-lg p-4">
+                      <h4 className="text-white font-semibold text-base mb-2">{scholarship.detailedInfo.threeSkillPackage.title}</h4>
+                      <p className="text-gray-400 text-sm mb-3">{scholarship.detailedInfo.threeSkillPackage.subtitle}</p>
                       <div className="space-y-2">
                         {scholarship.detailedInfo.threeSkillPackage.divisions ? (
                           scholarship.detailedInfo.threeSkillPackage.divisions.map((div, idx) => (
-                            <div key={idx} className="text-xs">
+                            <div key={idx} className="text-sm">
                               <span style={{ color: 'var(--color-accent)' }} className="font-medium">{div.grades}: </span>
                               <span className="text-gray-300">
                                 🥇 {div.rewards['1st']} • 🥈 {div.rewards['2nd']} • 🥉 {div.rewards['3rd']}
@@ -187,7 +187,7 @@ const InstitutionalScholarships = () => {
                           ))
                         ) : scholarship.detailedInfo.threeSkillPackage.rewards ? (
                           scholarship.detailedInfo.threeSkillPackage.rewards.map((reward, idx) => (
-                            <div key={idx} className="text-xs">
+                            <div key={idx} className="text-sm">
                               <span style={{ color: 'var(--color-accent)' }} className="font-medium">{reward.position}: </span>
                               <span className="text-gray-300">{reward.prize}</span>
                             </div>
@@ -196,11 +196,11 @@ const InstitutionalScholarships = () => {
                       </div>
                       {scholarship.detailedInfo.threeSkillPackage.event && (
                         <div className="mt-3 pt-3 border-t border-white/10">
-                          <h5 className="text-white font-medium text-xs mb-1 flex items-center gap-1">
+                          <h5 className="text-white font-medium text-sm mb-1 flex items-center gap-1">
                             🎉 {scholarship.detailedInfo.threeSkillPackage.event.title}
                           </h5>
-                          <p className="text-gray-400 text-xs">{scholarship.detailedInfo.threeSkillPackage.event.participants}</p>
-                          <p className="text-gray-400 text-xs">{scholarship.detailedInfo.threeSkillPackage.event.menu}</p>
+                          <p className="text-gray-400 text-sm">{scholarship.detailedInfo.threeSkillPackage.event.participants}</p>
+                          <p className="text-gray-400 text-sm">{scholarship.detailedInfo.threeSkillPackage.event.menu}</p>
                         </div>
                       )}
                     </div>
@@ -209,12 +209,12 @@ const InstitutionalScholarships = () => {
 
                 {/* 4-Skill Package */}
                 {scholarship.detailedInfo.fourSkillPackage && (
-                  <div className="bg-white/5 rounded-lg p-3">
-                    <h4 className="text-white font-semibold text-sm mb-1">{scholarship.detailedInfo.fourSkillPackage.title}</h4>
-                    <p className="text-gray-400 text-xs mb-2">{scholarship.detailedInfo.fourSkillPackage.subtitle}</p>
+                  <div className="bg-white/5 rounded-lg p-4">
+                    <h4 className="text-white font-semibold text-base mb-2">{scholarship.detailedInfo.fourSkillPackage.title}</h4>
+                    <p className="text-gray-400 text-sm mb-3">{scholarship.detailedInfo.fourSkillPackage.subtitle}</p>
                     <div className="space-y-2">
                       {scholarship.detailedInfo.fourSkillPackage.rewards && scholarship.detailedInfo.fourSkillPackage.rewards.map((reward, idx) => (
-                        <div key={idx} className="text-xs">
+                        <div key={idx} className="text-sm">
                           <span style={{ color: 'var(--color-accent)' }} className="font-medium">{reward.position}: </span>
                           <span className="text-gray-300">{reward.prize}</span>
                         </div>
@@ -222,11 +222,11 @@ const InstitutionalScholarships = () => {
                     </div>
                     {scholarship.detailedInfo.fourSkillPackage.event && (
                       <div className="mt-3 pt-3 border-t border-white/10">
-                        <h5 className="text-white font-medium text-xs mb-1 flex items-center gap-1">
+                        <h5 className="text-white font-medium text-sm mb-1 flex items-center gap-1">
                           🎉 {scholarship.detailedInfo.fourSkillPackage.event.title}
                         </h5>
-                        <p className="text-gray-400 text-xs">{scholarship.detailedInfo.fourSkillPackage.event.participants}</p>
-                        <p className="text-gray-400 text-xs">{scholarship.detailedInfo.fourSkillPackage.event.menu}</p>
+                        <p className="text-gray-400 text-sm">{scholarship.detailedInfo.fourSkillPackage.event.participants}</p>
+                        <p className="text-gray-400 text-sm">{scholarship.detailedInfo.fourSkillPackage.event.menu}</p>
                       </div>
                     )}
                   </div>
@@ -234,11 +234,11 @@ const InstitutionalScholarships = () => {
 
                 {/* Events Section (for Card 1 style with combined events) */}
                 {scholarship.detailedInfo.events && (
-                  <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-3 border border-purple-500/20">
-                    <h4 className="text-white font-semibold text-sm mb-2 flex items-center gap-2">
+                  <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-4 border border-purple-500/20">
+                    <h4 className="text-white font-semibold text-base mb-2 flex items-center gap-2">
                       🎉 {scholarship.detailedInfo.events.title}
                     </h4>
-                    <div className="space-y-1.5 text-xs text-gray-300">
+                    <div className="space-y-1.5 text-sm text-gray-300">
                       {scholarship.detailedInfo.events.twoSkillEvent && (
                         <div>
                           <span className="font-medium text-purple-300">2-Skill Event:</span> {scholarship.detailedInfo.events.twoSkillEvent.participants}
