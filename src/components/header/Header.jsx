@@ -63,6 +63,19 @@ const Header = () => {
   }
 
   const handleNavClick = (key) => {
+    // Special handling for 'more' to scroll to course modules
+    if (key === 'more') {
+      navigate('/')
+      setMobileMenuOpen(false)
+      setTimeout(() => {
+        const courseModulesSection = document.getElementById('course-modules')
+        if (courseModulesSection) {
+          courseModulesSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+      }, 100)
+      return
+    }
+
     const path = routeMap[key] || '/'
     navigate(path)
     setMobileMenuOpen(false)

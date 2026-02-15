@@ -159,7 +159,7 @@ const CourseModules = () => {
         id="course-modules"
         className="w-full scroll-mt-20 mt-8 relative"
       >
-        <div className="flex glass-card h-[70vh] sticky top-0">
+        <div className="flex glass-card h-[100vh] sticky top-0">
           {/* Left Step Bar - Sticky */}
           <div className="hidden lg:flex flex-col justify-start w-24 flex-shrink-0 bg-gray-900/40 backdrop-blur-sm border border-white/20 rounded-tl-[18px] rounded-bl-[18px]">
             <div className="flex flex-col gap-2">
@@ -214,8 +214,9 @@ const CourseModules = () => {
                 <div
                   key={section.id}
                   ref={(el) => (sectionRefs.current[index] = el)}
+                  data-module-id={section.id}
                   className={`
-                    min-h-[70vh] flex flex-col xl:flex-row items-center justify-center gap-10 xl:gap-48 pt-12 pb-16
+                    min-h-[92vh] flex flex-col xl:flex-row items-center justify-center gap-10 xl:gap-48 pt-12 pb-16
                     transition-all duration-500
                     ${activeStep === section.id ? 'opacity-100' : 'opacity-20 translate-y-4 scale-95'}
                   `}
@@ -223,12 +224,12 @@ const CourseModules = () => {
                    {/* Section Content */}
                    <div className="flex-1 max-w-2xl">
                      {/* Title */}
-                     <h2 className="text-3xl font-bold text-white tracking-tight animate-fadeInUp">
+                     <h2 className="text-5xl font-bold text-white tracking-tight animate-fadeInUp">
                        {section.title}
                      </h2>
 
                      {/* Description */}
-                     <p className="text-gray-400 text-md mb-3 leading-relaxed animate-fadeInUp font-light" style={{ animationDelay: '200ms' }}>
+                     <p className="text-gray-400 text-xl mb-3 leading-relaxed animate-fadeInUp font-light" style={{ animationDelay: '200ms' }}>
                        {section.description}
                      </p>
 
@@ -248,11 +249,11 @@ const CourseModules = () => {
                           >
                             <div className="flex items-center gap-6 flex-1">
                               <span 
-                                className={`${section.numberColor} font-black text-md min-w-[3rem] opacity-50 group-hover:opacity-100 transition-opacity`}
+                                className={`${section.numberColor} font-black text-lg min-w-[3rem] opacity-50 group-hover:opacity-100 transition-opacity`}
                               >
                                 {lesson.id}
                               </span>
-                              <span className="text-gray-300 font-medium group-hover:text-white transition-colors text-md">
+                              <span className="text-gray-300 font-medium group-hover:text-white transition-colors text-lg">
                                 {lesson.title}
                               </span>
                             </div>
@@ -275,7 +276,7 @@ const CourseModules = () => {
                           {/* Lesson Content Description */}
                           {lesson.content && (
                             <div className="pl-16 pr-4 pb-4 pt-0 animate-fadeInUp" style={{ animationDelay: `${350 + lessonIndex * 50}ms` }}>
-                               <p className="text-gray-400 text-sm leading-relaxed font-light opacity-80 border-l-2 border-white/10 pl-4">
+                               <p className="text-gray-400 text-base leading-relaxed font-light opacity-80 border-l-2 border-white/10 pl-4">
                                 {lesson.content}
                               </p>
                             </div>
@@ -286,17 +287,70 @@ const CourseModules = () => {
                    </div>
 
                    {/* Section Icon/Image with background glow */}
-                   <div className="relative flex-shrink-0 w-64 h-64 sm:w-80 sm:h-80 xl:w-[450px] xl:h-[450px] flex items-center justify-center group">
-                     {/* Background glow effect */}
+                   <div className="relative flex-shrink-0 w-64 h-64 sm:w-80 sm:h-80 xl:w-[450px] xl:h-[450px] flex items-center justify-center group cursor-pointer">
+                     {/* Animated background glow effect */}
                      <div 
-                       className="absolute inset-0 rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-700"
+                       className="absolute inset-0 rounded-full blur-[100px] animate-glow-pulse transition-all duration-700 group-hover:blur-[120px]"
+                       style={{ 
+                         backgroundColor: section.accentColor,
+                         opacity: 0.2
+                       }}
+                     />
+                     
+                     {/* Secondary glow layer for depth */}
+                     <div 
+                       className="absolute inset-0 rounded-full blur-[60px] opacity-30 group-hover:opacity-50 transition-opacity duration-700"
                        style={{ backgroundColor: section.accentColor }}
                      />
                      
+                     {/* Animated Graphic Overlays */}
+                     {section.id === 1 && (
+                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                         <div className="absolute w-32 h-32 rounded-full border-[3px] animate-scale-breath" style={{ borderColor: section.accentColor, opacity: 0.4 }} />
+                         <div className="absolute w-48 h-48 rounded-full border-[3px] animate-scale-breath" style={{ borderColor: section.accentColor, opacity: 0.25, animationDelay: '1s' }} />
+                         <div className="absolute w-64 h-64 rounded-full border-[3px] animate-scale-breath" style={{ borderColor: section.accentColor, opacity: 0.15, animationDelay: '2s' }} />
+                       </div>
+                     )}
+                     
+                     {section.id === 2 && (
+                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                         <div className="absolute w-48 h-48 border-[3px] rounded-2xl animate-rotate-slow" style={{ borderColor: section.accentColor, opacity: 0.3 }} />
+                         <div className="absolute w-48 h-48 border-[3px] rounded-2xl animate-counter-rotate-slow" style={{ borderColor: section.accentColor, opacity: 0.2 }} />
+                       </div>
+                     )}
+                     
+                     {section.id === 3 && (
+                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                         <div className="absolute w-48 h-48 border-[3px] rounded-2xl animate-rotate-slow" style={{ borderColor: section.accentColor, opacity: 0.4 }} />
+                         <div className="absolute w-48 h-48 border-[3px] rounded-2xl animate-counter-rotate-slow" style={{ borderColor: section.accentColor, opacity: 0.25 }} />
+                         <div className="absolute w-32 h-32 border-[3px] rounded-xl" style={{ borderColor: section.accentColor, opacity: 0.5 }} />
+                       </div>
+                     )}
+                     
+                     {section.id === 4 && (
+                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                         <div className="absolute w-56 h-56 rounded-full border-[3px] animate-scale-breath" style={{ borderColor: section.accentColor, opacity: 0.3 }} />
+                         <div className="absolute w-56 h-28 rounded-full border-[3px] animate-pulse" style={{ borderColor: section.accentColor, opacity: 0.2 }} />
+                         <div className="absolute w-56 h-28 rounded-full border-[3px] rotate-90 animate-pulse" style={{ borderColor: section.accentColor, opacity: 0.2, animationDelay: '0.5s' }} />
+                         <div className="absolute w-40 h-20 rounded-full border-[3px] rotate-45 animate-pulse" style={{ borderColor: section.accentColor, opacity: 0.15, animationDelay: '1s' }} />
+                       </div>
+                     )}
+                     
+                     {section.id === 5 && (
+                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                         <div className="absolute w-48 h-48 border-[3px] rounded-2xl animate-rotate-slow" style={{ borderColor: section.accentColor, opacity: 0.3 }} />
+                         <div className="absolute w-48 h-48 border-[3px] rounded-2xl animate-counter-rotate-slow" style={{ borderColor: section.accentColor, opacity: 0.2 }} />
+                       </div>
+                     )}
+                     
+                     {/* Image with enhanced animations */}
                      <img 
                        src={section.image} 
                        alt={section.title} 
-                       className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-float transform transition-transform duration-700 group-hover:scale-105"
+                       className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_25px_60px_rgba(0,0,0,0.6)] animate-float-rotate transition-all duration-700 group-hover:scale-110 group-hover:drop-shadow-[0_30px_80px_rgba(0,0,0,0.8)]"
+                       style={{
+                         willChange: 'transform',
+                       }}
                      />
                    </div>
                  </div>

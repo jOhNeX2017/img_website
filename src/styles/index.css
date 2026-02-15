@@ -660,6 +660,80 @@ body {
   transition: transform 0.2s ease;
 }
 
+/* Course Module Image Animations */
+@keyframes floatRotate {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(-2deg);
+  }
+}
+
+@keyframes glowPulseEnhanced {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes rotateShape {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counterRotateShape {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes scaleBreath {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-float-rotate {
+  animation: floatRotate 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glowPulseEnhanced 3s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotateShape 20s linear infinite;
+}
+
+.animate-counter-rotate-slow {
+  animation: counterRotateShape 15s linear infinite;
+}
+
+.animate-scale-breath {
+  animation: scaleBreath 4s ease-in-out infinite;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .glass-card {
