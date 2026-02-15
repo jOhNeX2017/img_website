@@ -59,7 +59,7 @@ const HomeSection = () => {
                 <span className="text-gray-400">{home?.stats?.studentCount}</span>{' '}
                 <span className="font-bold text-lg">{home?.stats?.enrolledText}</span>
               </p>
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <div className="flex">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <svg key={star} className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -69,7 +69,7 @@ const HomeSection = () => {
                 </div>
                 <span className="text-gray-400 text-sm">on</span>
                 <span className="text-teal-400 text-sm font-medium">{home?.stats?.ratingPlatform || 'Trustpilot'}</span>
-              </div>
+              </div> */}
             </div>
           </div>
 

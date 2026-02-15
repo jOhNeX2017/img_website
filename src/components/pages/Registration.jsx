@@ -129,9 +129,9 @@ const Registration = () => {
       </div>
 
       {/* Footer Note */}
-      <p className="text-center text-gray-500 text-sm mt-6 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+      {/* <p className="text-center text-gray-500 text-sm mt-6 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
         By registering, you agree to our partnership terms and conditions
-      </p>
+      </p> */}
     </section>
   )
 }
