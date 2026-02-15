@@ -1,10 +1,12 @@
 import { useContent } from '../../context/ContentContext'
 import InteractiveGlobe from './InteractiveGlobe'
+import CourseModules from './CourseModules'
 
 const HomeSection = () => {
   const { home, brand } = useContent()
   
   return (
+    <>
     <section id="home" className="max-w-full mx-auto scroll-mt-20">
       <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 px-4 lg:px-8">
         {/* Left Content */}
@@ -113,6 +115,10 @@ const HomeSection = () => {
         </div>
       </div>
     </section>
+
+    {/* Course Modules content appears on scroll */}
+    <CourseModules />
+    </>
   )
 }
 

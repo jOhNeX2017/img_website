@@ -61,9 +61,9 @@ const CareerBoost = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg sm:text-xl font-semibold text-white leading-relaxed w-full">
+                <span className="font-semibold text-white leading-relaxed w-full">
                   {feature.title}
-                </h3>
+                </span>
               </div>
             ))}
           </div>

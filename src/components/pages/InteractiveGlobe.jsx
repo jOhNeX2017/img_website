@@ -112,6 +112,171 @@ const countriesData = [
     students: '100K+ International',
     topPrograms: ['Business', 'Aviation', 'Hospitality'],
     description: 'Modern campuses with international branch universities and tax-free earnings.'
+  },
+  {
+    id: 'china',
+    name: 'China',
+    lat: 35.8617,
+    lng: 104.1954,
+    flag: '🇨🇳',
+    universities: '2,900+',
+    students: '500K+ International',
+    topPrograms: ['Engineering', 'Business', 'Traditional Medicine'],
+    description: 'Ancient culture meets modern innovation with scholarship opportunities.'
+  },
+  {
+    id: 'south-korea',
+    name: 'South Korea',
+    lat: 35.9078,
+    lng: 127.7669,
+    flag: '🇰🇷',
+    universities: '190+',
+    students: '150K+ International',
+    topPrograms: ['Technology', 'K-Culture', 'Engineering'],
+    description: 'Tech-savvy education system with generous scholarships and vibrant culture.'
+  },
+  {
+    id: 'netherlands',
+    name: 'Netherlands',
+    lat: 52.1326,
+    lng: 5.2913,
+    flag: '🇳🇱',
+    universities: '75+',
+    students: '120K+ International',
+    topPrograms: ['International Business', 'Water Management', 'Agriculture'],
+    description: 'Progressive education in English with cycling-friendly cities and liberal culture.'
+  },
+  {
+    id: 'switzerland',
+    name: 'Switzerland',
+    lat: 46.8182,
+    lng: 8.2275,
+    flag: '🇨🇭',
+    universities: '12',
+    students: '50K+ International',
+    topPrograms: ['Hospitality', 'Banking', 'Research'],
+    description: 'World-class research universities in a stunning alpine setting.'
+  },
+  {
+    id: 'new-zealand',
+    name: 'New Zealand',
+    lat: -40.9006,
+    lng: 174.8860,
+    flag: '🇳🇿',
+    universities: '8',
+    students: '100K+ International',
+    topPrograms: ['Environmental Science', 'Agriculture', 'Film'],
+    description: 'Beautiful landscapes with high-quality education and work opportunities.'
+  },
+  {
+    id: 'ireland',
+    name: 'Ireland',
+    lat: 53.4129,
+    lng: -8.2439,
+    flag: '🇮🇪',
+    universities: '35+',
+    students: '35K+ International',
+    topPrograms: ['Technology', 'Pharmaceuticals', 'Literature'],
+    description: 'Friendly English-speaking nation with strong tech industry presence.'
+  },
+  {
+    id: 'sweden',
+    name: 'Sweden',
+    lat: 60.1282,
+    lng: 18.6435,
+    flag: '🇸🇪',
+    universities: '50+',
+    students: '40K+ International',
+    topPrograms: ['Sustainability', 'Innovation', 'Design'],
+    description: 'Innovative education system with focus on sustainability and equality.'
+  },
+  {
+    id: 'italy',
+    name: 'Italy',
+    lat: 41.8719,
+    lng: 12.5674,
+    flag: '🇮🇹',
+    universities: '90+',
+    students: '100K+ International',
+    topPrograms: ['Architecture', 'Fashion Design', 'Culinary Arts'],
+    description: 'Historic universities with rich cultural heritage and artistic excellence.'
+  },
+  {
+    id: 'spain',
+    name: 'Spain',
+    lat: 40.4637,
+    lng: -3.7492,
+    flag: '🇪🇸',
+    universities: '80+',
+    students: '80K+ International',
+    topPrograms: ['Business', 'Tourism', 'Language Studies'],
+    description: 'Vibrant culture and affordable living with excellent business schools.'
+  },
+  {
+    id: 'brazil',
+    name: 'Brazil',
+    lat: -14.2350,
+    lng: -51.9253,
+    flag: '🇧🇷',
+    universities: '200+',
+    students: '20K+ International',
+    topPrograms: ['Environmental Studies', 'Agriculture', 'Sports Science'],
+    description: 'Emerging education hub with diverse ecosystems and growing economy.'
+  },
+  {
+    id: 'russia',
+    name: 'Russia',
+    lat: 61.5240,
+    lng: 105.3188,
+    flag: '🇷🇺',
+    universities: '750+',
+    students: '300K+ International',
+    topPrograms: ['Engineering', 'Medicine', 'Space Science'],
+    description: 'Strong academic tradition with affordable tuition and diverse program offerings.'
+  },
+  {
+    id: 'south-africa',
+    name: 'South Africa',
+    lat: -30.5595,
+    lng: 22.9375,
+    flag: '🇿🇦',
+    universities: '26',
+    students: '50K+ International',
+    topPrograms: ['Mining', 'Wildlife Conservation', 'Business'],
+    description: 'Diverse cultural experience with English-taught programs and stunning landscapes.'
+  },
+  {
+    id: 'egypt',
+    name: 'Egypt',
+    lat: 26.8206,
+    lng: 30.8025,
+    flag: '🇪🇬',
+    universities: '50+',
+    students: '30K+ International',
+    topPrograms: ['Archaeology', 'Medicine', 'Engineering'],
+    description: 'Ancient civilization with modern universities and affordable education.'
+  },
+  {
+    id: 'mexico',
+    name: 'Mexico',
+    lat: 23.6345,
+    lng: -102.5528,
+    flag: '🇲🇽',
+    universities: '150+',
+    students: '25K+ International',
+    topPrograms: ['Spanish Language', 'International Relations', 'Arts'],
+    description: 'Rich culture with affordable living and growing international programs.'
+  },
+  {
+    id: 'argentina',
+    name: 'Argentina',
+    lat: -38.4161,
+    lng: -63.6167,
+    flag: '🇦🇷',
+    universities: '100+',
+    students: '15K+ International',
+    topPrograms: ['Medicine', 'Agriculture', 'Tango & Arts'],
+    description: 'European-style education in South America with low tuition costs.'
   }
 ]
 
@@ -207,33 +372,35 @@ const InteractiveGlobe = () => {
         varying vec3 vPosition;
         
         void main() {
-          // Arctic Aurora Theme Colors
-          vec3 deepBlue = vec3(0.02, 0.08, 0.18);
-          vec3 midBlue = vec3(0.04, 0.25, 0.45);
-          vec3 brightCyan = vec3(0.0, 0.85, 1.0);
-          vec3 accentCyan = vec3(0.2, 0.95, 1.0);
+          // Professional Premium Color Palette - Deep Navy & Elegant Teal
+          vec3 deepNavy = vec3(0.02, 0.05, 0.12);
+          vec3 richBlue = vec3(0.04, 0.12, 0.24);
+          vec3 elegantTeal = vec3(0.08, 0.35, 0.45);
+          vec3 softCyan = vec3(0.15, 0.48, 0.58);
           
-          // Fresnel for edge glow
-          float fresnel = pow(1.0 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.5);
+          // Refined Fresnel for subtle edge glow
+          float fresnel = pow(1.0 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 3.0);
           
-          // Multiple wave patterns for depth
-          float wave1 = sin(vPosition.y * 4.0 + time * 0.3) * 0.5 + 0.5;
-          float wave2 = sin(vPosition.x * 3.0 - time * 0.4) * 0.5 + 0.5;
-          float wave3 = sin(vPosition.z * 5.0 + time * 0.2) * 0.5 + 0.5;
+          // Smooth, elegant wave patterns
+          float wave1 = sin(vPosition.y * 3.5 + time * 0.25) * 0.5 + 0.5;
+          float wave2 = sin(vPosition.x * 2.8 - time * 0.35) * 0.5 + 0.5;
+          float wave3 = sin(vPosition.z * 4.2 + time * 0.18) * 0.5 + 0.5;
           
-          // Combine waves
+          // Smooth wave combination
           float combinedWave = (wave1 + wave2 + wave3) / 3.0;
+          combinedWave = smoothstep(0.3, 0.7, combinedWave);
           
-          // Create flowing aurora energy pattern
-          float energy = sin(vPosition.y * 8.0 + vPosition.x * 6.0 + time * 0.5) * 0.5 + 0.5;
+          // Sophisticated energy flow
+          float energy = sin(vPosition.y * 6.0 + vPosition.x * 4.5 + time * 0.4) * 0.5 + 0.5;
+          energy = smoothstep(0.35, 0.65, energy);
           
-          // Mix colors based on patterns
-          vec3 baseColor = mix(deepBlue, midBlue, combinedWave);
-          vec3 energyColor = mix(baseColor, brightCyan, energy * 0.35);
-          vec3 finalColor = mix(energyColor, accentCyan, fresnel * 0.5);
+          // Premium color mixing
+          vec3 baseColor = mix(deepNavy, richBlue, combinedWave * 0.7);
+          vec3 energyColor = mix(baseColor, elegantTeal, energy * 0.18);
+          vec3 finalColor = mix(energyColor, softCyan, fresnel * 0.25);
           
-          // Add subtle ethereal glow
-          finalColor += vec3(0.0, 0.15, 0.25) * fresnel;
+          // Refined subtle glow
+          finalColor += vec3(0.05, 0.12, 0.18) * fresnel * 0.6;
           
           gl_FragColor = vec4(finalColor, 1.0);
         }
@@ -254,10 +421,10 @@ const InteractiveGlobe = () => {
     
     const mapGeometry = new THREE.SphereGeometry(1.52, 64, 64)
     const mapMaterial = new THREE.MeshBasicMaterial({
-      color: 0x22d3ee,
+      color: 0x2d7a8f,
       alphaMap: worldMapTex,
       transparent: true,
-      opacity: 0.7,
+      opacity: 0.42,
       blending: THREE.AdditiveBlending,
       side: THREE.FrontSide,
       depthWrite: false
@@ -291,9 +458,9 @@ const InteractiveGlobe = () => {
         const points = curve.getPoints(segments)
         const geometry = new THREE.BufferGeometry().setFromPoints(points)
         const material = new THREE.LineBasicMaterial({
-          color: 0x0ea5e9, // Cyan-500
+          color: 0x1e5d6f, // Refined teal-blue
           transparent: true,
-          opacity: 0.2,
+          opacity: 0.12,
         })
         
         const line = new THREE.Line(geometry, material)
@@ -324,9 +491,9 @@ const InteractiveGlobe = () => {
         
         const geometry = new THREE.BufferGeometry().setFromPoints(points)
         const material = new THREE.LineBasicMaterial({
-          color: 0x06b6d4, // Cyan-400
+          color: 0x164e5a, // Deep teal
           transparent: true,
-          opacity: 0.15,
+          opacity: 0.10,
         })
         
         const line = new THREE.Line(geometry, material)
@@ -358,10 +525,10 @@ const InteractiveGlobe = () => {
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
     
     const particlesMaterial = new THREE.PointsMaterial({
-      color: 0x22d3ee, // Cyan-300
-      size: 0.012,
+      color: 0x3d8a9c, // Elegant cyan-teal
+      size: 0.010,
       transparent: true,
-      opacity: 0.8,
+      opacity: 0.35,
       blending: THREE.AdditiveBlending,
     })
     
@@ -381,8 +548,8 @@ const InteractiveGlobe = () => {
       fragmentShader: `
         varying vec3 vNormal;
         void main() {
-          float intensity = pow(0.7 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.8);
-          gl_FragColor = vec4(0.0, 0.658, 1.0, 1.0) * intensity;
+          float intensity = pow(0.65 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 3.2);
+          gl_FragColor = vec4(0.08, 0.35, 0.52, 1.0) * intensity * 0.8;
         }
       `,
       blending: THREE.AdditiveBlending,
@@ -405,8 +572,8 @@ const InteractiveGlobe = () => {
       fragmentShader: `
         varying vec3 vNormal;
         void main() {
-          float intensity = pow(0.45 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.2);
-          gl_FragColor = vec4(0.137, 0.764, 1.0, 1.0) * intensity * 0.7;
+          float intensity = pow(0.40 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.5);
+          gl_FragColor = vec4(0.12, 0.45, 0.62, 1.0) * intensity * 0.4;
         }
       `,
       blending: THREE.AdditiveBlending,
@@ -427,7 +594,7 @@ const InteractiveGlobe = () => {
       // Marker point with glow
       const markerGeometry = new THREE.SphereGeometry(0.035, 16, 16)
       const markerMaterial = new THREE.MeshBasicMaterial({
-        color: 0xfbbf24, // Gold/Amber-400 for high contrast
+        color: 0xe8b44f, // Refined elegant gold
       })
       const marker = new THREE.Mesh(markerGeometry, markerMaterial)
       marker.position.copy(position)
@@ -449,9 +616,9 @@ const InteractiveGlobe = () => {
       // Animated pulse ring
       const ringGeometry = new THREE.RingGeometry(0.05, 0.08, 32)
       const ringMaterial = new THREE.MeshBasicMaterial({
-        color: 0xf59e0b, // Amber-500
+        color: 0xdaa520, // Sophisticated gold
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.5,
         side: THREE.DoubleSide,
       })
       const ring = new THREE.Mesh(ringGeometry, ringMaterial)
@@ -462,9 +629,9 @@ const InteractiveGlobe = () => {
       // Outer pulse ring
       const ring2Geometry = new THREE.RingGeometry(0.08, 0.11, 32)
       const ring2Material = new THREE.MeshBasicMaterial({
-        color: 0xfbbf24, // Amber-400
+        color: 0xe8b44f, // Elegant gold
         transparent: true,
-        opacity: 0.6,
+        opacity: 0.38,
         side: THREE.DoubleSide,
       })
       const ring2 = new THREE.Mesh(ring2Geometry, ring2Material)
@@ -491,23 +658,23 @@ const InteractiveGlobe = () => {
       glow.onBeforeRender = animatePulse
     })
 
-    // Lighting - enhanced for more dramatic effect
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3)
+    // Professional Lighting - Elegant and Balanced
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.25)
     scene.add(ambientLight)
 
-    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1.0)
+    const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8)
     directionalLight1.position.set(5, 3, 5)
     scene.add(directionalLight1)
     
-    const directionalLight2 = new THREE.DirectionalLight(0x9333ea, 0.5)
+    const directionalLight2 = new THREE.DirectionalLight(0x7c3aed, 0.35)
     directionalLight2.position.set(-5, -3, -5)
     scene.add(directionalLight2)
 
-    const pointLight1 = new THREE.PointLight(0x0ea5e9, 1.8, 15)
+    const pointLight1 = new THREE.PointLight(0x2d7a8f, 1.0, 15)
     pointLight1.position.set(-3, 2, 4)
     scene.add(pointLight1)
     
-    const pointLight2 = new THREE.PointLight(0x22d3ee, 1.4, 12)
+    const pointLight2 = new THREE.PointLight(0x3d8a9c, 0.75, 12)
     pointLight2.position.set(3, -2, -4)
     scene.add(pointLight2)
 

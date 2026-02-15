@@ -158,19 +158,19 @@ const Header = () => {
                   {/* Exams Dropdown Panel */}
                   {link.key === 'exams' && examsDropdownOpen && (
                     <div 
-                      className="absolute left-0 top-full mt-3 w-[900px] rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden"
+                      className="absolute left-0 top-full mt-3 w-[900px] rounded-2xl shadow-2xl border border-[darkcyan] z-50 overflow-hidden"
                       style={{
-                        background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)',
+                        background: 'linear-gradient(180deg, #0a1420 0%, #1a2a3e 50%, #152030 100%)',
                         animation: 'fadeIn 0.3s ease-in-out',
                         boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)'
                       }}
                     >
                       {/* Header with gradient */}
                       <div 
-                        className="px-8 py-5 border-b border-gray-100"
-                        style={{
-                          background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)'
-                        }}
+                        className="px-8 py-5 border-b border-[darkcyan]"
+                        // style={{
+                        //   background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)'
+                        // }}
                       >
                         <div className="flex items-center gap-3">
                           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -184,7 +184,7 @@ const Header = () => {
                       <div className="p-8">
                         <div className="grid grid-cols-2 gap-6">
                           {/* TOEFL Column */}
-                          <div className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+                          <div className="text-white rounded-xl p-6 border border-[darkcyan] hover:shadow-lg transition-shadow duration-300">
                             <div className="flex items-start gap-4 mb-5">
                               <div 
                                 className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
@@ -198,10 +198,10 @@ const Header = () => {
                                 </svg>
                               </div>
                               <div>
-                                <h3 className="text-lg font-bold text-gray-900 mb-1">
+                                <h3 className="text-lg font-bold text-white mb-1">
                                   {examDetails.toefl.title}
                                 </h3>
-                                <p className="text-xs text-gray-500">Test of English as a Foreign Language</p>
+                                <p className="text-xs text-gray-300">Test of English as a Foreign Language</p>
                               </div>
                             </div>
                             <ul className="space-y-2.5">
@@ -209,7 +209,7 @@ const Header = () => {
                                 <li key={index}>
                                   <a
                                     href="#"
-                                    className="group flex items-center gap-3 text-sm text-gray-700 hover:text-orange-600 transition-all duration-200 p-2 rounded-lg hover:bg-orange-50"
+                                    className="group flex items-center gap-3 text-sm text-white hover:text-orange-600 transition-all duration-200 p-2 rounded-lg hover:bg-orange-50"
                                     onClick={(e) => {
                                       e.preventDefault()
                                       handleExamSectionClick(item.sectionId)
@@ -226,7 +226,7 @@ const Header = () => {
                           </div>
 
                           {/* IELTS Column */}
-                          <div className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+                          <div className="text-white rounded-xl p-6 border border-[darkcyan] hover:shadow-lg transition-shadow duration-300">
                             <div className="flex items-start gap-4 mb-5">
                               <div 
                                 className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
@@ -240,10 +240,10 @@ const Header = () => {
                                 </svg>
                               </div>
                               <div>
-                                <h3 className="text-lg font-bold text-gray-900 mb-1">
+                                <h3 className="text-lg font-bold text-white mb-1">
                                   {examDetails.ielts.title}
                                 </h3>
-                                <p className="text-xs text-gray-500">International English Language Testing System</p>
+                                <p className="text-xs text-gray-300">International English Language Testing System</p>
                               </div>
                             </div>
                             <ul className="space-y-2.5">
@@ -251,13 +251,13 @@ const Header = () => {
                                 <li key={index}>
                                   <a
                                     href="#"
-                                    className="group flex items-center gap-3 text-sm text-gray-700 hover:text-blue-600 transition-all duration-200 p-2 rounded-lg hover:bg-blue-50"
+                                    className="group flex items-center gap-3 text-sm text-white hover:text-blue-400 transition-all duration-200 p-2 rounded-lg hover:bg-blue-900/30"
                                     onClick={(e) => {
                                       e.preventDefault()
                                       handleExamSectionClick(item.sectionId)
                                     }}
                                   >
-                                    <svg className="w-4 h-4 text-blue-500 flex-shrink-0 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                    <svg className="w-4 h-4 text-blue-400 flex-shrink-0 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                     </svg>
                                     <span className="group-hover:translate-x-1 transition-transform duration-200">{item.text}</span>
@@ -269,7 +269,7 @@ const Header = () => {
                         </div>
 
                         {/* Footer CTA */}
-                        <div className="mt-6 pt-6 border-t border-gray-200 flex items-center justify-between">
+                        <div className="mt-4 flex items-center justify-between">
                           <div className="flex items-center gap-2 text-gray-500">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
