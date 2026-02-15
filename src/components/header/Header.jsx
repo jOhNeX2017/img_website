@@ -209,7 +209,7 @@ const Header = () => {
                                 <li key={index}>
                                   <a
                                     href="#"
-                                    className="group flex items-center gap-3 text-sm text-white hover:text-orange-600 transition-all duration-200 p-2 rounded-lg hover:bg-orange-50"
+                                    className="group flex items-center gap-3 text-sm text-white hover:text-orange-600 transition-all duration-200 p-2 rounded-lg hover:bg-blue-900/30"
                                     onClick={(e) => {
                                       e.preventDefault()
                                       handleExamSectionClick(item.sectionId)
