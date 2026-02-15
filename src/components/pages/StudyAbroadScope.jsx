@@ -62,9 +62,8 @@ const ExamsSection = () => {
               Benefits of Studying Abroad
           </h2>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            Studying abroad offers Indian students unique career and personal growth opportunities. 
-            Research shows international students can expect to earn <span className="font-semibold text-white">17% more</span> than 
-            peers who didn't study abroad.
+            Research indicates that international students can expect to earn significantly <span className="font-semibold text-white">higher salaries </span> compared to those who completed their studies domestically.  
+            Research shows international students can expect to earn 17% more.
           </p>
         </div>
 
@@ -83,9 +82,8 @@ const ExamsSection = () => {
             <li className="flex items-start">
               <span style={{ color: 'var(--color-accent)' }}>•</span>
               <span>
-                Students who study abroad earn{' '}
-                <span className="font-semibold text-white">on average 25% more</span> than their peers who don't, 
-                with the income gap particularly notable in fields like sociology, computer science, and engineering.
+                Students experience a{' '}
+                <span className="font-semibold text-white">25% boost in average</span> earnings, most notably within sociology , computer science and engineering
               </span>
             </li>
           </ul>
