@@ -31,7 +31,7 @@ const CourseModules = () => {
       id: 1,
       number: '01',
       title: egpt_primary?.title || 'EGPT Primary',
-      image: '/primary2.png',
+      image: '/courses/primary.png',
       description: renderDescription(egpt_primary?.description),
       lessons: egpt_primary?.lessons || [],
       accentColor: '#ff6b6b',
@@ -42,7 +42,7 @@ const CourseModules = () => {
       id: 2,
       number: '02',
       title: egpt_junior?.title || 'EGPT Junior',
-      image: '/primary.png',
+      image: '/courses/junior.png',
       description: renderDescription(egpt_junior?.description),
       lessons: egpt_junior?.lessons || [],
       accentColor: '#22d3ee',
@@ -53,7 +53,7 @@ const CourseModules = () => {
       id: 3,
       number: '03',
       title: egpt_senior?.title || 'EGPT Senior',
-      image: '/seniors.png',
+      image: '/courses/senior.png',
       description: renderDescription(egpt_senior?.description),
       lessons: egpt_senior?.lessons || [],
       accentColor: '#eab308',
@@ -64,7 +64,7 @@ const CourseModules = () => {
       id: 4,
       number: '04',
       title: egpt_unite?.title || 'EGPT Unite',
-      image: '/people.png', // Resusing existing image
+      image: '/courses/unite.png',
       description: renderDescription(egpt_unite?.description),
       lessons: egpt_unite?.lessons || [],
       accentColor: '#a855f7',
@@ -75,7 +75,7 @@ const CourseModules = () => {
       id: 5,
       number: '05',
       title: egpt_braille?.title || 'EGPT Braille',
-      image: '/handicap.png', // Placeholder or reuse
+      image: '/courses/braille.png', // Placeholder or reuse
       description: renderDescription(egpt_braille?.description),
       lessons: [], // No lessons for Braille yet
       accentColor: '#ec4899', // Pink for Braille

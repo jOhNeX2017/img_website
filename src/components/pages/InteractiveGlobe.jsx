@@ -116,8 +116,8 @@ const countriesData = [
   {
     id: 'china',
     name: 'China',
-    lat: 35.8617,
-    lng: 104.1954,
+    lat: 32.8617,
+    lng: 100.1954,
     flag: '🇨🇳',
     universities: '2,900+',
     students: '500K+ International',
@@ -442,7 +442,19 @@ const countriesData = [
     students: '90K+ International',
     topPrograms: ['Music', 'Medicine', 'Engineering'],
     description: 'Historic academic tradition with low tuition and beautiful alpine setting.'
-  }
+  },
+  {
+    id: 'iran',
+    name: 'Iran',
+    lat: 32.4279,
+    lng: 53.6880,
+    flag: '🇦🇮',
+    universities: '70+',
+    students: '90K+ International',
+    topPrograms: ['Music', 'Medicine', 'Engineering'],
+    description: 'Historic academic tradition with low tuition and beautiful alpine setting.'
+  },
+
 ]
 
 const InteractiveGlobe = () => {

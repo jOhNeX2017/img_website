@@ -236,7 +236,7 @@
             }
           }
         },
-        "image": "/primary2.png",
+        "image": "/courses/primary.png",
         "socialLinks": { "twitter": "#", "linkedin": "#" }
       },
       {
@@ -286,16 +286,16 @@
             }
           }
         },
-        "image": "/seniors.png",
+        "image": "/courses/senior.png",
         "socialLinks": { "twitter": "#", "linkedin": "#" }
       },
       {
         "id": 3,
         "title": "EGPT Unite",
         "institution": "Unite Achievement Program",
-        "date": "10 March 2026",
+        "date": "Coming Soon",
         "description": "Funded exchange program across European universities.",
-        "image": "/people.png",
+        "image": "/courses/unite.png",
         "socialLinks": { "twitter": "#", "linkedin": "#" }
       },
       {
@@ -304,7 +304,7 @@
         "institution": "Coming Soon",
         "date": "Coming Soon",
         "description": "Executive education fellowship for people with disabilities.",
-        "image": "/handicap.png",
+        "image": "/courses/braille.png",
         "socialLinks": { "twitter": "#", "linkedin": "#" }
       }
     ],
