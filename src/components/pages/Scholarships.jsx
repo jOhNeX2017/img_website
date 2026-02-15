@@ -4,6 +4,7 @@ import { useContent } from '../../context/ContentContext'
 const InstitutionalScholarships = () => {
   const [showInfo, setShowInfo] = useState(false)
   const [showAllDetails, setShowAllDetails] = useState(false)
+  const [expandedCard, setExpandedCard] = useState(null)
   const { scholarships, brand } = useContent()
 
   const defaultScholarships = [
@@ -30,10 +31,10 @@ const InstitutionalScholarships = () => {
       <div className="glass-card p-8 md:p-12">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <h2 className="text-[28px] md:text-[44px] font-bold text-white mb-3">
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
           {scholarships?.title || 'Institutional Scholarships & Events'}
         </h2>
-        <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-4">
+        <p className="text-gray-300 text-xl max-w-3xl mx-auto mb-4">
           {scholarships?.description || `A selection of the best scholarships and events curated by ${brand?.name || 'our'} partners.`}
         </p>
         <button 
@@ -57,15 +58,23 @@ const InstitutionalScholarships = () => {
       </div>
 
       {/* Scholarship Cards Grid */}
-      <div className={`grid grid-cols-1 ${showAllDetails ? '' : 'md:grid-cols-2'} gap-6`}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-500">
         {items.map((scholarship) => (
-          <div key={scholarship.id} className={`${showAllDetails ? 'glass-card p-3' : ''} space-y-4`}>
+          <div 
+            key={scholarship.id} 
+            className={`space-y-4 transition-all duration-500 ${
+              expandedCard === scholarship.id ? 'md:col-span-2' : ''
+            }`}
+          >
             {/* Main Card */}
             <div 
-              className="group relative rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer"
+              className="group relative rounded-2xl overflow-hidden transition-all duration-500 cursor-pointer hover:scale-[1.02]"
               style={{ background: 'linear-gradient(to bottom right, #1a1a3e, #2d1b4e)' }}
             >
-              <div className="flex flex-col sm:flex-row" onClick={() => setShowAllDetails(!showAllDetails)}>
+              <div className="flex flex-col sm:flex-row" onClick={() => {
+                setExpandedCard(expandedCard === scholarship.id ? null : scholarship.id)
+                setShowAllDetails(!showAllDetails)
+              }}>
                 {/* Image/Placeholder Section */}
                 <div 
                   className="relative w-full sm:w-1/2 h-48 sm:h-auto overflow-hidden"
@@ -77,12 +86,12 @@ const InstitutionalScholarships = () => {
                       className="w-full h-full" 
                       style={{ background: 'linear-gradient(to bottom right, var(--color-glow), rgba(236, 72, 153, 0.2))' }}
                     ></div>
-                    {/* Decorative Elements */}
-                    <div className="absolute top-4 left-4 w-12 h-12 rounded-lg bg-orange-500/30 transform rotate-12"></div>
-                    <div className="absolute bottom-6 right-6 w-8 h-8 rounded bg-teal-500/30"></div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    {/* Decorative Elements with animation */}
+                    <div className="absolute top-4 left-4 w-12 h-12 rounded-lg bg-orange-500/30 transform rotate-12 animate-pulse"></div>
+                    <div className="absolute bottom-6 right-6 w-8 h-8 rounded bg-teal-500/30 animate-bounce"></div>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group-hover:scale-110 transition-transform duration-500">
                       <div className="text-center">
-                        <img src={scholarship.image} alt={scholarship.title} className="w-full h-full object-cover" />
+                        <img src={scholarship.image} alt={scholarship.title} className="w-full h-full object-cover animate-float" />
                         {/* <p className="text-white/80 font-bold text-lg">{scholarship.institution.split(' ')[0]}</p>
                         <p style={{ color: 'var(--color-accent)', opacity: 0.6 }} className="text-sm">{scholarship.institution.split(' ').slice(1).join(' ')}</p> */}
                       </div>
@@ -100,7 +109,7 @@ const InstitutionalScholarships = () => {
                 <div className="flex-1 p-5">
                   {/* Date & Social Links */}
                   <div className="flex items-center justify-between mb-3">
-                    <span style={{ color: 'var(--color-accent)' }} className="text-sm font-medium">
+                    <span style={{ color: 'var(--color-accent)' }} className="text-base font-medium">
                       {scholarship.date}
                     </span>
                     {/* <div className="flex items-center gap-2">
@@ -118,17 +127,17 @@ const InstitutionalScholarships = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-white font-bold text-lg mb-1 transition-colors">
+                  <h3 className="text-white font-bold text-xl mb-2 transition-colors">
                     {scholarship.title}
                   </h3>
 
                   {/* Institution */}
-                  <p style={{ color: 'var(--color-accent)' }} className="font-medium text-sm mb-3">
+                  <p style={{ color: 'var(--color-accent)' }} className="font-medium text-base mb-3">
                     {scholarship.institution}
                   </p>
 
                   {/* Description */}
-                  <p className="text-gray-400 text-sm line-clamp-2">
+                  <p className="text-gray-400 text-base line-clamp-2">
                     {scholarship.description}
                   </p>
                 </div>
@@ -136,15 +145,15 @@ const InstitutionalScholarships = () => {
             </div>
 
             {/* Detailed Info Section - Rendered BELOW the card */}
-            {scholarship.detailedInfo && showAllDetails && (
+            {scholarship.detailedInfo && expandedCard === scholarship.id && (
               <div className="space-y-3 animate-fadeIn">
                 {/* 2-Skill and 3-Skill Packages - Side by Side */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {/* 2-Skill Package */}
                   {scholarship.detailedInfo.twoSkillPackage && (
                     <div className="bg-white/5 rounded-lg p-4">
-                      <h4 className="text-white font-semibold text-base mb-2">{scholarship.detailedInfo.twoSkillPackage.title}</h4>
-                      <p className="text-gray-400 text-sm mb-3">{scholarship.detailedInfo.twoSkillPackage.subtitle}</p>
+                      <h4 className="text-white font-semibold text-lg mb-2">{scholarship.detailedInfo.twoSkillPackage.title}</h4>
+                      <p className="text-gray-400 text-base mb-3">{scholarship.detailedInfo.twoSkillPackage.subtitle}</p>
                       <div className="space-y-2">
                         {scholarship.detailedInfo.twoSkillPackage.divisions ? (
                           scholarship.detailedInfo.twoSkillPackage.divisions.map((div, idx) => (
@@ -173,8 +182,8 @@ const InstitutionalScholarships = () => {
                   {/* 3-Skill Package */}
                   {scholarship.detailedInfo.threeSkillPackage && (
                     <div className="bg-white/5 rounded-lg p-4">
-                      <h4 className="text-white font-semibold text-base mb-2">{scholarship.detailedInfo.threeSkillPackage.title}</h4>
-                      <p className="text-gray-400 text-sm mb-3">{scholarship.detailedInfo.threeSkillPackage.subtitle}</p>
+                      <h4 className="text-white font-semibold text-lg mb-2">{scholarship.detailedInfo.threeSkillPackage.title}</h4>
+                      <p className="text-gray-400 text-base mb-3">{scholarship.detailedInfo.threeSkillPackage.subtitle}</p>
                       <div className="space-y-2">
                         {scholarship.detailedInfo.threeSkillPackage.divisions ? (
                           scholarship.detailedInfo.threeSkillPackage.divisions.map((div, idx) => (
@@ -210,8 +219,8 @@ const InstitutionalScholarships = () => {
                 {/* 4-Skill Package */}
                 {scholarship.detailedInfo.fourSkillPackage && (
                   <div className="bg-white/5 rounded-lg p-4">
-                    <h4 className="text-white font-semibold text-base mb-2">{scholarship.detailedInfo.fourSkillPackage.title}</h4>
-                    <p className="text-gray-400 text-sm mb-3">{scholarship.detailedInfo.fourSkillPackage.subtitle}</p>
+                    <h4 className="text-white font-semibold text-lg mb-2">{scholarship.detailedInfo.fourSkillPackage.title}</h4>
+                    <p className="text-gray-400 text-base mb-3">{scholarship.detailedInfo.fourSkillPackage.subtitle}</p>
                     <div className="space-y-2">
                       {scholarship.detailedInfo.fourSkillPackage.rewards && scholarship.detailedInfo.fourSkillPackage.rewards.map((reward, idx) => (
                         <div key={idx} className="text-sm">
@@ -235,10 +244,10 @@ const InstitutionalScholarships = () => {
                 {/* Events Section (for Card 1 style with combined events) */}
                 {scholarship.detailedInfo.events && (
                   <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg p-4 border border-purple-500/20">
-                    <h4 className="text-white font-semibold text-base mb-2 flex items-center gap-2">
+                    <h4 className="text-white font-semibold text-lg mb-2 flex items-center gap-2">
                       🎉 {scholarship.detailedInfo.events.title}
                     </h4>
-                    <div className="space-y-1.5 text-sm text-gray-300">
+                    <div className="space-y-1.5 text-base text-gray-300">
                       {scholarship.detailedInfo.events.twoSkillEvent && (
                         <div>
                           <span className="font-medium text-purple-300">2-Skill Event:</span> {scholarship.detailedInfo.events.twoSkillEvent.participants}
@@ -264,7 +273,7 @@ const InstitutionalScholarships = () => {
       <div className="text-center mt-10">
         <button 
           onClick={() => setShowAllDetails(!showAllDetails)}
-          className="btn-gradient px-8 py-3 text-sm font-medium"
+          className="btn-gradient px-8 py-3 text-base font-medium"
         >
           {showAllDetails ? 'Hide Details' : (scholarships?.viewAllButton || 'View All Scholarships & Events')}
         </button>

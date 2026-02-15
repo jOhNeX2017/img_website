@@ -449,6 +449,10 @@ body {
   animation: floating 3s ease-in-out infinite;
 }
 
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
 @keyframes glowPulse {
 
   0%,
