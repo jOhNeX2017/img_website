@@ -34,8 +34,8 @@ const CourseOverview = () => {
   ]
 
   return (
-    <section 
-      id="course-overview" 
+    <section
+      id="course-overview"
       className="max-w-full mx-auto mt-8 scroll-mt-20"
     >
       <div className="glass-card p-8 md:p-12">
@@ -48,11 +48,7 @@ const CourseOverview = () => {
           {/* Description */}
           <div className="text-base sm:text-lg text-gray-300 leading-relaxed mb-12 max-w-3xl mx-auto">
             <p className="mb-4">
-              You will start by discovering what <span className="font-semibold text-white">WebGL</span> is and why using the{' '}
-              <span className="font-semibold text-white">Three.js</span> library is a must. You will then discover the various components of Three.js and once the{' '}
-              <span className="font-semibold text-white">basics</span> are acquired, you will move on to more{' '}
-              <span className="font-semibold text-white">advanced techniques</span> and build up{' '}
-              <span className="font-semibold text-white">experience</span> through tons of exercises.
+              You will begin by building a strong understanding of the fundamental concepts and tools essential to the subject. As you progress, you will explore its key components in depth, establishing a solid foundation before advancing to more sophisticated techniques. Through extensive <span className="font-semibold text-white">hands-on practice </span> and <span className="font-semibold text-white">guided exercises </span>, you will steadily develop practical experience and confidence. By the end of the course, you will have the knowledge and skills required to independently create and execute your own projects.
             </p>
             <p>
               At the end of the course, you will have enough experience and skills to{' '}
