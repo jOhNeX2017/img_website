@@ -18,7 +18,7 @@ const ActiveCommunity = () => {
       title: 'EGPT Junior',
       subtitle: 'English Global Prep Test Jr.',
       description: 'Designed for young learners to build strong English foundations.',
-      ageGroup: 'Age 14-19',
+      ageGroup: 'Age 11-17',
       standard: 'Standard 9th – 12th',
       linkText: 'Learn more about EGPT Junior',
     },
@@ -28,7 +28,7 @@ const ActiveCommunity = () => {
       subtitle: 'English Global Prep Test Unite',
       description: 'Designed for beginning to lower-intermediate learners, assessing listening and reading skills in everyday and workplace contexts.',
       ageGroup: 'All Ages',
-      standard: 'Beginner to Lower-Intermediate',
+      standard: 'Beginner to Intermediate',
       linkText: 'Learn more about EGPT Unite',
     },
     {

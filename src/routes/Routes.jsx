@@ -17,7 +17,7 @@ const AppRoutes = () => {
       <Route path="/" element={<HomeSection />} />
       
       {/* Course Modules Route */}
-      <Route path="/course-modules" element={<CourseModules />} />
+      {/* <Route path="/course-modules" element={<CourseModules />} /> */}
       
       {/* Career Boost Route */}
       <Route path="/career-boost" element={<CareerBoost />} />

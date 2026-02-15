@@ -257,7 +257,7 @@ const CourseModules = () => {
                               </span>
                             </div>
                             
-                            <div className="flex items-center gap-6">
+                            {/* <div className="flex items-center gap-6">
                               {lesson.isFree && (
                                 <span 
                                   className="px-3 py-1 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg"
@@ -269,7 +269,7 @@ const CourseModules = () => {
                               <span className="text-gray-500 font-mono text-sm tracking-tighter w-16 text-right">
                                 {lesson.duration}
                               </span>
-                            </div>
+                            </div> */}
                           </div>
                           
                           {/* Lesson Content Description */}

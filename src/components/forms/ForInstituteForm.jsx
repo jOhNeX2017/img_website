@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const ForInstituteForm = ({ onNext, formData, setFormData }) => {
+const ForInstituteForm = ({ onNext, formData, setFormData, onTermsClick }) => {
   const [errors, setErrors] = useState({})
   const [touched, setTouched] = useState({})
 
@@ -310,7 +310,12 @@ const ForInstituteForm = ({ onNext, formData, setFormData }) => {
         />
         <label htmlFor="instituteTerms" className="text-sm text-gray-400 cursor-pointer">
           I acknowledge and agree to the{' '}
-          <a href="#" style={{ color: 'var(--color-accent)' }} className="hover:opacity-80 underline transition-opacity">
+          <a
+            href="#footer-note"
+            onClick={onTermsClick}
+            style={{ color: 'var(--color-accent)' }}
+            className="hover:opacity-80 underline transition-opacity"
+          >
            Terms & Conditions
           </a>
         </label>

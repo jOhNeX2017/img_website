@@ -7,6 +7,7 @@ const Registration = () => {
   const [activeTab, setActiveTab] = useState('myself')
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState({})
+  const [showTermsInfo, setShowTermsInfo] = useState(false)
 
   const handleNext = () => {
     setCurrentStep(2)
@@ -20,6 +21,11 @@ const Registration = () => {
     setActiveTab(tab)
     setCurrentStep(1)
     setFormData({})
+  }
+
+  const handleTermsClick = (event) => {
+    event.preventDefault()
+    setShowTermsInfo((prev) => !prev)
   }
 
   return (
@@ -109,13 +115,15 @@ const Registration = () => {
             <ForMyselfForm 
               onNext={handleNext} 
               formData={formData} 
-              setFormData={setFormData} 
+              setFormData={setFormData}
+              onTermsClick={handleTermsClick}
             />
           ) : (
             <ForInstituteForm 
               onNext={handleNext} 
               formData={formData} 
-              setFormData={setFormData} 
+              setFormData={setFormData}
+              onTermsClick={handleTermsClick}
             />
           )
         ) : (
@@ -127,11 +135,38 @@ const Registration = () => {
           />
         )}
       </div>
-
-      {/* Footer Note */}
-      {/* <p className="text-center text-gray-500 text-sm mt-6 animate-fadeIn" style={{ animationDelay: '0.2s' }}>
-        By registering, you agree to our partnership terms and conditions
-      </p> */}
+      {showTermsInfo && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
+          onClick={() => setShowTermsInfo(false)}
+        >
+          <div
+            className="relative w-full max-w-lg rounded-2xl border border-white/10 bg-gray-900/95 p-6 text-gray-300 text-sm shadow-2xl animate-fadeIn"
+            id="footer-note"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              aria-label="Close terms information"
+              className="absolute right-3 top-3 text-gray-400 hover:text-white transition-colors"
+              onClick={() => setShowTermsInfo(false)}
+            >
+              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h3 className="text-white text-base font-semibold mb-3">
+              Terms & Conditions
+            </h3>
+            <p className="mb-3">
+              1. Any Information shared will be trated as confidential and used soley for the purpose of responding to your enquiry, in accordance with our Privacy Policy.
+            </p>
+            <p>
+              2. While we aim to respond promptly, submission of an enquiry does not guarantee a response within a specific timeframe. We appreciate your patience and will do our best to get back to you as soon as possible.
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

@@ -54,7 +54,7 @@ const Header = () => {
     'study': '/study-abroad',
     'scholarships': '/scholarships',
     'reviews': '/reviews',
-    'more': '/course-modules',
+    'more': '/#course-modules',
     'course-modules': '/course-modules',
     'career-boost': '/career-boost',
     'course-overview': '/course-overview',

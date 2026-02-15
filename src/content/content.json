@@ -3,19 +3,28 @@
     "name": "Imoveglobal",
     "tagline": "Become a Global Education Partner"
   },
-
   "navigation": [
-    { "name": "Exams", "key": "exams" },
-    { "name": "Study Abroad Scope", "key": "study" },
-    { "name": "Scholarships & Events", "key": "scholarships" },
-    { "name": "More", "key": "more" }
+    {
+      "name": "Exams",
+      "key": "exams"
+    },
+    {
+      "name": "Study Abroad Scope",
+      "key": "study"
+    },
+    {
+      "name": "Scholarships & Events",
+      "key": "scholarships"
+    },
+    {
+      "name": "More",
+      "key": "more"
+    }
   ],
-
   "cta": {
     "partnerButton": "Be a Partner",
     "loginButton": "Login"
   },
-
   "home": {
     "author": "English Global Preparation Test",
     "headline": {
@@ -37,32 +46,55 @@
       "ratingPlatform": "Trustpilot"
     },
     "pricing": {
-      "price": "Free Practice Test",
-      "description": "Access for life. Join now!"
+      "price": "Free Practice Test for Life!",
+      "description": "Worth ₹16000",
+      "descriptionSmall": "Terms and Conditions Apply"
     },
     "heroCard": {
       "number": "01",
       "label": "Basics"
     }
   },
-
   "egpt_primary": {
     "title": "EGPT Primary",
     "lessonCount": "13 lessons",
     "duration": "10h 12m of tutorial",
     "description": {
-      "line1": "Create your first scene and understand fundamentals like",
-      "line2": "Add a",
-      "line3": "everything and put your project online."
+      "line1": "EGPT Primary is an English proficiency test for students",
+      "line2": " aged 8+",
+      "line3": ", designed to build strong academic foundations while developing practical, real-world communication skills"
     },
     "lessons": [
-      { "id": "01", "title": "Introduction", "duration": "35m", "isFree": true, "content": "EGPT Primary is a standardized English test for young learners (typically ages 8–11+) that measures how well children understand and use English in basic academic and social contexts. Skills tested are Writing , Reading and Listening (core)" },
-      { "id": "02", "title": "Benefits", "duration": "23m", "isFree": true, "content": "Young learners often feel encouraged when they see their progress quantified. Earning a certificate or score report can boost a child’s confidence and foster a positive attitude toward learning English. Helps children develop good test-taking habits from an early age." },
-      { "id": "03", "title": "Objectives", "duration": "1h 19m", "isFree": true, "content": "This test is mostly taken in Asia, Europe, Latin America, Middle East. Growth in TOEFL test takers in India (for TOEFL overall) with a 53 % rise in 2024 and 59 % rise in 2025." },
-      { "id": "04", "title": "Scoring", "duration": "1h 19m", "isFree": true, "content": "No pass/fail — it’s a developmental assessment. Scores are scaled, not raw, so they’re consistent across different test versions." }
+      {
+        "id": "01",
+        "title": "Introduction",
+        "duration": "35m",
+        "isFree": true,
+        "content": "The EGPT Primary test is an English-language assessment designed for students typically aged 8-14 years and older. The standard test is available in a paper-based format and assesses reading comprehension, listening, and writing skills"
+      },
+      {
+        "id": "02",
+        "title": "Benefits",
+        "duration": "23m",
+        "isFree": true,
+        "content": "Young learners often feel encouraged when they see their progress quantified. Earning a certificate or score report can boost a child’s confidence and foster a positive attitude toward learning English. Helps children develop good test-taking habits from an early age."
+      },
+      {
+        "id": "03",
+        "title": "Objectives",
+        "duration": "1h 19m",
+        "isFree": true,
+        "content": "This test is mostly taken in Asia, Europe, Latin America, Middle East. Growth in TOEFL test takers in India (for TOEFL overall) with a 53 % rise in 2024 and 59 % rise in 2025."
+      },
+      {
+        "id": "04",
+        "title": "Scoring",
+        "duration": "1h 19m",
+        "isFree": true,
+        "content": "No pass/fail — it’s a developmental assessment. Scores are scaled, not raw, so they’re consistent across different test versions."
+      }
     ]
   },
-
   "egpt_junior": {
     "title": "EGPT Junior",
     "lessonCount": "6 lessons",
@@ -73,12 +105,29 @@
       "line3": "fundamentals and real-world communication skills."
     },
     "lessons": [
-      { "id": "01", "title": "Introduction", "duration": "42m", "isFree": false, "content": "The EGPT Junior test is a part of EGPT Young Students Series (YSS) - an English – language assessment designed for students typically aged 11-17 years and older. The standard test is available as a paper based test. Tests reading comprehension, listening and writing." },
-      { "id": "02", "title": "Benefits", "duration": "1h 00m", "isFree": false, "content": "Early assessment of English Skills. Taking an internationally recognized test can boost a child’s confidence. Schools and parents can track improvement over time, helping guide curriculum and learning strategies." },
-      { "id": "03", "title": "Objectives", "duration": "2h 50m", "isFree": true, "content": "Asia dominates these sort of test registrations. This is due to the high demand for English proficiency in schools and bilingual/international programs. Other than that, Middle East, Lebanon, Europe, Latin America also has a demand of these examination. Helps students transition smoothly to TOEFL/IELTS in the future." }
+      {
+        "id": "01",
+        "title": "Introduction",
+        "duration": "42m",
+        "isFree": false,
+        "content": "The EGPT Junior test is an English-language assessment designed for students typically aged 11–17 years and older. The standard test is available in a paper-based format and assesses reading comprehension, listening, and writing skills."
+      },
+      {
+        "id": "02",
+        "title": "Benefits",
+        "duration": "1h 00m",
+        "isFree": false,
+        "content": "Early assessment of English Skills. Taking an internationally recognized test can boost a child’s confidence. Schools and parents can track improvement over time, helping guide curriculum and learning strategies."
+      },
+      {
+        "id": "03",
+        "title": "Objectives",
+        "duration": "2h 50m",
+        "isFree": true,
+        "content": "Asia dominates these sort of test registrations. This is due to the high demand for English proficiency in schools and bilingual/international programs. Other than that, Middle East, Lebanon, Europe, Latin America also has a demand of these examination. Helps students transition smoothly to TOEFL/IELTS in the future."
+      }
     ]
   },
-
   "egpt_senior": {
     "title": "EGPT Senior",
     "lessonCount": "7 lessons",
@@ -89,13 +138,36 @@
       "line3": "and advanced communication proficiency."
     },
     "lessons": [
-      { "id": "01", "title": "Introduction", "duration": "1h 57m", "isFree": false, "content": "It is used primarily by institutions (universities, language schools, government agencies) to assess the English proficiency of non-native speakers. The test is composed of four sections, which assess your proficiency level in three main skills, listening comprehension, structure and written expression, reading comprehension and speaking." },
-      { "id": "02", "title": "Benefits", "duration": "1h 07m", "isFree": false, "content": "Accurate assessment of English Skills. Provides a foundation for higher-level English tests like EGPT iBT, IELTS, or other academic English assessments. Enables tracking of English progress over time to see improvement. Useful for graduation or promotion requirements in academic programs." },
-      { "id": "03", "title": "Objectives", "duration": "1h 07m", "isFree": false, "content": "More than 13,000 institutions in over 160 countries administer TOEFL /IELTS tests annually. These include universities, language programs, and agencies that use the test for placement, progress monitoring, exit testing, and evaluation. Over 50 Million tests are administered each year across various institutions worldwide." },
-      { "id": "04", "title": "Scoring", "duration": "1h 59m", "isFree": false, "content": "The scoring is conducted in accordance with done as per EGPT & IELTS Standards." }
+      {
+        "id": "01",
+        "title": "Introduction",
+        "duration": "1h 57m",
+        "isFree": false,
+        "content": "It is used primarily by institutions (universities, language schools, government agencies) to assess the English proficiency of non-native speakers. The test is composed of four sections, which assess your proficiency level in three main skills, listening comprehension, structure and written expression, reading comprehension and speaking."
+      },
+      {
+        "id": "02",
+        "title": "Benefits",
+        "duration": "1h 07m",
+        "isFree": false,
+        "content": "Accurate assessment of English Skills. Provides a foundation for higher-level English tests like EGPT iBT, IELTS, or other academic English assessments. Enables tracking of English progress over time to see improvement. Useful for graduation or promotion requirements in academic programs."
+      },
+      {
+        "id": "03",
+        "title": "Objectives",
+        "duration": "1h 07m",
+        "isFree": false,
+        "content": "More than 13,000 institutions in over 160 countries administer TOEFL /IELTS tests annually. These include universities, language programs, and agencies that use the test for placement, progress monitoring, exit testing, and evaluation. Over 50 Million tests are administered each year across various institutions worldwide."
+      },
+      {
+        "id": "04",
+        "title": "Scoring",
+        "duration": "1h 59m",
+        "isFree": false,
+        "content": "The scoring is conducted in accordance with done as per EGPT & IELTS Standards."
+      }
     ]
   },
-  
   "egpt_unite": {
     "title": "EGPT Unite",
     "lessonCount": "6 lessons",
@@ -106,21 +178,43 @@
       "line3": "to build confidence and essential language skills."
     },
     "lessons": [
-      { "id": "01", "title": "Introduction", "duration": "42m", "isFree": false, "content": "Tests English just as the regular TOEIC & IELTS test does, but EGPT UNITE is used for people with lower level English skills: beginner to lower-intermediate level range. Contains 2 parts – Listening and Reading." },
-      { "id": "02", "title": "Benefits", "duration": "1h 00m", "isFree": false, "content": "Motivation: Students and employees get measurable feedback on progress. Progress Tracking: Can be taken multiple times to monitor improvement over time. Adults who are at the beginner or intermediate level. Workplaces wanting to assess employees’ English at entry or intermediate levels." },
-      { "id": "03", "title": "Objectives", "duration": "2h 50m", "isFree": true, "content": "This is a preparation test is similar to TOEIC BRIDGE. Japan and South Korea are historically the largest TOEIC BRIDGE markets, accounting for a majority of global test takers. This used in institutions and corporations in UAE, Saudi Arabia, Indonesia, Malaysia, and similar markets — mainly for English skills tracking or workforce assessment." },
-      { "id": "04", "title": "Scoring", "duration": "1h 59m", "isFree": false, "content": "Beginner → A1, Elementary → A2, Intermediate → B1" }
+      {
+        "id": "01",
+        "title": "Introduction",
+        "duration": "42m",
+        "isFree": false,
+        "content": "Tests English just as the regular TOEIC & IELTS test does, but EGPT UNITE is used for people with lower level English skills: beginner to lower-intermediate level range. Contains 2 parts – Listening and Reading."
+      },
+      {
+        "id": "02",
+        "title": "Benefits",
+        "duration": "1h 00m",
+        "isFree": false,
+        "content": "Motivation: Students and employees get measurable feedback on progress. Progress Tracking: Can be taken multiple times to monitor improvement over time. Adults who are at the beginner or intermediate level. Workplaces wanting to assess employees’ English at entry or intermediate levels."
+      },
+      {
+        "id": "03",
+        "title": "Objectives",
+        "duration": "2h 50m",
+        "isFree": true,
+        "content": "This is a preparation test is similar to TOEIC BRIDGE. Japan and South Korea are historically the largest TOEIC BRIDGE markets, accounting for a majority of global test takers. This used in institutions and corporations in UAE, Saudi Arabia, Indonesia, Malaysia, and similar markets — mainly for English skills tracking or workforce assessment."
+      },
+      {
+        "id": "04",
+        "title": "Scoring",
+        "duration": "1h 59m",
+        "isFree": false,
+        "content": "Beginner → A1, Elementary → A2, Intermediate → B1"
+      }
     ]
   },
-
-  "egpt_braille" : {
+  "egpt_braille": {
     "title": "EGPT Braille",
     "description": {
       "line1": "Tests provided for the visually impaired.",
       "line2": "LAUNCHING SOON"
     }
   },
-
   "exams": {
     "title": "Exams",
     "description": "Explore our comprehensive learning modules designed to help you master new skills.",
@@ -137,17 +231,27 @@
       }
     ]
   },
-
   "studyAbroad": {
     "title": "Study Abroad Scope",
     "description": "Explore global education opportunities and expand your horizons.",
     "features": [
-      { "id": 1, "icon": "🏆", "title": "Weekly Contest" },
-      { "id": 2, "icon": "⚡", "title": "Speed Rounds" },
-      { "id": 3, "icon": "🎯", "title": "Skill Tests" }
+      {
+        "id": 1,
+        "icon": "🏆",
+        "title": "Weekly Contest"
+      },
+      {
+        "id": 2,
+        "icon": "⚡",
+        "title": "Speed Rounds"
+      },
+      {
+        "id": 3,
+        "icon": "🎯",
+        "title": "Skill Tests"
+      }
     ]
   },
-
   "scholarships": {
     "title": "Institutional Scholarships & Events",
     "description": "A selection of the best scholarships and events curated by Imoveglobal's partners.",
@@ -237,7 +341,10 @@
           }
         },
         "image": "/courses/primary.png",
-        "socialLinks": { "twitter": "#", "linkedin": "#" }
+        "socialLinks": {
+          "twitter": "#",
+          "linkedin": "#"
+        }
       },
       {
         "id": 2,
@@ -250,9 +357,18 @@
             "title": "2-Skill Package Awards",
             "subtitle": "Top 3 Students - Cash Prizes",
             "rewards": [
-              { "position": "1st", "prize": "₹10,000" },
-              { "position": "2nd", "prize": "₹7,000" },
-              { "position": "3rd", "prize": "₹3,000" }
+              {
+                "position": "1st",
+                "prize": "₹10,000"
+              },
+              {
+                "position": "2nd",
+                "prize": "₹7,000"
+              },
+              {
+                "position": "3rd",
+                "prize": "₹3,000"
+              }
             ],
             "event": null
           },
@@ -260,9 +376,18 @@
             "title": "3-Skill Package Awards",
             "subtitle": "Top 10 Students - Laptops, Tablets & Coupons",
             "rewards": [
-              { "position": "Top 3", "prize": "Laptops" },
-              { "position": "4th & 5th", "prize": "Tablets" },
-              { "position": "6th - 10th", "prize": "Amazon Coupon ₹2,000 each" }
+              {
+                "position": "Top 3",
+                "prize": "Laptops"
+              },
+              {
+                "position": "4th & 5th",
+                "prize": "Tablets"
+              },
+              {
+                "position": "6th - 10th",
+                "prize": "Amazon Coupon ₹2,000 each"
+              }
             ],
             "event": {
               "title": "University Staff Prize Distribution",
@@ -274,10 +399,22 @@
             "title": "4-Skill Package Awards",
             "subtitle": "Top 20 Students - International Trips, Laptops & Coupons",
             "rewards": [
-              { "position": "Top 2", "prize": "Sponsored International Trip (4 Days 3 Nights)" },
-              { "position": "3rd, 4th & 5th", "prize": "Laptops" },
-              { "position": "6th - 10th", "prize": "Amazon Coupon ₹5,000 each" },
-              { "position": "11th - 20th", "prize": "Amazon Coupon ₹2,000 each" }
+              {
+                "position": "Top 2",
+                "prize": "Sponsored International Trip (4 Days 3 Nights)"
+              },
+              {
+                "position": "3rd, 4th & 5th",
+                "prize": "Laptops"
+              },
+              {
+                "position": "6th - 10th",
+                "prize": "Amazon Coupon ₹5,000 each"
+              },
+              {
+                "position": "11th - 20th",
+                "prize": "Amazon Coupon ₹2,000 each"
+              }
             ],
             "event": {
               "title": "Grand Prize Distribution Gala",
@@ -287,7 +424,10 @@
           }
         },
         "image": "/courses/senior.png",
-        "socialLinks": { "twitter": "#", "linkedin": "#" }
+        "socialLinks": {
+          "twitter": "#",
+          "linkedin": "#"
+        }
       },
       {
         "id": 3,
@@ -296,7 +436,10 @@
         "date": "Coming Soon",
         "description": "Funded exchange program across European universities.",
         "image": "/courses/unite.png",
-        "socialLinks": { "twitter": "#", "linkedin": "#" }
+        "socialLinks": {
+          "twitter": "#",
+          "linkedin": "#"
+        }
       },
       {
         "id": 4,
@@ -305,12 +448,14 @@
         "date": "Coming Soon",
         "description": "Executive education fellowship for people with disabilities.",
         "image": "/courses/braille.png",
-        "socialLinks": { "twitter": "#", "linkedin": "#" }
+        "socialLinks": {
+          "twitter": "#",
+          "linkedin": "#"
+        }
       }
     ],
     "viewAllButton": "View All Scholarships & Events"
   },
-
   "reviews": {
     "title": "Reviews of Institutions & success stories",
     "subtitle": "Wall of Fame",
@@ -319,9 +464,18 @@
     "hashtag": "#ImoveglobalJourney",
     "hashtagPlatform": "Twitter",
     "filters": [
-      { "key": "all", "label": "All Stories" },
-      { "key": "student", "label": "Students" },
-      { "key": "institution", "label": "Institutions" }
+      {
+        "key": "all",
+        "label": "All Stories"
+      },
+      {
+        "key": "student",
+        "label": "Students"
+      },
+      {
+        "key": "institution",
+        "label": "Institutions"
+      }
     ],
     "testimonials": [
       {

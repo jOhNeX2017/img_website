@@ -2,23 +2,23 @@ const CareerBoost = () => {
   const features = [
     {
       id: 1,
-      icon: '/heart.svg',
-      title: '4-Skill Focused Training Structured improvement in Listening, Reading, Speaking, and Writing, with targeted strategies for each section',
+      icon: '/goal.svg',
+      title: 'Targeted strategies for Listening, Reading, Speaking, Writing',
     },
     {
       id: 2,
-      icon: '/goal.svg',
-      title: 'Performance-Driven Assessment Detailed scoring, band prediction, and feedback to help students identify gaps and improve faster.',
+      icon: '/performance.svg',
+      title: 'Performance-based scoring with actionable improvement insights',
     },
     {
       id: 3,
       icon: '/competition.svg',
-      title: 'Result-Oriented Learning Path Practical tips, time-management techniques, and exam hacks that maximize scores in minimum time.',
+      title: 'Practical strategies to boost scores quickly',
     },
     {
       id: 4,
       icon: '/rate.svg',
-      title: 'If you want, I can also make these *more marketing-oriented, **student-friendly, or *institution-focused',
+      title: 'Unlock Global Salaries with TOEFL/IELTS.',
     },
   ]
 
