@@ -340,7 +340,7 @@
             }
           }
         },
-        "image": "/courses/primary.png",
+        "image": "/courses/Primary.gif",
         "socialLinks": {
           "twitter": "#",
           "linkedin": "#"
@@ -423,7 +423,7 @@
             }
           }
         },
-        "image": "/courses/senior.png",
+        "image": "/courses/Senior.gif",
         "socialLinks": {
           "twitter": "#",
           "linkedin": "#"
@@ -435,7 +435,7 @@
         "institution": "Unite Achievement Program",
         "date": "Coming Soon",
         "description": "Funded exchange program across European universities.",
-        "image": "/courses/unite.png",
+        "image": "/courses/Unite.gif",
         "socialLinks": {
           "twitter": "#",
           "linkedin": "#"
@@ -447,7 +447,7 @@
         "institution": "Coming Soon",
         "date": "Coming Soon",
         "description": "Executive education fellowship for people with disabilities.",
-        "image": "/courses/braille.png",
+        "image": "/courses/Braille.gif",
         "socialLinks": {
           "twitter": "#",
           "linkedin": "#"
