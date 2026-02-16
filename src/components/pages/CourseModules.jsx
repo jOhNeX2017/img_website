@@ -89,6 +89,8 @@ const CourseModules = () => {
 
   // Scroll-based step activation
   useEffect(() => {
+    let scrollTimeout = null
+    
     const handleScroll = () => {
       // Don't update active step during programmatic scrolling
       if (isScrollingProgrammatically.current) return
@@ -105,20 +107,38 @@ const CourseModules = () => {
         setAllModulesViewed(true)
       }
 
-      // Find which section is in the center of viewport
-      sectionRefs.current.forEach((section, index) => {
-        if (!section) return
+      // Debounce the active step update to work with scroll snap
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout)
+      }
 
-        const rect = section.getBoundingClientRect()
-        const containerRect = container.getBoundingClientRect()
-        const sectionTop = rect.top - containerRect.top
-        const sectionMiddle = sectionTop + rect.height / 2
+      scrollTimeout = setTimeout(() => {
+        // Find which section is most visible in the viewport
+        let maxVisibleArea = 0
+        let mostVisibleIndex = 0
 
-        // Check if section middle is near viewport center
-        if (sectionMiddle > 0 && sectionMiddle < containerHeight * 0.6) {
-          setActiveStep(index + 1)
+        sectionRefs.current.forEach((section, index) => {
+          if (!section) return
+
+          const rect = section.getBoundingClientRect()
+          const containerRect = container.getBoundingClientRect()
+          
+          // Calculate visible area of this section
+          const visibleTop = Math.max(rect.top, containerRect.top)
+          const visibleBottom = Math.min(rect.bottom, containerRect.bottom)
+          const visibleHeight = Math.max(0, visibleBottom - visibleTop)
+          
+          // Update active step to the section with most visible area
+          if (visibleHeight > maxVisibleArea) {
+            maxVisibleArea = visibleHeight
+            mostVisibleIndex = index
+          }
+        })
+
+        if (maxVisibleArea > 0) {
+          setActiveStep(mostVisibleIndex + 1)
         }
-      })
+      }, 100)
     }
 
     const container = containerRef.current
@@ -130,6 +150,9 @@ const CourseModules = () => {
     return () => {
       if (container) {
         container.removeEventListener('scroll', handleScroll)
+      }
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout)
       }
     }
   }, [])
@@ -269,6 +292,7 @@ const CourseModules = () => {
               scrollBehavior: 'smooth',
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',
+              scrollSnapType: 'y mandatory',
             }}
           >
             <div className="max-w-full mx-auto px-6 sm:px-8 lg:px-6">
@@ -277,11 +301,11 @@ const CourseModules = () => {
                   key={section.id}
                   ref={(el) => (sectionRefs.current[index] = el)}
                   data-module-id={section.id}
-                  className={`
-                    min-h-[92vh] flex flex-col xl:flex-row items-center justify-center gap-10 xl:gap-48 pt-12 pb-16
-                    transition-all duration-500
-                    ${activeStep === section.id ? 'opacity-100' : 'opacity-20 translate-y-4 scale-95'}
-                  `}
+                  className="min-h-[100vh] flex flex-col xl:flex-row items-center justify-center gap-10 xl:gap-48 pt-12 pb-16"
+                  style={{
+                    scrollSnapAlign: 'start',
+                    scrollSnapStop: 'always',
+                  }}
                 >
                    {/* Section Content */}
                    <div className="flex-1 max-w-2xl">

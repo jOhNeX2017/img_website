@@ -52,11 +52,12 @@ const CareerBoost = () => {
               >
                 {/* Icon */}
                 <div 
-                  className="h-[140px] mb-8 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                  className="h-[140px] mb-8 flex items-center justify-center transition-all duration-300 group-hover:[animation:iconShake_0.5s_ease-in-out]"
                 >
                   <img 
                     src={feature.icon} 
                     alt={feature.title}
+                    className="transition-all duration-500 group-hover:drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]"
                   />
                 </div>
 

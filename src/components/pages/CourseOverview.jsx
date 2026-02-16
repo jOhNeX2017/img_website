@@ -39,24 +39,24 @@ const CourseOverview = () => {
       className="max-w-full mx-auto mt-8 scroll-mt-20"
     >
       <div className="glass-card p-8 md:p-12">
-        <div className="max-w-8xl mx-auto text-center">
+        <div className="max-w-8xl mx-auto">
           {/* Header */}
-          <h2 className="text-[28px] md:text-[44px] font-bold text-white mb-8">
+          <h2 className="text-[28px] md:text-[44px] font-bold text-white mb-8 text-center">
             The Only Prep Test You Need
           </h2>
 
           {/* Description */}
-          <div className="text-base sm:text-lg text-gray-300 leading-relaxed mb-12 max-w-6xl mx-auto">
-            <p className="mb-4">
+          <div className="text-base sm:text-lg text-gray-300 leading-relaxed mb-12 max-w-6xl mx-auto text-justify">
+            <p className="mb-6">
               The EGPT Tests are institutional assessments designed specifically for hands-on practice for major English proficiency exams like IELTS, TOEFL, and TOEIC. They simulate the real structure, timing, and pressure of international exams—so students don’t just study English, they experience the test environment early.
             </p>
-            <p className="mb-4">
+            <p className="mb-6">
               Globally, migration is rising at record levels. According to the United Nations, there are over 280 million international migrants worldwide. India consistently ranks among the top countries of origin, with more than 18 million Indians living abroad—one of the largest diasporas in the world. The message is clear: <span className="font-semibold text-white">global mobility is no longer rare. It’s mainstream.</span> And English proficiency is the gateway.
             </p>
-            <p className="mb-4">
+            <p className="mb-6">
               EGPT offers this preparation at a fraction of the cost of official exams, while delivering the exact feel of real tests like IELTS and TOEFL. When students grow up taking structured practice tests, they build exam confidence naturally—without last-minute panic or unnecessary coaching expenses.
             </p>
-            <p className="mb-4">
+            <p className="mb-6">
               It also saves significant money. Alongside test preparation, pre-exam workshops include practical sessions on visa processes, global career pathways, and study-abroad guidance—areas where families often spend heavily on separate consultants.
               Most importantly, this is not just exam prep. English proficiency is a real-life, high-income skill. In a world where opportunities are global, every student should begin building this skill early—not when it’s urgent, but when it’s strategic.
 
@@ -71,7 +71,7 @@ const CourseOverview = () => {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 text-center">
             {stats.map((stat, index) => (
               <div
                 key={stat.id}
@@ -81,13 +81,13 @@ const CourseOverview = () => {
                 }}
               >
                 {/* Number */}
-                <div className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-3 bg-gradient-to-br from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent transition-all duration-300 group-hover:scale-110">
+                <div className="text-6xl sm:text-7xl lg:text-8xl font-bold mb-3 bg-gradient-to-br from-purple-400 via-purple-300 to-purple-500 bg-clip-text text-transparent transition-all duration-300 group-hover:scale-110 animate-pulse">
                   {stat.number}
                 </div>
 
                 {/* Label with Icon */}
                 <div className="flex items-center gap-2 text-gray-300 text-sm sm:text-base">
-                  <span className="opacity-70">{stat.icon}</span>
+                  <span className="opacity-70 transition-all duration-300 group-hover:opacity-100 group-hover:scale-110 inline-block">{stat.icon}</span>
                   <span className="font-medium">{stat.label}</span>
                 </div>
               </div>
