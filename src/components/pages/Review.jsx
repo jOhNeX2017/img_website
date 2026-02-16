@@ -42,7 +42,7 @@ const Review = ({ onBack }) => {
           <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-4">
             <span className="text-[var(--color-primary)] font-bold">{reviews?.studentCount || '49,089 Students'}</span> {reviews?.description || "have joined the course already! Here's a collection of what they're building."}
           </p>
-          <p className="text-gray-400">
+          <p className="text-gray-100">
             Use the <a href="#" style={{ color: 'var(--color-accent)' }} className="hover:opacity-80 underline font-bold transition-opacity">{reviews?.hashtag || `#${brand?.name || 'Brand'}Journey`}</a> hashtag on {reviews?.hashtagPlatform || 'Twitter'}
           </p>
         </div>
@@ -57,7 +57,7 @@ const Review = ({ onBack }) => {
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeFilter === filter.key
                     ? 'btn-gradient'
-                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                    : 'text-gray-100 hover:text-white hover:bg-white/5'
                 }`}
               >
                 {filter.label}
@@ -84,7 +84,7 @@ const Review = ({ onBack }) => {
                   />
                   <div>
                     <h3 className="text-white font-semibold">{testimonial.name}</h3>
-                    <p className="text-gray-400 text-sm">{testimonial.handle} • <span style={{ color: 'var(--color-accent)' }}>Follow</span></p>
+                    <p className="text-gray-100 text-sm">{testimonial.handle} • <span style={{ color: 'var(--color-accent)' }}>Follow</span></p>
                   </div>
                 </div>
                 <svg className="w-5 h-5 text-gray-500" viewBox="0 0 24 24" fill="currentColor">

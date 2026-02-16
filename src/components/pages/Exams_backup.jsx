@@ -120,7 +120,7 @@ const ExamsSection = () => {
               <p className="text-gray-200 mb-6 font-medium">{module.description}</p>
               
               <div className="space-y-3">
-                <div className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-2">Key Areas</div>
+                <div className="text-xs uppercase tracking-wider text-gray-100 font-bold mb-2">Key Areas</div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {module.details.map((detail, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-sm text-gray-300">
@@ -146,7 +146,7 @@ const ExamsSection = () => {
               >
                 <div className="text-4xl font-bold text-purple-400 mb-2">Band {score.band}</div>
                 <div className="text-white font-semibold mb-2">{score.skill}</div>
-                <p className="text-gray-400 text-xs leading-relaxed">{score.desc}</p>
+                <p className="text-gray-100 text-xs leading-relaxed">{score.desc}</p>
               </div>
             ))}
           </div>

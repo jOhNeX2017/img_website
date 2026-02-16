@@ -21,7 +21,7 @@ const HomeSection = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
-              <span className="text-gray-400">
+              <span className="text-gray-100">
                 <span style={{ color: 'var(--color-accent)' }} className="hover:opacity-80 cursor-pointer transition-opacity">{home?.author || brand?.name || 'Brand'}</span> by Imoveglobal
               </span>
             </div>
@@ -39,7 +39,7 @@ const HomeSection = () => {
             <p className="text-gray-300 text-lg mb-2">
               <span style={{ color: 'var(--color-accent)' }} className="font-semibold">{home?.subtext?.emphasis || 'Everything you need'}</span> {home?.subtext?.line1 || 'in one place:'}
             </p>
-            <p className="text-gray-400 mb-8">
+            <p className="text-gray-100 mb-8">
               {home?.subtext?.line2 || 'Comprehensive resources to go from'} <span className="text-white font-medium">{home?.subtext?.beginnerText || 'absolute beginner'}</span> {home?.subtext?.toText || 'to'}{' '}
               <span className="text-white font-medium">{home?.subtext?.advancedText || 'advanced global educator'}</span>.
             </p>
@@ -56,7 +56,7 @@ const HomeSection = () => {
               </div>
               <div>
                 <p className="text-white">
-                  <span className="text-gray-400">{home?.stats?.studentCount}</span>{' '}
+                  <span className="text-gray-100">{home?.stats?.studentCount}</span>{' '}
                   <span className="font-bold text-lg">{home?.stats?.enrolledText}</span>
                 </p>
                 {/* <div className="flex items-center gap-2">
@@ -67,7 +67,7 @@ const HomeSection = () => {
                     </svg>
                   ))}
                 </div>
-                <span className="text-gray-400 text-sm">on</span>
+                <span className="text-gray-100 text-sm">on</span>
                 <span className="text-teal-400 text-sm font-medium">{home?.stats?.ratingPlatform || 'Trustpilot'}</span>
               </div> */}
               </div>
@@ -100,8 +100,8 @@ const HomeSection = () => {
               {/* Price Card */}
               <div className="bg-gray-800/80 backdrop-blur-sm px-6 py-4 flex flex-col justify-center rounded-xl">
                 <p className="text-3xl font-bold" style={{ color: 'var(--color-accent)' }}>{home?.pricing?.price || 'Free Practice Test for Life!'}</p>
-                <p className="text-gray-400 text-sm">{home?.pricing?.description || 'Worth ₹16000'}</p>
-                <p className="text-gray-400 text-xs">
+                <p className="text-gray-100 text-sm">{home?.pricing?.description || 'Worth ₹16000'}</p>
+                <p className="text-gray-100 text-xs">
                   <span
                     className="tooltip"
                     data-tooltip="This offer is exclusively available with Institutional 3-Skill and 4-Skill test enrolments only."

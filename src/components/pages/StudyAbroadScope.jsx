@@ -106,7 +106,7 @@ const ExamsSection = () => {
                 <h3 className="text-white font-bold mb-3 text-xl group-hover:text-[var(--color-accent)] transition-colors duration-300">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-100 transition-colors duration-300">
+                <p className="text-gray-100 text-sm leading-relaxed group-hover:text-gray-100 transition-colors duration-300">
                   {benefit.description}
                 </p>
               </div>

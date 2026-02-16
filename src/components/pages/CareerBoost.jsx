@@ -27,21 +27,21 @@ const CareerBoost = () => {
       id="career-boost" 
       className="max-w-full mx-auto mt-8 scroll-mt-20"
     >
-      <div className="glass-card p-8 md:p-12">
+      <div className="glass-card p-12 md:p-16 lg:p-20">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-[28px] md:text-[44px] font-bold text-white mb-4">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Boost Your English and Ace TOEFL/IELTS
             </h2>
-            <p className="text-lg md:text-xl text-gray-300 mt-6">
+            <p className="text-xl md:text-2xl text-gray-300 mt-6 max-w-5xl mx-auto">
               Exam-Aligned Preparation Content and practice tests are designed strictly as per TOEFL &
               IELTS standards, ensuring real exam familiarity and confidence.
             </p>
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16">
             {features.map((feature, index) => (
               <div
                 key={feature.id}
@@ -52,7 +52,7 @@ const CareerBoost = () => {
               >
                 {/* Icon */}
                 <div 
-                  className="h-[100px] mb-6 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                  className="h-[140px] mb-8 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
                 >
                   <img 
                     src={feature.icon} 
@@ -61,7 +61,7 @@ const CareerBoost = () => {
                 </div>
 
                 {/* Title */}
-                <span className="font-semibold text-white leading-relaxed w-full">
+                <span className="font-semibold text-white leading-relaxed w-full text-lg">
                   {feature.title}
                 </span>
               </div>

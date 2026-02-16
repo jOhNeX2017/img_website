@@ -26,7 +26,7 @@ const ActiveCommunity = () => {
       id: 3,
       title: 'EGPT Unite',
       subtitle: 'English Global Prep Test Unite',
-      description: 'Designed for beginning to lower-intermediate learners, assessing listening and reading skills in everyday and workplace contexts.',
+      description: 'Beginner-intermediate assessment of everyday and professional reading/listening',
       ageGroup: 'All Ages',
       standard: 'Beginner to Intermediate',
       linkText: 'Learn more about EGPT Unite',
@@ -96,17 +96,17 @@ const ActiveCommunity = () => {
               {/* Card Content */}
               <div className="p-6 md:p-8 lg:p-10">
                 {/* Card Header */}
-                <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-bold text-white mb-2 text-center leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-4xl text-white mb-2 text-center leading-tight min-h-[4rem] flex items-center justify-center font-extrabold">
                   {card.title}
-                </h3>
+                </h1>
                 
                 {/* Subtitle */}
-                <p className="text-white text-sm md:text-base text-center mb-6 font-medium">
+                <p className="text-white text-sm md:text-base text-center mb-6 font-medium min-h-[2.5rem] flex items-center justify-center">
                   {card.subtitle}
                 </p>
                 
                 {/* Description */}
-                <p className="text-white/90 text-center mb-6 md:mb-8 leading-relaxed text-sm md:text-base">
+                <p className="text-white/90 text-center mb-6 md:mb-8 leading-relaxed text-sm md:text-base min-h-[4rem] flex items-center justify-center">
                   {card.description}
                 </p>
 
@@ -116,8 +116,8 @@ const ActiveCommunity = () => {
                 {/* Program Details */}
                 <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                   {/* Age Group Badge */}
-                  <div className="flex items-center justify-center gap-3">
-                    <div className="flex items-center gap-2 px-4 md:px-5 py-2.5 md:py-3 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30">
+                  <div className="flex items-center justify-center">
+                    <div className="flex items-center justify-center gap-2 px-4 md:px-5 py-2.5 md:py-3 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-400/30 min-w-[140px]">
                       <svg className="w-4 h-4 md:w-5 md:h-5 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                       </svg>
@@ -126,8 +126,8 @@ const ActiveCommunity = () => {
                   </div>
 
                   {/* Standard Badge */}
-                  <div className="flex items-center justify-center gap-3">
-                    <div className="flex items-center gap-2 px-4 md:px-5 py-2.5 md:py-3 rounded-xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-400/30">
+                  <div className="flex items-center justify-center">
+                    <div className="flex items-center justify-center gap-2 px-4 md:px-5 py-2.5 md:py-3 rounded-xl bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-400/30 min-w-[180px]">
                       <svg className="w-4 h-4 md:w-5 md:h-5 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                       </svg>

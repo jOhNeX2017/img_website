@@ -250,7 +250,7 @@ const CourseModules = () => {
                       font-bold transition-all duration-300
                       ${activeStep === section.id 
                         ? 'text-white text-3xl' 
-                        : 'text-gray-500 text-2xl hover:text-gray-400'
+                        : 'text-gray-500 text-2xl hover:text-gray-100'
                       }
                     `}
                   >
@@ -291,7 +291,7 @@ const CourseModules = () => {
                      </h2>
 
                      {/* Description */}
-                     <p className="text-gray-400 text-xl mb-3 leading-relaxed animate-fadeInUp font-light" style={{ animationDelay: '200ms' }}>
+                     <p className="text-gray-100 text-xl mb-3 leading-relaxed animate-fadeInUp font-light" style={{ animationDelay: '200ms' }}>
                        {section.description}
                      </p>
 
@@ -315,7 +315,7 @@ const CourseModules = () => {
                               >
                                 {lesson.id}
                               </span>
-                              <span className="text-gray-300 font-medium group-hover:text-white transition-colors text-lg">
+                              <span className="text-gray-300 group-hover:text-white transition-colors text-lg font-semibold">
                                 {lesson.title}
                               </span>
                             </div>
@@ -338,7 +338,7 @@ const CourseModules = () => {
                           {/* Lesson Content Description */}
                           {lesson.content && (
                             <div className="pl-16 pr-4 pb-4 pt-0 animate-fadeInUp" style={{ animationDelay: `${350 + lessonIndex * 50}ms` }}>
-                               <p className="text-gray-400 text-base leading-relaxed font-light opacity-80 border-l-2 border-white/10 pl-4">
+                               <p className="text-gray-100 text-base leading-relaxed font-light opacity-80 border-l-2 border-white/10 pl-4">
                                 {lesson.content}
                               </p>
                             </div>
