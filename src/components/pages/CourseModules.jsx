@@ -7,8 +7,11 @@ import ActiveCommunity from './ActiveCommunity';
 const CourseModules = () => {
   const { egpt_primary, egpt_junior, egpt_senior, egpt_unite, egpt_braille } = useContent()
   const [activeStep, setActiveStep] = useState(1)
+  const [allModulesViewed, setAllModulesViewed] = useState(false)
+  const [isInView, setIsInView] = useState(false)
   const containerRef = useRef(null)
   const sectionRefs = useRef([])
+  const sectionWrapperRef = useRef(null)
   const isScrollingProgrammatically = useRef(false)
 
   // Helper to render description which can be an object or undefined
@@ -94,6 +97,13 @@ const CourseModules = () => {
       if (!container) return
 
       const containerHeight = container.clientHeight
+      const scrollTop = container.scrollTop
+      const scrollHeight = container.scrollHeight
+
+      // Check if user has scrolled to the last module
+      if (scrollTop + containerHeight >= scrollHeight - 50) {
+        setAllModulesViewed(true)
+      }
 
       // Find which section is in the center of viewport
       sectionRefs.current.forEach((section, index) => {
@@ -123,6 +133,57 @@ const CourseModules = () => {
       }
     }
   }, [])
+
+  // Track if section is in viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting)
+      },
+      { threshold: 0.5 }
+    )
+
+    if (sectionWrapperRef.current) {
+      observer.observe(sectionWrapperRef.current)
+    }
+
+    return () => {
+      if (sectionWrapperRef.current) {
+        observer.unobserve(sectionWrapperRef.current)
+      }
+    }
+  }, [])
+
+  // Prevent page scroll when in course modules section and not all viewed
+  useEffect(() => {
+    const handleWheel = (e) => {
+      if (isInView && !allModulesViewed) {
+        const container = containerRef.current
+        if (!container) return
+
+        const isAtBottom = container.scrollTop + container.clientHeight >= container.scrollHeight - 10
+        const isAtTop = container.scrollTop <= 10
+        const scrollingDown = e.deltaY > 0
+        const scrollingUp = e.deltaY < 0
+
+        // Allow internal scrolling of the container
+        if ((scrollingDown && !isAtBottom) || (scrollingUp && !isAtTop)) {
+          return
+        }
+
+        // Prevent page scroll if trying to scroll past the section
+        if (scrollingDown && isAtBottom && !allModulesViewed) {
+          e.preventDefault()
+        }
+      }
+    }
+
+    window.addEventListener('wheel', handleWheel, { passive: false })
+    
+    return () => {
+      window.removeEventListener('wheel', handleWheel)
+    }
+  }, [isInView, allModulesViewed])
 
   // Click to scroll to section
   const scrollToStep = (stepNumber) => {
@@ -156,6 +217,7 @@ const CourseModules = () => {
     <>
       <ActiveCommunity />
       <section 
+        ref={sectionWrapperRef}
         id="course-modules"
         className="w-full scroll-mt-20 mt-8 relative"
       >
