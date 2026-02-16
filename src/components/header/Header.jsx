@@ -147,7 +147,7 @@ const Header = () => {
                       transition-all duration-300
                       ${isActive(link.key) 
                         ? 'text-white' 
-                        : 'text-gray-100 hover:text-gray-200 hover:underline'
+                        : 'text-gray-10 hover:text-gray-200 hover:underline'
                       }
                     `}
                     style={isActive(link.key) ? {

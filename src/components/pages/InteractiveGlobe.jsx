@@ -1039,7 +1039,7 @@ const InteractiveGlobe = () => {
             <span className="text-2xl">{hoveredCountry.flag}</span>
             <span className="text-white font-medium">{hoveredCountry.name}</span>
           </div>
-          <p className="text-gray-100 text-xs mt-1">Click to view details</p>
+          <p className="text-gray-10 text-xs mt-1">Click to view details</p>
         </div>
       )}
 
@@ -1072,25 +1072,25 @@ const InteractiveGlobe = () => {
               <div className="text-5xl">{selectedCountry.flag}</div>
               <div>
                 <h3 className="text-2xl font-bold text-white">{selectedCountry.name}</h3>
-                <p className="text-gray-100 text-sm">{selectedCountry.universities} Universities</p>
+                <p className="text-gray-10 text-sm">{selectedCountry.universities} Universities</p>
               </div>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-3 mb-6">
               <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-gray-100 text-xs mb-1">International Students</p>
+                <p className="text-gray-10 text-xs mb-1">International Students</p>
                 <p className="text-white font-semibold">{selectedCountry.students}</p>
               </div>
               <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                <p className="text-gray-100 text-xs mb-1">Universities</p>
+                <p className="text-gray-10 text-xs mb-1">Universities</p>
                 <p className="text-white font-semibold">{selectedCountry.universities}</p>
               </div>
             </div>
 
             {/* Top Programs */}
             <div className="mb-6">
-              <p className="text-gray-100 text-xs mb-2">Top Programs</p>
+              <p className="text-gray-10 text-xs mb-2">Top Programs</p>
               <div className="flex flex-wrap gap-2">
                 {selectedCountry.topPrograms.map((program, idx) => (
                   <span 

@@ -146,7 +146,7 @@ const ForMyselfForm = ({ onNext, formData, setFormData, onTermsClick }) => {
     <div className="animate-fadeIn">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div>
-          <label className="block text-sm text-gray-100 mb-2">Full Name *</label>
+          <label className="block text-sm text-gray-10 mb-2">Full Name *</label>
           <input
             type="text"
             name="name"
@@ -161,7 +161,7 @@ const ForMyselfForm = ({ onNext, formData, setFormData, onTermsClick }) => {
           )}
         </div>
         <div>
-          <label className="block text-sm text-gray-100 mb-2">Email Address *</label>
+          <label className="block text-sm text-gray-10 mb-2">Email Address *</label>
           <div className="relative">
             <input
               type="email"
@@ -172,7 +172,7 @@ const ForMyselfForm = ({ onNext, formData, setFormData, onTermsClick }) => {
               placeholder="your@email.com"
               className={`input-field pr-12 ${touched.email && errors.email ? 'border-red-500' : ''}`}
             />
-            <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
           </div>
@@ -184,7 +184,7 @@ const ForMyselfForm = ({ onNext, formData, setFormData, onTermsClick }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div>
-          <label className="block text-sm text-gray-100 mb-2">Contact Number *</label>
+          <label className="block text-sm text-gray-10 mb-2">Contact Number *</label>
           <input
             type="tel"
             name="contact"
@@ -199,7 +199,7 @@ const ForMyselfForm = ({ onNext, formData, setFormData, onTermsClick }) => {
           )}
         </div>
         <div>
-          <label className="block text-sm text-gray-100 mb-2">City *</label>
+          <label className="block text-sm text-gray-10 mb-2">City *</label>
           <input
             type="text"
             name="city"
@@ -217,7 +217,7 @@ const ForMyselfForm = ({ onNext, formData, setFormData, onTermsClick }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div>
-          <label className="block text-sm text-gray-100 mb-2">State *</label>
+          <label className="block text-sm text-gray-10 mb-2">State *</label>
           <select
             name="state"
             value={formData.state || ''}
@@ -236,7 +236,7 @@ const ForMyselfForm = ({ onNext, formData, setFormData, onTermsClick }) => {
           )}
         </div>
         <div>
-          <label className="block text-sm text-gray-100 mb-2">Name of Institute *</label>
+          <label className="block text-sm text-gray-10 mb-2">Name of Institute *</label>
           <input
             type="text"
             name="institute"
@@ -254,7 +254,7 @@ const ForMyselfForm = ({ onNext, formData, setFormData, onTermsClick }) => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         <div>
-          <label className="block text-sm text-gray-100 mb-2">Level of Education *</label>
+          <label className="block text-sm text-gray-10 mb-2">Level of Education *</label>
           <select
             name="education"
             value={formData.education || ''}
@@ -273,7 +273,7 @@ const ForMyselfForm = ({ onNext, formData, setFormData, onTermsClick }) => {
           )}
         </div>
         <div>
-          <label className="block text-sm text-gray-100 mb-2">Reason for Partnership *</label>
+          <label className="block text-sm text-gray-10 mb-2">Reason for Partnership *</label>
           <input
             type="text"
             name="reason"
@@ -303,7 +303,7 @@ const ForMyselfForm = ({ onNext, formData, setFormData, onTermsClick }) => {
           }}
           className="custom-checkbox mt-1 shrink-0"
         />
-        <label htmlFor="terms" className="text-sm text-gray-100 cursor-pointer">
+        <label htmlFor="terms" className="text-sm text-gray-10 cursor-pointer">
           I acknowledge and agree to the{' '}
           <a
             href="#footer-note"

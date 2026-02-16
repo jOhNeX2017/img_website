@@ -65,12 +65,12 @@ const StepTwo = ({ onBack, formData, setFormData, userType }) => {
     <div className="animate-fadeIn">
       <div className="mb-6">
         <h3 className="text-lg font-semibold text-white mb-2">Availability Details</h3>
-        <p className="text-sm text-gray-100">Help us schedule a call with you</p>
+        <p className="text-sm text-gray-10">Help us schedule a call with you</p>
       </div>
 
       <div className="space-y-4 mb-6">
         <div>
-          <label className="block text-sm text-gray-100 mb-2">Mode of Communication *</label>
+          <label className="block text-sm text-gray-10 mb-2">Mode of Communication *</label>
           <div className="flex gap-4">
             <label className="flex items-center gap-3 cursor-pointer group">
               <input
@@ -111,7 +111,7 @@ const StepTwo = ({ onBack, formData, setFormData, userType }) => {
         </div>
 
         <div>
-          <label className="block text-sm text-gray-100 mb-2">Preferred Time of Call *</label>
+          <label className="block text-sm text-gray-10 mb-2">Preferred Time of Call *</label>
           <select
             name="preferredTime"
             value={formData.preferredTime || ''}
@@ -131,7 +131,7 @@ const StepTwo = ({ onBack, formData, setFormData, userType }) => {
 
         {userType === 'institute' && (
           <div>
-            <label className="block text-sm text-gray-100 mb-2">
+            <label className="block text-sm text-gray-10 mb-2">
               How many students will approximately be registering from your institute? *
             </label>
             <select
@@ -153,7 +153,7 @@ const StepTwo = ({ onBack, formData, setFormData, userType }) => {
         )}
 
         <div>
-          <label className="block text-sm text-gray-100 mb-2">Additional Notes (Optional)</label>
+          <label className="block text-sm text-gray-10 mb-2">Additional Notes (Optional)</label>
           <textarea
             name="notes"
             value={formData.notes || ''}

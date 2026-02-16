@@ -50,13 +50,13 @@ const Footer = () => {
                             <div>
                                 <h4 className="text-white font-semibold mb-2 text-sm">Contact</h4>
                                 <div className="space-y-1.5">
-                                    <a href="mailto:info@imoveglobal.org" className="text-gray-100 hover:text-white transition-colors flex items-start gap-2 text-sm group">
+                                    <a href="mailto:info@imoveglobal.org" className="text-gray-10 hover:text-white transition-colors flex items-start gap-2 text-sm group">
                                         <svg className="w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                         </svg>
                                         <span>info@imoveglobal.org</span>
                                     </a>
-                                    <a href="mailto:Ceo@imoveglobal.org" className="text-gray-100 hover:text-white transition-colors flex items-start gap-2 text-sm group">
+                                    <a href="mailto:Ceo@imoveglobal.org" className="text-gray-10 hover:text-white transition-colors flex items-start gap-2 text-sm group">
                                         <svg className="w-4 h-4 flex-shrink-0 mt-0.5 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                         </svg>
@@ -67,7 +67,7 @@ const Footer = () => {
 
                             <div>
                                 <h4 className="text-white font-semibold mb-2 text-sm">Address:</h4>
-                                <p className="text-gray-100 text-sm leading-relaxed">
+                                <p className="text-gray-10 text-sm leading-relaxed">
                                     4th Floor, Imoveglobal Pvt. Ltd.<br />
                                     3, Ashirwad Enclave,<br />
                                     Beside HDFC Bank Balliapur,<br />
@@ -78,7 +78,7 @@ const Footer = () => {
 
                             <div>
                                 <h4 className="text-white font-semibold mb-2 text-sm">Registered Number:</h4>
-                                <p className="text-gray-100 text-xs">
+                                <p className="text-gray-10 text-xs">
                                     CIN- U85499UT2026PTC020623
                                 </p>
                             </div>
@@ -92,7 +92,7 @@ const Footer = () => {
                                     <li>
                                         <button 
                                             onClick={() => scrollToCourseModule('1')} 
-                                            className="text-gray-100 hover:text-white transition-colors"
+                                            className="text-gray-10 hover:text-white transition-colors"
                                         >
                                             EGPT Primary
                                         </button>
@@ -100,7 +100,7 @@ const Footer = () => {
                                     <li>
                                         <button 
                                             onClick={() => scrollToCourseModule('2')} 
-                                            className="text-gray-100 hover:text-white transition-colors"
+                                            className="text-gray-10 hover:text-white transition-colors"
                                         >
                                             EGPT Junior
                                         </button>
@@ -108,7 +108,7 @@ const Footer = () => {
                                     <li>
                                         <button 
                                             onClick={() => scrollToCourseModule('3')} 
-                                            className="text-gray-100 hover:text-white transition-colors"
+                                            className="text-gray-10 hover:text-white transition-colors"
                                         >
                                             EGPT Senior
                                         </button>
@@ -116,7 +116,7 @@ const Footer = () => {
                                     <li>
                                         <button 
                                             onClick={() => scrollToCourseModule('4')} 
-                                            className="text-gray-100 hover:text-white transition-colors"
+                                            className="text-gray-10 hover:text-white transition-colors"
                                         >
                                             EGPT Unite
                                         </button>
@@ -124,7 +124,7 @@ const Footer = () => {
                                     <li>
                                         <button 
                                             onClick={() => scrollToCourseModule('5')} 
-                                            className="text-gray-100 hover:text-white transition-colors"
+                                            className="text-gray-10 hover:text-white transition-colors"
                                         >
                                             EGPT Braille
                                         </button>
@@ -137,11 +137,11 @@ const Footer = () => {
                         <div>
                             <h4 className="text-white font-semibold mb-3 text-sm">Other</h4>
                             <ul className="space-y-1.5 text-sm">
-                                <li className="text-gray-100">Career</li>
+                                <li className="text-gray-10">Career</li>
                             </ul>
                             <div className="mt-4 p-3 rounded-lg bg-white/5 border border-white/10">
                                 <h5 className="text-white font-semibold mb-2 text-sm">Our Commitment</h5>
-                                <p className="text-gray-100 text-xs leading-relaxed">
+                                <p className="text-gray-10 text-xs leading-relaxed">
                                     We believe every child deserves access to quality English education. A portion of our revenue is dedicated to supporting students from underprivileged backgrounds through subsidized testing, scholarships, and skill-development programs.
                                 </p>
                             </div>

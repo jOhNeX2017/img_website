@@ -527,7 +527,7 @@ const ExamsSection = () => {
 
           {/* Bottom Note */}
           <div className="mt-8 text-center">
-            <p className="text-gray-100 text-sm">
+            <p className="text-gray-10 text-sm">
               💡 <span className="font-semibold text-gray-300">Pro Tip:</span> Choose based on your destination country's preference and your comfort with the test format.
             </p>
           </div>

@@ -38,7 +38,7 @@ const Registration = () => {
             Imoveglobal
           </span>
         </h1>
-        <p className="text-gray-100 text-lg">
+        <p className="text-gray-10 text-lg">
           Join our partnership program and grow together
         </p>
       </div>
@@ -52,7 +52,7 @@ const Registration = () => {
               className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
                 currentStep === 1 
                   ? 'text-white' 
-                  : 'bg-gray-700 text-gray-100'
+                  : 'bg-gray-700 text-gray-10'
               }`}
               style={currentStep === 1 ? { background: 'var(--gradient-primary)' } : {}}
             >
@@ -73,7 +73,7 @@ const Registration = () => {
               className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
                 currentStep === 2 
                   ? 'text-white' 
-                  : 'bg-gray-700 text-gray-100'
+                  : 'bg-gray-700 text-gray-10'
               }`}
               style={currentStep === 2 ? { background: 'var(--gradient-primary)' } : {}}
             >
@@ -148,7 +148,7 @@ const Registration = () => {
             <button
               type="button"
               aria-label="Close terms information"
-              className="absolute right-3 top-3 text-gray-100 hover:text-white transition-colors"
+              className="absolute right-3 top-3 text-gray-10 hover:text-white transition-colors"
               onClick={() => setShowTermsInfo(false)}
             >
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
