@@ -664,30 +664,28 @@ body {
   transition: transform 0.2s ease;
 }
 
-/* Course Module Image Animations */
+/* Optimized Course Module Image Animations */
 @keyframes floatRotate {
   0%, 100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
   }
   25% {
-    transform: translateY(-15px) rotate(2deg);
+    transform: translate3d(0, -15px, 0) rotate(2deg);
   }
   50% {
-    transform: translateY(-25px) rotate(0deg);
+    transform: translate3d(0, -25px, 0) rotate(0deg);
   }
   75% {
-    transform: translateY(-15px) rotate(-2deg);
+    transform: translate3d(0, -15px, 0) rotate(-2deg);
   }
 }
 
 @keyframes glowPulseEnhanced {
   0%, 100% {
     opacity: 0.2;
-    transform: scale(1);
   }
   50% {
     opacity: 0.4;
-    transform: scale(1.1);
   }
 }
 
@@ -711,15 +709,16 @@ body {
 
 @keyframes scaleBreath {
   0%, 100% {
-    transform: scale(1);
+    transform: scale3d(1, 1, 1);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale3d(1.05, 1.05, 1);
   }
 }
 
 .animate-float-rotate {
   animation: floatRotate 6s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-glow-pulse {
@@ -728,14 +727,17 @@ body {
 
 .animate-rotate-slow {
   animation: rotateShape 20s linear infinite;
+  will-change: transform;
 }
 
 .animate-counter-rotate-slow {
   animation: counterRotateShape 15s linear infinite;
+  will-change: transform;
 }
 
 .animate-scale-breath {
   animation: scaleBreath 4s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Responsive */

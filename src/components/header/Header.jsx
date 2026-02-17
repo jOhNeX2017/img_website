@@ -63,14 +63,21 @@ const Header = () => {
   }
 
   const handleNavClick = (key) => {
-    // Special handling for 'more' to scroll to course modules
+    // Special handling for 'more' to scroll to first course module
     if (key === 'more') {
       navigate('/')
       setMobileMenuOpen(false)
       setTimeout(() => {
-        const courseModulesSection = document.getElementById('course-modules')
-        if (courseModulesSection) {
-          courseModulesSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        // Scroll to the first course module specifically
+        const firstModule = document.querySelector('[data-module-id="1"]')
+        if (firstModule) {
+          firstModule.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        } else {
+          // Fallback to course modules section if module not found
+          const courseModulesSection = document.getElementById('course-modules')
+          if (courseModulesSection) {
+            courseModulesSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
         }
       }, 100)
       return
