@@ -1,7 +1,10 @@
 import { useState } from 'react'
+import { submitForm, isConfigured } from '../../services/formSubmission'
 
 const StepTwo = ({ onBack, formData, setFormData, userType }) => {
   const [errors, setErrors] = useState({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success' | 'error' | null
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -52,12 +55,39 @@ const StepTwo = ({ onBack, formData, setFormData, userType }) => {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = () => {
-    if (validateForm()) {
-      console.log('Form submitted:', formData)
-      alert('Form submitted successfully! We will contact you soon.')
-    } else {
-      alert('Please fill in all required fields')
+  const handleSubmit = async () => {
+    if (!validateForm()) {
+      return
+    }
+
+    // Check if Google Apps Script is configured
+    if (!isConfigured()) {
+      alert('Form submission is not configured yet. Please contact the administrator.')
+      return
+    }
+
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      const result = await submitForm(formData, userType)
+      
+      if (result.success) {
+        setSubmitStatus('success')
+        // Reset form after successful submission
+        setTimeout(() => {
+          setFormData({})
+          onBack() // Go back to step 1
+        }, 3000)
+      } else {
+        setSubmitStatus('error')
+        console.error('Submission failed:', result.error)
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      console.error('Submission error:', error)
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -165,11 +195,42 @@ const StepTwo = ({ onBack, formData, setFormData, userType }) => {
         </div>
       </div>
 
+      {/* Success Message */}
+      {submitStatus === 'success' && (
+        <div className="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg animate-fadeIn">
+          <div className="flex items-start gap-3">
+            <svg className="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div>
+              <p className="text-green-400 font-medium">Form submitted successfully!</p>
+              <p className="text-green-300/80 text-sm mt-1">We will contact you soon. Redirecting...</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Error Message */}
+      {submitStatus === 'error' && (
+        <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-lg animate-fadeIn">
+          <div className="flex items-start gap-3">
+            <svg className="w-5 h-5 text-red-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div>
+              <p className="text-red-400 font-medium">Submission failed</p>
+              <p className="text-red-300/80 text-sm mt-1">Please try again or contact support if the problem persists.</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="flex flex-col sm:flex-row gap-4 mt-6">
         <button
           type="button"
           onClick={onBack}
-          className="flex-1 py-3 px-6 rounded-full border border-white/20 text-white font-medium hover:bg-white/5 transition-all duration-300 flex items-center justify-center gap-2"
+          disabled={isSubmitting}
+          className="flex-1 py-3 px-6 rounded-full border border-white/20 text-white font-medium hover:bg-white/5 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -179,12 +240,32 @@ const StepTwo = ({ onBack, formData, setFormData, userType }) => {
         <button
           type="button"
           onClick={handleSubmit}
-          className="btn-gradient flex-1 py-3 flex items-center justify-center gap-2"
+          disabled={isSubmitting || submitStatus === 'success'}
+          className="btn-gradient flex-1 py-3 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Submit Application
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
+          {isSubmitting ? (
+            <>
+              <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Submitting...
+            </>
+          ) : submitStatus === 'success' ? (
+            <>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              Submitted!
+            </>
+          ) : (
+            <>
+              Submit Application
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </>
+          )}
         </button>
       </div>
     </div>
