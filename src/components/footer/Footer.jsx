@@ -70,7 +70,7 @@ const Footer = () => {
                                 <p className="text-gray-10 text-sm leading-relaxed">
                                     4th Floor, Imoveglobal Pvt. Ltd.<br />
                                     3, Ashirwad Enclave,<br />
-                                    Beside HDFC Bank Balliapur,<br />
+                                    Beside HDFC Bank Ballupur,<br />
                                     Dehradun, 248007<br />
                                     India
                                 </p>
