@@ -21,7 +21,11 @@ jobs:
         with:
           node-version: 20
       - run: npm install
-      - run: npm run build
+      - name: Build with environment variables
+        env:
+          VITE_FORM_SCRIPT_URL: ${{ secrets.VITE_FORM_SCRIPT_URL }}
+          VITE_FORM_SUBMISSION_TOKEN: ${{ secrets.VITE_FORM_SUBMISSION_TOKEN }}
+        run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
