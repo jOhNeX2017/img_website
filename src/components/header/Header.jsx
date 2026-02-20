@@ -97,7 +97,14 @@ const Header = () => {
 
   const handleLogoClick = (e) => {
     e.preventDefault()
-    navigate('/')
+    
+    // If already on home page, scroll to top
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      // Navigate to home page from other routes
+      navigate('/')
+    }
   }
 
   // Check if a navigation item is active based on current route
