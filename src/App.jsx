@@ -4,12 +4,14 @@ import { ContentProvider } from './context/ContentContext'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import AppRoutes from './routes/Routes'
+import ScrollToTop from './components/common/ScrollToTop'
 
 function App() {
   return (
     <ThemeProvider>
       <ContentProvider>
         <BrowserRouter>
+          <ScrollToTop />
           <div className="min-h-screen bg-[#0a1420] flex flex-col">
             <Header />
             <main className="pt-20 pb-16 px-4 sm:px-6 max-w-full mx-auto flex-grow">

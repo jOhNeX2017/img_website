@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useContent } from '../../context/ContentContext'
+import JobDetailsPopover from '../common/JobDetailsPopover'
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [examsDropdownOpen, setExamsDropdownOpen] = useState(false)
+  const [showHelpPopup, setShowHelpPopup] = useState(false)
   const { brand, navigation, cta } = useContent()
   const navigate = useNavigate()
   const location = useLocation()
@@ -97,7 +99,7 @@ const Header = () => {
 
   const handleLogoClick = (e) => {
     e.preventDefault()
-    
+
     // If already on home page, scroll to top
     if (location.pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -120,12 +122,12 @@ const Header = () => {
           {/* Left - Logo + Navigation */}
           <div className="flex items-center gap-8">
             {/* Logo */}
-            <a 
-              href="/" 
-              onClick={handleLogoClick} 
+            <a
+              href="/"
+              onClick={handleLogoClick}
               className=" logo-wave flex items-center gap-2 group"
             >
-              <div 
+              <div
                 className="logo-icon w-10 h-10 rounded-lg flex items-center justify-center shadow-lg"
               >
                 <img src="/logo.png" alt="Logo" />
@@ -134,9 +136,9 @@ const Header = () => {
                 {(brand?.name || 'Brand')?.split('')?.map((letter, i) => (
                   <span key={i}>{letter}</span>
                 ))}
-              <sup className='text-white m-0.5 text-xs'>
-                EGPT
-              </sup>
+                <sup className='text-white m-0.5 text-xs'>
+                  EGPT
+                </sup>
               </span>
             </a>
 
@@ -159,8 +161,8 @@ const Header = () => {
                     className={`
                       relative px-5 py-2.5 text-base font-medium
                       transition-all duration-300
-                      ${isActive(link.key) 
-                        ? 'text-white' 
+                      ${isActive(link.key)
+                        ? 'text-white'
                         : 'text-gray-10 hover:text-gray-200 hover:underline'
                       }
                     `}
@@ -170,7 +172,7 @@ const Header = () => {
                   >
                     {/* Top Border - touches the very top of header */}
                     {isActive(link.key) && (
-                      <div 
+                      <div
                         className="absolute left-0 right-0 h-[3px] rounded-b-sm"
                         style={{
                           top: '-12px',
@@ -184,7 +186,7 @@ const Header = () => {
 
                   {/* Exams Dropdown Panel */}
                   {link.key === 'exams' && examsDropdownOpen && (
-                    <div 
+                    <div
                       className="absolute left-0 top-full mt-3 w-[900px] rounded-2xl shadow-2xl border border-[darkcyan] z-50 overflow-hidden"
                       style={{
                         background: 'linear-gradient(180deg, #0a1420 0%, #1a2a3e 50%, #152030 100%)',
@@ -197,7 +199,7 @@ const Header = () => {
                           {/* TOEFL Column */}
                           <div className="text-white rounded-xl p-6 border border-[darkcyan] hover:shadow-lg transition-shadow duration-300">
                             <div className="flex items-start gap-4 mb-5">
-                              <div 
+                              <div
                                 className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
                                 style={{
                                   background: 'linear-gradient(135deg, #f97316 0%, #ea580c 100%)',
@@ -239,7 +241,7 @@ const Header = () => {
                           {/* IELTS Column */}
                           <div className="text-white rounded-xl p-6 border border-[darkcyan] hover:shadow-lg transition-shadow duration-300">
                             <div className="flex items-start gap-4 mb-5">
-                              <div 
+                              <div
                                 className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
                                 style={{
                                   background: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)',
@@ -281,13 +283,26 @@ const Header = () => {
 
                         {/* Footer CTA */}
                         <div className="mt-4 flex items-center justify-between">
-                          <div className="flex items-center gap-2 text-gray-500">
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <span className="text-sm font-medium">Need help choosing?</span>
+                          {/* Need help choosing - with inline popover */}
+                          <div className="relative">
+                            <button
+                              type="button"
+                              className="flex items-center gap-2 text-gray-500 hover:text-white transition-colors"
+                              onClick={() => setShowHelpPopup((prev) => !prev)}
+                            >
+                              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                              <span className="text-sm font-medium">Need help choosing?</span>
+                            </button>
+
+                            {/* Inline Popover - appears above the button */}
+                            <JobDetailsPopover
+                              isOpen={showHelpPopup}
+                              onClose={() => setShowHelpPopup(false)}
+                            />
                           </div>
-                          <button 
+                          <button
                             className="btn-gradient group px-6 py-2.5 rounded-lg font-semibold text-sm text-white transition-all duration-300 hover:shadow-lg hover:scale-105 active:scale-95 flex items-center gap-2"
                             onClick={() => {
                               handleNavClick('registration');
@@ -300,6 +315,7 @@ const Header = () => {
                             </svg>
                           </button>
                         </div>
+
                       </div>
                     </div>
                   )}
@@ -322,14 +338,14 @@ const Header = () => {
             </button> */}
 
             {/* Be a Partner Button */}
-            <button 
+            <button
               onClick={() => handleNavClick('registration')}
               className="btn-gradient flex items-center gap-2 text-md font-semibold"
             >
               {cta?.partnerButton || 'Be a Partner'}
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="6,3 20,12 6,21" />
-            </svg>
+                <polygon points="6,3 20,12 6,21" />
+              </svg>
             </button>
           </div>
 
@@ -377,7 +393,7 @@ const Header = () => {
               </button>
             ))}
             <hr className="border-white/10 my-2" />
-            
+
             {/* Mobile Login */}
             {/* <button 
               onClick={() => handleNavClick('registration')}
@@ -390,7 +406,7 @@ const Header = () => {
             </button> */}
 
             {/* Mobile CTA */}
-            <button 
+            <button
               onClick={() => handleNavClick('registration')}
               className="btn-gradient flex items-center justify-center gap-2 text-sm font-semibold mt-2"
             >

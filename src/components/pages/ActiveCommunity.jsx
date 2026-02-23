@@ -43,8 +43,8 @@ const ActiveCommunity = () => {
   ]
 
   return (
-    <section 
-      id="active-community" 
+    <section
+      id="active-community"
       className="max-w-full mx-auto mt-8 scroll-mt-20"
     >
       <div className="glass-card p-8 md:p-12">
@@ -55,18 +55,18 @@ const ActiveCommunity = () => {
             <div className="relative w-20 h-20">
               {/* Floating sphere */}
               <div className="relative" style={{ animation: 'float 3s ease-in-out infinite' }}>
-                <img 
-                  src="/sphere.webp" 
-                  alt="Sphere" 
+                <img
+                  src="/sphere.webp"
+                  alt="Sphere"
                   className="w-full h-full object-contain"
                   style={{ animation: 'spin-slow 8s linear infinite' }}
                 />
               </div>
-              
+
               {/* Transparent shadow */}
-              <div 
+              <div
                 className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
-                style={{ 
+                style={{
                   width: '60px',
                   height: '8px',
                   background: 'radial-gradient(ellipse, rgba(0, 0, 0, 0.3) 0%, transparent 70%)',
@@ -75,7 +75,7 @@ const ActiveCommunity = () => {
                 }}
               />
             </div>
-            
+
             <h2 className="text-[28px] md:text-[44px] font-bold text-white">
               Details of Our Programs
             </h2>
@@ -99,12 +99,12 @@ const ActiveCommunity = () => {
                 <h1 className="text-3xl md:text-4xl lg:text-4xl text-white mb-2 text-center leading-tight min-h-[4rem] flex items-center justify-center font-extrabold">
                   {card.title}
                 </h1>
-                
+
                 {/* Subtitle */}
                 <p className="text-white text-sm md:text-base text-center mb-6 font-medium min-h-[2.5rem] flex items-center justify-center">
                   {card.subtitle}
                 </p>
-                
+
                 {/* Description */}
                 <p className="text-white/90 text-center mb-6 md:mb-8 leading-relaxed text-sm md:text-base min-h-[4rem] flex items-center justify-center">
                   {card.description}
