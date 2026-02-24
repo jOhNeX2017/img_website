@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useContent } from '../../context/ContentContext'
 import JobDetailsPopover from '../common/JobDetailsPopover'
@@ -10,6 +10,7 @@ const Header = () => {
   const { brand, navigation, cta } = useContent()
   const navigate = useNavigate()
   const location = useLocation()
+  const examsDropdownRef = useRef(null)
 
   const navLinks = navigation || []
 
@@ -40,13 +41,19 @@ const Header = () => {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (examsDropdownOpen && !event.target.closest('.exams-dropdown-container')) {
+      if (examsDropdownRef.current && !examsDropdownRef.current.contains(event.target)) {
         setExamsDropdownOpen(false)
+        setShowHelpPopup(false)
       }
     }
 
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
+    if (examsDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
   }, [examsDropdownOpen])
 
   // Map navigation keys to route paths
@@ -148,13 +155,16 @@ const Header = () => {
                 <div
                   key={link.name}
                   className={`relative ${link.key === 'exams' ? 'exams-dropdown-container' : ''}`}
+                  ref={link.key === 'exams' ? examsDropdownRef : null}
                 >
                   <button
                     onClick={() => {
                       if (link.key === 'exams') {
                         setExamsDropdownOpen(!examsDropdownOpen)
+                        setShowHelpPopup(false)
                       } else {
                         setExamsDropdownOpen(false)
+                        setShowHelpPopup(false)
                         handleNavClick(link.key)
                       }
                     }}

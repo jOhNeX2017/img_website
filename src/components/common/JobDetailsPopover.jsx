@@ -1,8 +1,29 @@
+import { useEffect, useRef } from 'react'
+
 const JobDetailsPopover = ({ isOpen, onClose }) => {
+    const popoverRef = useRef(null)
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (popoverRef.current && !popoverRef.current.contains(event.target)) {
+                onClose()
+            }
+        }
+
+        if (isOpen) {
+            document.addEventListener('mousedown', handleClickOutside)
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [isOpen, onClose])
+
     if (!isOpen) return null
 
     return (
         <div
+            ref={popoverRef}
             className="absolute bottom-full left-0 mb-3 w-80 rounded-2xl border border-white/10 bg-gray-900/95 p-5 text-gray-300 text-sm shadow-2xl animate-fadeIn z-[200]"
             onClick={(e) => e.stopPropagation()}
         >

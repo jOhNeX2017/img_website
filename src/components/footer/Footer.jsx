@@ -175,7 +175,7 @@ const Footer = () => {
                                             onClick={() => handleNavigation('/faqs')}
                                             className="text-gray-10 hover:text-white transition-colors hover:underline"
                                         >
-                                            FAQs News & Blog
+                                            FAQs, News & Blog
                                         </button>
                                     </li>
                                 </ul>

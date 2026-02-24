@@ -48,17 +48,17 @@ const Faqs = () => {
 
     return (
         <section className="animate-fadeIn max-w-full mx-auto mt-8 scroll-mt-20">
-            <div className="glass-card p-8 md:p-12">
+            <div className="glass-card p-8 md:p-16 lg:p-20">
                 <div className="text-center mb-12">
                     <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
                         EGPT – <span className="bg-theme-gradient-text">Frequently Asked Questions</span> (FAQ)
                     </h1>
-                    <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+                    <p className="text-gray-300 text-lg max-w-3xl mx-auto">
                         Everything you need to know about the English Global Preparation Test and how it can benefit your institution and students.
                     </p>
                 </div>
 
-                <div className="max-w-4xl mx-auto space-y-4">
+                <div className="max-w-6xl mx-auto space-y-5">
                     {faqs.map((faq, index) => (
                         <div
                             key={index}
@@ -68,7 +68,7 @@ const Faqs = () => {
                                 }`}
                         >
                             <button
-                                className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 focus:outline-none"
+                                className="w-full px-8 py-6 text-left flex items-center justify-between gap-4 focus:outline-none"
                                 onClick={() => toggleAccordion(index)}
                                 aria-expanded={openIndex === index}
                             >
@@ -89,8 +89,8 @@ const Faqs = () => {
 
                             <div
                                 className={`transition-all duration-300 ease-in-out ${openIndex === index
-                                    ? 'max-h-[1000px] opacity-100 pb-6 px-6'
-                                    : 'max-h-0 opacity-0 px-6'
+                                    ? 'max-h-[1000px] opacity-100 pb-6 px-8'
+                                    : 'max-h-0 opacity-0 px-8'
                                     }`}
                             >
                                 <div className="text-gray-300 whitespace-pre-wrap leading-relaxed border-t border-white/10 pt-4">
