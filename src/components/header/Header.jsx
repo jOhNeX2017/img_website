@@ -43,7 +43,6 @@ const Header = () => {
     const handleClickOutside = (event) => {
       if (examsDropdownRef.current && !examsDropdownRef.current.contains(event.target)) {
         setExamsDropdownOpen(false)
-        setShowHelpPopup(false)
       }
     }
 
@@ -68,7 +67,8 @@ const Header = () => {
     'career-boost': '/career-boost',
     'course-overview': '/course-overview',
     'community': '/community',
-    'registration': '/registration'
+    'registration': '/registration',
+    'newsandblogs': '/news-and-blogs'
   }
 
   const handleNavClick = (key) => {

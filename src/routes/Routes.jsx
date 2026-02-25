@@ -10,6 +10,7 @@ import CareerBoost from '../components/pages/CareerBoost'
 import CourseOverview from '../components/pages/CourseOverview'
 import ActiveCommunity from '../components/pages/ActiveCommunity'
 import Commitments from '../components/pages/Commitments'
+import NewsAndBlogs from '../components/pages/NewsndBlogs'
 import Faqs from '../components/pages/Faqs'
 
 const AppRoutes = () => {
@@ -47,6 +48,9 @@ const AppRoutes = () => {
 
       {/* Commitments Route */}
       <Route path="/commitments" element={<Commitments />} />
+
+      {/* News & Blogs Route */}
+      <Route path="/news-and-blogs" element={<NewsAndBlogs />} />
 
       {/* FAQs Route */}
       <Route path="/faqs" element={<Faqs />} />
