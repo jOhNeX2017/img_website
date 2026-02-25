@@ -17,7 +17,11 @@
       "key": "scholarships"
     },
     {
-      "name": "More",
+      "name": "News & Blogs",
+      "key": "newsandblogs"
+    },
+    {
+      "name": "EGPT",
       "key": "more"
     }
   ],

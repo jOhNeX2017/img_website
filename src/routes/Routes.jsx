@@ -9,40 +9,52 @@ import CourseModules from '../components/pages/CourseModules'
 import CareerBoost from '../components/pages/CareerBoost'
 import CourseOverview from '../components/pages/CourseOverview'
 import ActiveCommunity from '../components/pages/ActiveCommunity'
+import Commitments from '../components/pages/Commitments'
+import NewsAndBlogs from '../components/pages/NewsndBlogs'
+import Faqs from '../components/pages/Faqs'
 
 const AppRoutes = () => {
   return (
     <Routes>
       {/* Home Route */}
       <Route path="/" element={<HomeSection />} />
-      
+
       {/* Course Modules Route */}
       {/* <Route path="/course-modules" element={<CourseModules />} /> */}
-      
+
       {/* Career Boost Route */}
       <Route path="/career-boost" element={<CareerBoost />} />
-      
+
       {/* Course Overview Route */}
       <Route path="/course-overview" element={<CourseOverview />} />
-      
+
       {/* Active Community Route */}
       <Route path="/community" element={<ActiveCommunity />} />
-      
+
       {/* Registration Route */}
       <Route path="/registration" element={<Registration />} />
-      
+
       {/* Exams Route */}
       <Route path="/exams" element={<ExamsSection />} />
-      
+
       {/* Scholarships Route */}
       <Route path="/scholarships" element={<InstitutionalScholarships />} />
-      
+
       {/* Reviews Route */}
       {/* <Route path="/reviews" element={<Review />} /> */}
-      
+
       {/* Study Abroad Scope Route */}
       <Route path="/study-abroad" element={<StudyAbroadScope />} />
-      
+
+      {/* Commitments Route */}
+      <Route path="/commitments" element={<Commitments />} />
+
+      {/* News & Blogs Route */}
+      <Route path="/news-and-blogs" element={<NewsAndBlogs />} />
+
+      {/* FAQs Route */}
+      <Route path="/faqs" element={<Faqs />} />
+
       {/* Redirect any unknown routes to home */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

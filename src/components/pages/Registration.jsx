@@ -141,7 +141,7 @@ const Registration = () => {
           onClick={() => setShowTermsInfo(false)}
         >
           <div
-            className="relative w-full max-w-lg rounded-2xl border border-white/10 bg-gray-900/95 p-6 text-gray-300 text-sm shadow-2xl animate-fadeIn"
+            className="relative w-full max-w-lg rounded-2xl border border-white/10 bg-gray-900/95 p-6 text-gray-300 text-base shadow-2xl animate-fadeIn"
             id="footer-note"
             onClick={(event) => event.stopPropagation()}
           >
@@ -155,10 +155,10 @@ const Registration = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            <h3 className="text-white text-base font-semibold mb-3">
+            <h2 className="text-white text-2xl font-semibold mb-4">
               Terms & Conditions
-            </h3>
-            <p className="mb-3">
+            </h2>
+            <p className="mb-4">
               1. Any Information shared will be trated as confidential and used soley for the purpose of responding to your enquiry, in accordance with our Privacy Policy.
             </p>
             <p>
